@@ -39,7 +39,7 @@ const GalleryPage = () => {
                     backgroundImage: `repeating-linear-gradient(0deg, rgba(0,255,170,0.03) 0px, rgba(0,255,170,0.03) 1px, transparent 1px, transparent 20px),
                       repeating-linear-gradient(90deg, rgba(0,255,170,0.03) 0px, rgba(0,255,170,0.03) 1px, transparent 1px, transparent 20px)`,
                   }} />
-                  <div className="absolute inset-0 flex flex-col items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 p-4">
+                  <div className="absolute inset-0 flex flex-col items-center justify-center opacity-100 p-4">
                     <h3 className="font-display text-2xl mb-1" style={{ color: '#00ffaa' }}>{item.title}</h3>
                     <p className="font-body text-sm text-center" style={{ color: '#9ab8ae' }}>{item.desc}</p>
                   </div>
