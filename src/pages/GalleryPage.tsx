@@ -49,9 +49,9 @@ const GalleryPage = () => {
           ) : (
             <div className="columns-1 sm:columns-2 lg:columns-3 gap-6 space-y-6">
               {items.map((item) => (
-                <div key={item.title} className="break-inside-avoid bg-[#ffffff] border border-[#d0e8da] rounded-xl overflow-hidden hover-lift transition-all group">
+                <div key={item.title} className="break-inside-avoid bg-[#ffffff] border border-[#d0e8da] rounded-xl overflow-hidden transition-all">
                   <div
-                    className="w-full group-hover:border-b-2 group-hover:border-[#00a86b] transition-all"
+                    className="w-full border-b-2 border-[#00a86b]"
                     style={{
                       height: 160 + Math.random() * 80,
                       background: 'linear-gradient(135deg, #f0faf4, #e0f5eb)',
