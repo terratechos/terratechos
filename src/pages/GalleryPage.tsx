@@ -31,7 +31,7 @@ const GalleryPage = () => {
               {items.map((item, i) => (
                 <div
                   key={item.title}
-                  className="group relative rounded-xl overflow-hidden glass-card hover-glow transition-all cursor-pointer"
+                  className="relative rounded-xl overflow-hidden glass-card transition-all"
                   style={{ height: (i === 0 || i === 4) ? 260 : 180 }}
                 >
                   <div className="absolute inset-0" style={{
@@ -39,7 +39,7 @@ const GalleryPage = () => {
                     backgroundImage: `repeating-linear-gradient(0deg, rgba(0,255,170,0.03) 0px, rgba(0,255,170,0.03) 1px, transparent 1px, transparent 20px),
                       repeating-linear-gradient(90deg, rgba(0,255,170,0.03) 0px, rgba(0,255,170,0.03) 1px, transparent 1px, transparent 20px)`,
                   }} />
-                  <div className="absolute inset-0 flex flex-col items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 p-4">
+                  <div className="absolute inset-0 flex flex-col items-center justify-center opacity-100 p-4">
                     <h3 className="font-display text-2xl mb-1" style={{ color: '#00ffaa' }}>{item.title}</h3>
                     <p className="font-body text-sm text-center" style={{ color: '#9ab8ae' }}>{item.desc}</p>
                   </div>
@@ -49,9 +49,9 @@ const GalleryPage = () => {
           ) : (
             <div className="columns-1 sm:columns-2 lg:columns-3 gap-6 space-y-6">
               {items.map((item) => (
-                <div key={item.title} className="break-inside-avoid bg-[#ffffff] border border-[#d0e8da] rounded-xl overflow-hidden hover-lift transition-all group">
+                <div key={item.title} className="break-inside-avoid bg-[#ffffff] border border-[#d0e8da] rounded-xl overflow-hidden transition-all">
                   <div
-                    className="w-full group-hover:border-b-2 group-hover:border-[#00a86b] transition-all"
+                    className="w-full border-b-2 border-[#00a86b]"
                     style={{
                       height: 160 + Math.random() * 80,
                       background: 'linear-gradient(135deg, #f0faf4, #e0f5eb)',
