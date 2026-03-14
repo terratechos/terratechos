@@ -32,7 +32,7 @@ const GalleryPage = () => {
                 <div
                   key={item.title}
                   className="relative rounded-xl overflow-hidden glass-card transition-all"
-                  style={{ height: (i === 0 || i === 4) ? 260 : 180 }}>
+                  style={{ height: (i === 0 || i === 4) ? 260 : 180 }}
                 >
                   <div className="absolute inset-0" style={{
                     background: 'linear-gradient(135deg, rgba(0,255,170,0.05), rgba(5,10,7,0.8))',
