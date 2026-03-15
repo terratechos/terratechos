@@ -1,5 +1,5 @@
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { HashRouter, Route, Routes } from "react-router-dom";
 import { ThemeProvider } from "@/components/ThemeProvider";
 import Index from "./pages/Index";
 import TeamPage from "./pages/TeamPage";
@@ -14,9 +14,10 @@ const queryClient = new QueryClient();
 const App = () => (
   <QueryClientProvider client={queryClient}>
     <ThemeProvider>
-      <BrowserRouter>
+      <HashRouter>
         <Routes>
           <Route path="/" element={<Index />} />
+          <Route path="/home" element={<Index />} />
           <Route path="/team" element={<TeamPage />} />
           <Route path="/gallery" element={<GalleryPage />} />
           <Route path="/community" element={<CommunityPage />} />
@@ -24,7 +25,7 @@ const App = () => (
           <Route path="/join" element={<JoinPage />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
-      </BrowserRouter>
+      </HashRouter>
     </ThemeProvider>
   </QueryClientProvider>
 );
