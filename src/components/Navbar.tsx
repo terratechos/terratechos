@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { useTheme } from './ThemeProvider';
 
@@ -20,6 +20,7 @@ export const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
   const location = useLocation();
+  const navRef = useRef<HTMLElement>(null);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 20);
@@ -31,12 +32,27 @@ export const Navbar = () => {
     setMobileOpen(false);
   }, [location]);
 
+  // Close mobile nav on outside click
+  useEffect(() => {
+    if (!mobileOpen) return;
+    const handleClickOutside = (e: MouseEvent) => {
+      if (navRef.current && !navRef.current.contains(e.target as Node)) {
+        setMobileOpen(false);
+      }
+    };
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => document.removeEventListener('mousedown', handleClickOutside);
+  }, [mobileOpen]);
+
   const handleNavClick = (href: string) => {
     if (href.startsWith('/#')) {
       const id = href.slice(2);
-      if (location.pathname === '/') {
-        const el = document.getElementById(id);
-        el?.scrollIntoView({ behavior: 'smooth' });
+      // If we're on the home page, scroll to the section
+      if (location.pathname === '/' || location.pathname === '/home') {
+        setTimeout(() => {
+          const el = document.getElementById(id);
+          el?.scrollIntoView({ behavior: 'smooth' });
+        }, 50);
       }
     }
   };
@@ -45,6 +61,7 @@ export const Navbar = () => {
 
   return (
     <nav
+      ref={navRef}
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         scrolled
           ? isDark
@@ -64,17 +81,21 @@ export const Navbar = () => {
           </Link>
 
           <div className="hidden lg:flex items-center gap-1">
-            {navLinks.map(link => (
-              <Link
-                key={link.label}
-                to={link.href.startsWith('/#') ? (location.pathname === '/' ? link.href : `/${link.href}`) : link.href}
-                onClick={() => handleNavClick(link.href)}
-                className="font-mono-label text-xs px-3 py-2 rounded-md transition-colors hover:bg-[var(--tt-accent)]/10"
-                style={{ color: 'var(--tt-text-secondary)' }}
-              >
-                {link.label.toUpperCase()}
-              </Link>
-            ))}
+            {navLinks.map(link => {
+              const isHashLink = link.href.startsWith('/#');
+              const to = isHashLink ? '/' : link.href;
+              return (
+                <Link
+                  key={link.label}
+                  to={to}
+                  onClick={() => handleNavClick(link.href)}
+                  className="font-mono-label text-xs px-3 py-2 rounded-md transition-colors hover:bg-[var(--tt-accent)]/10"
+                  style={{ color: 'var(--tt-text-secondary)' }}
+                >
+                  {link.label.toUpperCase()}
+                </Link>
+              );
+            })}
           </div>
 
           <div className="flex items-center gap-2">
@@ -103,17 +124,21 @@ export const Navbar = () => {
       {mobileOpen && (
         <div className={`lg:hidden border-t ${isDark ? 'bg-[rgba(5,10,7,0.95)] border-[rgba(0,255,170,0.1)]' : 'bg-[#ffffff] border-[#d0e8da]'}`}>
           <div className="px-4 py-4 space-y-1">
-            {navLinks.map(link => (
-              <Link
-                key={link.label}
-                to={link.href.startsWith('/#') ? (location.pathname === '/' ? link.href : `/${link.href}`) : link.href}
-                onClick={() => handleNavClick(link.href)}
-                className="block font-mono-label text-sm px-3 py-2 rounded-md transition-colors hover:bg-[var(--tt-accent)]/10"
-                style={{ color: 'var(--tt-text-secondary)' }}
-              >
-                {link.label.toUpperCase()}
-              </Link>
-            ))}
+            {navLinks.map(link => {
+              const isHashLink = link.href.startsWith('/#');
+              const to = isHashLink ? '/' : link.href;
+              return (
+                <Link
+                  key={link.label}
+                  to={to}
+                  onClick={() => handleNavClick(link.href)}
+                  className="block font-mono-label text-sm px-3 py-2 rounded-md transition-colors hover:bg-[var(--tt-accent)]/10"
+                  style={{ color: 'var(--tt-text-secondary)' }}
+                >
+                  {link.label.toUpperCase()}
+                </Link>
+              );
+            })}
           </div>
         </div>
       )}
