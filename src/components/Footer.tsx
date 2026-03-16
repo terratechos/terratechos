@@ -6,6 +6,7 @@ const footerLinks = [
   { label: 'Team', href: '/team' },
   { label: 'Gallery', href: '/gallery' },
   { label: 'Community', href: '/community' },
+  { label: 'Resources', href: '/resources' },
   { label: 'Alumni', href: '/alumni' },
   { label: 'Join Us', href: '/join' },
 ];

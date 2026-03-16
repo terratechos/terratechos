@@ -7,7 +7,9 @@ import { AboutSection } from '../sections/AboutSection';
 import { EventsSection } from '../sections/EventsSection';
 import { FAQSection } from '../sections/FAQSection';
 import { SponsorsSection } from '../sections/SponsorsSection';
+import { AchievementsSection } from '../sections/AchievementsSection';
 import { UpdatesSection } from '../sections/UpdatesSection';
+import { NewsletterSection } from '../sections/NewsletterSection';
 import { ContactSection } from '../sections/ContactSection';
 
 const Index = () => {
@@ -21,7 +23,9 @@ const Index = () => {
         <EventsSection />
         <FAQSection />
         <SponsorsSection />
+        <AchievementsSection />
         <UpdatesSection />
+        <NewsletterSection />
         <ContactSection />
       </main>
       <Footer />
