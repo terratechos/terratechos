@@ -2,48 +2,7 @@ import { useTheme } from '../components/ThemeProvider';
 import { Navbar } from '../components/Navbar';
 import { Footer } from '../components/Footer';
 import { BackToTop } from '../components/BackToTop';
-
-const departments = [
-  {
-    emoji: '🧠', name: 'Core Committee', color: '#00ffaa',
-    members: [
-      { name: 'Aditya Sharma', role: 'President' },
-      { name: 'Meera Reddy', role: 'Vice President' },
-      { name: 'Karan Singh', role: 'Secretary' },
-    ],
-  },
-  {
-    emoji: '⚡', name: 'Associate Members', color: '#7b8cff',
-    members: [
-      { name: 'Rohan Das', role: 'Associate Lead' },
-      { name: 'Sneha Gupta', role: 'Associate' },
-      { name: 'Vikram Joshi', role: 'Associate' },
-    ],
-  },
-  {
-    emoji: '📅', name: 'Event Management', color: '#ff6b35',
-    members: [
-      { name: 'Priya Nair', role: 'Events Head' },
-      { name: 'Amit Kumar', role: 'Logistics' },
-      { name: 'Riya Chopra', role: 'Coordinator' },
-    ],
-  },
-  {
-    emoji: '💼', name: 'Finance & Management', color: '#ffd166',
-    members: [
-      { name: 'Deepak Verma', role: 'Finance Head' },
-      { name: 'Anjali Mishra', role: 'Treasurer' },
-    ],
-  },
-  {
-    emoji: '🎨', name: 'Content & Web', color: '#ff3b6b',
-    members: [
-      { name: 'Ishaan Malik', role: 'Web Lead' },
-      { name: 'Tanvi Shah', role: 'Content Creator' },
-      { name: 'Neha Patel', role: 'Designer' },
-    ],
-  },
-];
+import { TEAMS_DATA } from '@/data/searchableData';
 
 const InitialsAvatar = ({ name, color, isDark }: { name: string; color: string; isDark: boolean }) => {
   const initials = name.split(' ').map(n => n[0]).join('');
@@ -77,7 +36,7 @@ const TeamPage = () => {
           </h1>
           <p className="font-mono-label text-xs mb-12" style={{ color: 'var(--tt-text-muted)' }}>THE PEOPLE BEHIND TERRATECH</p>
 
-          {departments.map((dept, di) => (
+          {TEAMS_DATA.map((dept, di) => (
             <div
               key={dept.name}
               className="mb-12"
