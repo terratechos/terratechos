@@ -17,10 +17,12 @@ export const NewsletterSection = () => {
     e.preventDefault();
     if (spam.honeypot) return;
 
-    const rateCheck = spam.checkRateLimit();
-    if (!rateCheck.allowed) {
-      setError(rateCheck.message || 'Please wait before submitting again.');
-      setStatus('error');
+    const spamCheck = spam.checkSpam();
+    if (spamCheck.blocked) {
+      if (spamCheck.reason) {
+        setError(spamCheck.reason);
+        setStatus('error');
+      }
       return;
     }
 
@@ -31,7 +33,7 @@ export const NewsletterSection = () => {
     }
 
     setStatus('loading');
-    spam.startCooldown();
+    spam.recordSubmission();
 
     const { error: dbError } = await supabase
       .from('newsletter_subscribers')
