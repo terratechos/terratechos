@@ -62,12 +62,10 @@ export const Navbar = () => {
   const handleNavClick = (href: string) => {
     if (href.startsWith('/#')) {
       const id = href.slice(2);
-      if (location.pathname === '/' || location.pathname === '/home') {
-        setTimeout(() => {
-          const el = document.getElementById(id);
-          el?.scrollIntoView({ behavior: 'smooth' });
-        }, 50);
-      }
+      setTimeout(() => {
+        const el = document.getElementById(id);
+        el?.scrollIntoView({ behavior: 'smooth' });
+      }, 50);
     }
   };
 
@@ -98,14 +96,22 @@ export const Navbar = () => {
             <div className="hidden lg:flex items-center gap-1">
               {navLinks.map(link => {
                 const isHashLink = link.href.startsWith('/#');
-                const to = isHashLink ? '/' : link.href;
+                const to = isHashLink ? link.href : link.href;
+                const isJoinButton = link.label === 'Join Us';
                 return (
                   <Link
                     key={link.label}
                     to={to}
                     onClick={() => handleNavClick(link.href)}
-                    className="font-mono-label text-xs px-3 py-2 rounded-md transition-colors hover:bg-[var(--tt-accent)]/10"
-                    style={{ color: 'var(--tt-text-secondary)' }}
+                    className={`font-mono-label text-xs px-3 py-2 rounded-md transition-all ${
+                      isJoinButton
+                        ? 'font-semibold hover:opacity-90'
+                        : 'hover:bg-[var(--tt-accent)]/10'
+                    }`}
+                    style={isJoinButton ? {
+                      background: 'var(--tt-accent)',
+                      color: isDark ? '#050a07' : '#ffffff'
+                    } : { color: 'var(--tt-text-secondary)' }}
                   >
                     {link.label.toUpperCase()}
                   </Link>
@@ -148,14 +154,22 @@ export const Navbar = () => {
             <div className="px-4 py-4 space-y-1">
               {navLinks.map(link => {
                 const isHashLink = link.href.startsWith('/#');
-                const to = isHashLink ? '/' : link.href;
+                const to = isHashLink ? link.href : link.href;
+                const isJoinButton = link.label === 'Join Us';
                 return (
                   <Link
                     key={link.label}
                     to={to}
                     onClick={() => handleNavClick(link.href)}
-                    className="block font-mono-label text-sm px-3 py-2 rounded-md transition-colors hover:bg-[var(--tt-accent)]/10"
-                    style={{ color: 'var(--tt-text-secondary)' }}
+                    className={`block font-mono-label text-sm px-3 py-2 rounded-md transition-all ${
+                      isJoinButton
+                        ? 'font-semibold hover:opacity-90'
+                        : 'hover:bg-[var(--tt-accent)]/10'
+                    }`}
+                    style={isJoinButton ? {
+                      background: 'var(--tt-accent)',
+                      color: isDark ? '#050a07' : '#ffffff'
+                    } : { color: 'var(--tt-text-secondary)' }}
                   >
                     {link.label.toUpperCase()}
                   </Link>
