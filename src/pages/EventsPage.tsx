@@ -1,22 +1,28 @@
 import { useState } from 'react';
+import { Navbar } from '../components/Navbar';
+import { Footer } from '../components/Footer';
+import { BackToTop } from '../components/BackToTop';
+import { ParticleBackground } from '../components/ParticleBackground';
 import { useTheme } from '../components/ThemeProvider';
-import { useSectionFade } from '../hooks/useSectionFade';
 import { EVENTS_DATA, tagColors } from '@/data/searchableData';
-import type { ClubEvent, EventStatus, EventPeriod } from '@/data/searchableData';
+import type { ClubEvent, EventStatus, EventPeriod, EventTag } from '@/data/searchableData';
 import { EventDetailModal } from '@/components/EventDetailModal';
 
-export const EventsSection = () => {
+const EventsPage = () => {
   const { theme } = useTheme();
   const isDark = theme === 'dark';
-  const ref = useSectionFade();
   const [statusFilter, setStatusFilter] = useState<'all' | EventStatus>('all');
   const [periodFilter, setPeriodFilter] = useState<'all' | EventPeriod>('all');
+  const [tagFilter, setTagFilter] = useState<'all' | EventTag>('all');
   const [selectedEvent, setSelectedEvent] = useState<ClubEvent | null>(null);
 
   const filtered = EVENTS_DATA.filter(e =>
     (statusFilter === 'all' || e.status === statusFilter) &&
-    (periodFilter === 'all' || e.period === periodFilter)
+    (periodFilter === 'all' || e.period === periodFilter) &&
+    (tagFilter === 'all' || e.tag === tagFilter)
   );
+
+  const allTags: EventTag[] = ['Hackathon', 'Workshop', 'Talk', 'Competition', 'Collab'];
 
   const FilterBtn = ({ active, onClick, children }: { active: boolean; onClick: () => void; children: React.ReactNode }) => (
     <button
@@ -32,49 +38,65 @@ export const EventsSection = () => {
   );
 
   return (
-    <>
-      <section ref={ref} id="events" className="section-fade py-20 px-4">
+    <div className="relative min-h-screen" style={{ background: 'var(--tt-bg)' }}>
+      <ParticleBackground />
+      <Navbar />
+      <main className="relative z-10 pt-24 pb-20 px-4">
         <div className="max-w-6xl mx-auto">
-          <h2
-            className={`font-display text-4xl sm:text-5xl mb-2 ${!isDark ? 'pl-4 border-l-4 border-[#00a86b]' : ''}`}
-            style={{ color: 'var(--tt-text)' }}
-          >
-            EVENTS
-          </h2>
-          <p className="font-mono-label text-xs mb-8" style={{ color: 'var(--tt-text-muted)' }}>UPCOMING & ONGOING</p>
+          {/* Header */}
+          <div className="mb-10">
+            <h1
+              className={`font-display text-5xl sm:text-6xl mb-2 ${!isDark ? 'pl-4 border-l-4 border-[#00a86b]' : ''}`}
+              style={{ color: 'var(--tt-text)' }}
+            >
+              ALL EVENTS
+            </h1>
+            <p className="font-mono-label text-xs" style={{ color: 'var(--tt-text-muted)' }}>
+              BROWSE ALL UPCOMING & ONGOING EVENTS
+            </p>
+          </div>
 
-          <div className="flex flex-wrap gap-2 mb-8">
+          {/* Filters */}
+          <div className="flex flex-wrap gap-2 mb-4">
+            <span className="font-mono-label text-xs self-center mr-1" style={{ color: 'var(--tt-text-muted)' }}>STATUS:</span>
             <FilterBtn active={statusFilter === 'all'} onClick={() => setStatusFilter('all')}>ALL</FilterBtn>
             <FilterBtn active={statusFilter === 'ongoing'} onClick={() => setStatusFilter('ongoing')}>🔴 ONGOING</FilterBtn>
             <FilterBtn active={statusFilter === 'upcoming'} onClick={() => setStatusFilter('upcoming')}>UPCOMING</FilterBtn>
-            <span className="w-px mx-2" style={{ background: 'var(--tt-card-border)' }} />
+          </div>
+          <div className="flex flex-wrap gap-2 mb-4">
+            <span className="font-mono-label text-xs self-center mr-1" style={{ color: 'var(--tt-text-muted)' }}>PERIOD:</span>
             <FilterBtn active={periodFilter === 'all'} onClick={() => setPeriodFilter('all')}>ALL</FilterBtn>
             <FilterBtn active={periodFilter === 'thisMonth'} onClick={() => setPeriodFilter('thisMonth')}>THIS MONTH</FilterBtn>
             <FilterBtn active={periodFilter === 'nextMonth'} onClick={() => setPeriodFilter('nextMonth')}>NEXT MONTH</FilterBtn>
             <FilterBtn active={periodFilter === 'nextTerm'} onClick={() => setPeriodFilter('nextTerm')}>NEXT TERM</FilterBtn>
           </div>
-
-          <div className="flex justify-end mb-6">
-            <a
-              href="#/events"
-              className="font-mono-label text-xs transition-colors hover:underline"
-              style={{ color: 'var(--tt-accent)' }}
-            >
-              VIEW ALL EVENTS →
-            </a>
+          <div className="flex flex-wrap gap-2 mb-8">
+            <span className="font-mono-label text-xs self-center mr-1" style={{ color: 'var(--tt-text-muted)' }}>TYPE:</span>
+            <FilterBtn active={tagFilter === 'all'} onClick={() => setTagFilter('all')}>ALL</FilterBtn>
+            {allTags.map(tag => (
+              <FilterBtn key={tag} active={tagFilter === tag} onClick={() => setTagFilter(tag)}>
+                {tag.toUpperCase()}
+              </FilterBtn>
+            ))}
           </div>
 
+          {/* Results count */}
+          <p className="font-mono-label text-xs mb-6" style={{ color: 'var(--tt-text-muted)' }}>
+            {filtered.length} EVENT{filtered.length !== 1 ? 'S' : ''} FOUND
+          </p>
+
+          {/* Events grid */}
           {filtered.length === 0 ? (
             <div className="text-center py-16">
               <span className="text-5xl mb-4 block">🗓️</span>
               <h3 className="font-display text-2xl mb-2" style={{ color: 'var(--tt-text)' }}>No events found</h3>
               <p className="font-body text-sm mb-4" style={{ color: 'var(--tt-text-muted)' }}>Try changing your filters or check back soon.</p>
               <button
-                onClick={() => { setStatusFilter('all'); setPeriodFilter('all'); }}
+                onClick={() => { setStatusFilter('all'); setPeriodFilter('all'); setTagFilter('all'); }}
                 className="px-4 py-2 rounded-lg font-mono-label text-xs transition-colors"
                 style={{ background: 'var(--tt-accent)', color: isDark ? '#050a07' : '#ffffff' }}
               >
-                Clear Filters
+                Clear All Filters
               </button>
             </div>
           ) : (
@@ -103,17 +125,21 @@ export const EventsSection = () => {
                     onClick={() => setSelectedEvent(event)}
                     className="font-mono-label text-xs transition-colors"
                     style={{ color: 'var(--tt-accent)' }}
-                    aria-label={`Register for ${event.title}`}
+                    aria-label={`View details for ${event.title}`}
                   >
-                    REGISTER →
+                    VIEW DETAILS →
                   </button>
                 </div>
               ))}
             </div>
           )}
         </div>
-      </section>
+      </main>
+      <Footer />
+      <BackToTop />
       <EventDetailModal event={selectedEvent} onClose={() => setSelectedEvent(null)} />
-    </>
+    </div>
   );
 };
+
+export default EventsPage;
