@@ -6,15 +6,15 @@ import { BackToTop } from '../components/BackToTop';
 import { Link } from 'react-router-dom';
 
 const alumni = [
-  { name: 'Rahul Verma', batch: 2024, role: 'SDE at Google', linkedin: '#' },
-  { name: 'Aisha Khan', batch: 2024, role: 'ML Engineer at Flipkart', linkedin: '#' },
-  { name: 'Dev Patel', batch: 2023, role: 'Founding Engineer at a startup', linkedin: '#' },
-  { name: 'Nisha Iyer', batch: 2023, role: 'Product Manager at Microsoft', linkedin: '#' },
-  { name: 'Arjun Menon', batch: 2022, role: 'PhD student at IIT Bombay', linkedin: '#' },
-  { name: 'Prerna Singh', batch: 2022, role: 'Full Stack Dev at Razorpay', linkedin: '#' },
+  { name: 'Rahul Verma', batch: 2026, role: 'SDE at Google', linkedin: '#' },
+  { name: 'Aisha Khan', batch: 2026, role: 'ML Engineer at Flipkart', linkedin: '#' },
+  { name: 'Dev Patel', batch: 2025, role: 'Founding Engineer at a startup', linkedin: '#' },
+  { name: 'Nisha Iyer', batch: 2025, role: 'Product Manager at Microsoft', linkedin: '#' },
+  { name: 'Arjun Menon', batch: 2024, role: 'PhD student at IIT Bombay', linkedin: '#' },
+  { name: 'Prerna Singh', batch: 2024, role: 'Full Stack Dev at Razorpay', linkedin: '#' },
 ];
 
-const years = ['All', '2024', '2023', '2022'] as const;
+const years = ['All', '2026', '2025', '2024'] as const;
 
 const AlumniPage = () => {
   const { theme } = useTheme();
@@ -88,7 +88,7 @@ const AlumniPage = () => {
             <h3 className="font-display text-2xl mb-3" style={{ color: 'var(--tt-text)' }}>ARE YOU A TERRATECH ALUMNI?</h3>
             <p className="font-body text-sm mb-4" style={{ color: 'var(--tt-text-secondary)' }}>We'd love to hear from you and showcase your journey.</p>
             <Link
-              to="/#contact"
+              to="https://forms.gle/alumni-form"
               className="inline-block px-6 py-3 rounded-lg font-mono-label text-sm"
               style={{ background: 'var(--tt-accent)', color: isDark ? '#050a07' : '#ffffff' }}
             >

@@ -19,9 +19,7 @@ export const AboutSection = () => {
         <div className="grid md:grid-cols-2 gap-12 items-start">
             <div>
               <h2 className="font-display text-4xl sm:text-5xl mb-6" style={{ color: 'var(--tt-text)' }}>
-                                            About TerraTech</span>
- <span style={{ color: 'var(--tt-accent)' }}>TerraTech</span>
-
+                About <span style={{ color: 'var(--tt-accent)' }}>TerraTech</span>
               </h2>
               <p className="font-body mb-6 leading-relaxed" style={{ color: 'var(--tt-text-secondary)' }}>
                 Founded in 2024, TerraTech is a community-driven technical club focused on fostering creativity, innovation, and hands-on experience in the ever-evolving tech industry. Our mission is to create a dynamic platform where members can collaborate, learn, and grow in various technology fields, empowering them to become leaders and innovators in the tech world.
@@ -30,6 +28,7 @@ export const AboutSection = () => {
             <div className="space-y-6">
               <div className="glass-card rounded-xl p-6 hover-glow transition-all">
                 <p className="font-body italic leading-relaxed" style={{ color: 'var(--tt-text-secondary)' }}>
+                  <h4 className="font-bold mb-2">Our Mission</h4>
                   "We aim to empower tech enthusiasts through workshops, events, and collaborative projects, fostering both personal and professional growth."
                 </p>
               </div>

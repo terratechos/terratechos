@@ -52,10 +52,17 @@ const TeamPage = () => {
                   {dept.members.map(m => (
                     <div key={m.name} className="glass-card hover-glow rounded-xl p-5 flex items-center gap-4 transition-all">
                       <InitialsAvatar name={m.name} color={dept.color} isDark />
-                      <div>
+                      <div className="flex-1">
                         <h3 className="font-body font-semibold text-sm" style={{ color: 'var(--tt-text)' }}>{m.name}</h3>
                         <p className="font-mono-label text-xs" style={{ color: 'var(--tt-text-muted)' }}>{m.role}</p>
                       </div>
+                      {m.linkedin && (
+                        <a href={m.linkedin} target="_blank" rel="noopener noreferrer" className="transition-transform hover:scale-110">
+                          <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" style={{ color: dept.color }}>
+                            <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.475-2.236-1.986-2.236-1.081 0-1.722.732-2.004 1.438-.103.25-.129.599-.129.948v5.419h-3.554s.05-8.791 0-9.714h3.554v1.377c.43-.664 1.2-1.61 2.923-1.61 2.135 0 3.73 1.401 3.73 4.413v5.534zM5.337 9.342c-1.144 0-1.915-.759-1.915-1.71 0-.956.77-1.71 1.957-1.71 1.187 0 1.914.754 1.937 1.71 0 .951-.75 1.71-1.979 1.71zm1.581 11.11H3.737V9.558h3.18v10.894zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.225 0z"/>
+                          </svg>
+                        </a>
+                      )}
                     </div>
                   ))}
                 </div>
@@ -68,7 +75,7 @@ const TeamPage = () => {
                       style={{ borderTop: `3px solid ${dept.color}` }}
                     >
                       <InitialsAvatar name={m.name} color={dept.color} isDark={false} />
-                      <div className="text-center">
+                      <div className="text-center flex-1">
                         <h3 className="font-body font-semibold text-sm" style={{ color: 'var(--tt-text)' }}>{m.name}</h3>
                         <p className="font-mono-label text-xs" style={{ color: 'var(--tt-text-muted)' }}>{m.role}</p>
                       </div>
@@ -78,6 +85,13 @@ const TeamPage = () => {
                       >
                         {dept.name}
                       </span>
+                      {m.linkedin && (
+                        <a href={m.linkedin} target="_blank" rel="noopener noreferrer" className="transition-transform hover:scale-110 mt-2">
+                          <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" style={{ color: dept.color }}>
+                            <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.475-2.236-1.986-2.236-1.081 0-1.722.732-2.004 1.438-.103.25-.129.599-.129.948v5.419h-3.554s.05-8.791 0-9.714h3.554v1.377c.43-.664 1.2-1.61 2.923-1.61 2.135 0 3.73 1.401 3.73 4.413v5.534zM5.337 9.342c-1.144 0-1.915-.759-1.915-1.71 0-.956.77-1.71 1.957-1.71 1.187 0 1.914.754 1.937 1.71 0 .951-.75 1.71-1.979 1.71zm1.581 11.11H3.737V9.558h3.18v10.894zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.225 0z"/>
+                          </svg>
+                        </a>
+                      )}
                     </div>
                   ))}
                 </div>

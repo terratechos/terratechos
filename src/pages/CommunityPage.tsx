@@ -155,8 +155,8 @@ const CommunityPage = () => {
         <div className="max-w-6xl mx-auto">
 
           {/* Identity */}
-          <section className="py-16 text-center">
-            <div className="text-5xl mb-4">🌍</div>
+          <section className="py-16 text-center"> 
+            <div className="text-5xl mb-4 flex justify-center"><img src="../../mobius-logo.png" alt="TerraMobius Logo" style={{ width: '150px', height: 'auto', border: '4px solid #00a86b', borderRadius: '50%' }} /></div>
             <h2 className="font-display text-3xl mb-4" style={{ color: 'var(--tt-text)' }}>OUR COMMUNITY IDENTITY</h2>
             <p className="font-body max-w-2xl mx-auto" style={{ color: 'var(--tt-text-secondary)' }}>
               TerraMobius is the living, breathing community behind TerraTech. It's where ideas are born, collaborations happen, and builders connect across disciplines.

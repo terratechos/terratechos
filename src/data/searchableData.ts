@@ -89,6 +89,7 @@ export const UPDATES_DATA: UpdatePost[] = [
 export interface TeamMember {
   name: string;
   role: string;
+  linkedin?: string;
 }
 
 export interface Department {
@@ -102,40 +103,59 @@ export const TEAMS_DATA: Department[] = [
   {
     emoji: '🧠', name: 'Core Committee', color: '#00ffaa',
     members: [
-      { name: 'Aditya Sharma', role: 'President' },
-      { name: 'Meera Reddy', role: 'Vice President' },
-      { name: 'Karan Singh', role: 'Secretary' },
+      { name: 'Aditya Sharma', role: 'President', linkedin: 'https://linkedin.com/in/aditya-sharma' },
+      { name: 'Meera Reddy', role: 'Vice President', linkedin: 'https://linkedin.com/in/meera-reddy' },
+      { name: 'Karan Singh', role: 'Secretary', linkedin: 'https://linkedin.com/in/karan-singh' },
     ],
   },
   {
-    emoji: '⚡', name: 'Associate Members', color: '#7b8cff',
+    emoji: '⚙️', name: 'Tech Wing', color: '#7b8cff',
     members: [
-      { name: 'Rohan Das', role: 'Associate Lead' },
-      { name: 'Sneha Gupta', role: 'Associate' },
-      { name: 'Vikram Joshi', role: 'Associate' },
+      { name: 'Rohan Das', role: 'Tech Lead', linkedin: 'https://linkedin.com/in/rohan-das' },
+      { name: 'Sneha Gupta', role: 'Developer', linkedin: 'https://linkedin.com/in/sneha-gupta' },
+      { name: 'Vikram Joshi', role: 'Designer', linkedin: 'https://linkedin.com/in/vikram-joshi' },
     ],
   },
   {
-    emoji: '📅', name: 'Event Management', color: '#ff6b35',
+    emoji: '📅', name: 'Event Management Wing', color: '#ff6b35',
     members: [
-      { name: 'Priya Nair', role: 'Events Head' },
-      { name: 'Amit Kumar', role: 'Logistics' },
-      { name: 'Riya Chopra', role: 'Coordinator' },
+      { name: 'Priya Nair', role: 'Events Head', linkedin: 'https://linkedin.com/in/priya-nair' },
+      { name: 'Amit Kumar', role: 'Event Coordinator', linkedin: 'https://linkedin.com/in/amit-kumar' },
+      { name: 'Riya Chopra', role: 'Event Assistant', linkedin: 'https://linkedin.com/in/riya-chopra' },
     ],
   },
   {
-    emoji: '💼', name: 'Finance & Management', color: '#ffd166',
+    emoji: '📹', name: 'Media & Production Wing', color: '#ffd166',
     members: [
-      { name: 'Deepak Verma', role: 'Finance Head' },
-      { name: 'Anjali Mishra', role: 'Treasurer' },
+      { name: 'Deepak Verma', role: 'Media Head', linkedin: 'https://linkedin.com/in/deepak-verma' },
+      { name: 'Anjali Mishra', role: 'Photographer', linkedin: 'https://linkedin.com/in/anjali-mishra' },
+      { name: 'Siddharth Rao', role: 'Videographer', linkedin: 'https://linkedin.com/in/siddharth-rao' },
+      { name: 'Kavya Singh', role: 'Editor', linkedin: 'https://linkedin.com/in/kavya-singh' },
+
     ],
   },
   {
-    emoji: '🎨', name: 'Content & Web', color: '#ff3b6b',
+    emoji: '🎨', name: 'Creative Wing', color: '#ff3b6b',
     members: [
-      { name: 'Ishaan Malik', role: 'Web Lead' },
-      { name: 'Tanvi Shah', role: 'Content Creator' },
-      { name: 'Neha Patel', role: 'Designer' },
+      { name: 'Deepak Verma', role: 'Creative Head', linkedin: 'https://linkedin.com/in/deepak-verma-creative' },
+      { name: 'Anjali Mishra', role: 'Graphic Designer', linkedin: 'https://linkedin.com/in/anjali-mishra-designer' },
+      { name: 'Siddharth Rao', role: 'Copywriter', linkedin: 'https://linkedin.com/in/siddharth-rao-writer' },
+      
+    ],
+  },
+  {
+    emoji: '📱', name: 'Social & Communications Wing', color: '#9b59b6',
+    members: [
+      { name: 'Ishaan Malik', role: 'Social Media Manager', linkedin: 'https://linkedin.com/in/ishaan-malik' },
+      { name: 'Tanvi Shah', role: 'Public Relations', linkedin: 'https://linkedin.com/in/tanvi-shah' },
+    ],
+  },
+  {
+    emoji: '🎪', name: ' Operations & Relations Wing', color: '#e67e22',
+    members: [
+      { name: 'Ishaan Malik', role: 'Alumni Relations Head', linkedin: 'https://linkedin.com/in/ishaan-malik' },
+      { name: 'Tanvi Shah', role: 'Support Coordinator', linkedin: 'https://linkedin.com/in/tanvi-shah' },
+      { name: 'Neha Patel', role: 'Community Manager', linkedin: 'https://linkedin.com/in/neha-patel' },
     ],
   },
 ];
@@ -151,7 +171,7 @@ export interface Achievement {
 
 export const ACHIEVEMENTS_DATA: Achievement[] = [
   { emoji: '🥇', title: 'Smart India Hackathon 2024', event: '1st Place', team: 'Team Nexus', tag: '🥇 1st Place', tagColor: '#ffd166' },
-  { emoji: '🏆', title: 'HackTerra 2023 Champion', event: 'Winner', team: 'Team ByteForce', tag: '🏆 Winner', tagColor: '#00ffaa' },
+  { emoji: '🥇', title: 'HackTerra 2023 Champion', event: '1st Place', team: 'Team ByteForce', tag: '🥇 1st Place', tagColor: '#ffd166' },
   { emoji: '🎖️', title: 'Google Solution Challenge', event: 'Finalist', team: 'Aisha Khan & Dev Patel', tag: '🎖️ Finalist', tagColor: '#7b8cff' },
   { emoji: '🥈', title: 'National Coding Olympiad', event: '2nd Place', team: 'Rohan Das', tag: '🥈 2nd Place', tagColor: '#c0c0c0' },
   { emoji: '🎖️', title: 'Open Source Contributor Award', event: 'Recognition', team: 'Siddharth Rao', tag: '🎖️ Recognition', tagColor: '#ff6b35' },
