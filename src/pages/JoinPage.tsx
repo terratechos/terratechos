@@ -107,9 +107,13 @@ const JoinPage = () => {
                     {[
                       'Web Development',
                       'UI/UX Design',
-                      'Event Management',
-                      'Finance & Operations',
+                      'Technical Writing',
+                      'Creative Head',
+                      // 'Finance & Operations',
                       'Content & Marketing',
+                      'Copywriting',
+                      'Alumni Relation',
+                      'Support Coordinator'
                     ].map(role => (
                       <li key={role} className="font-body text-sm flex items-start gap-3" style={{ color: 'var(--tt-text-secondary)' }}>
                         <span style={{ color: 'var(--tt-accent)' }}>→</span>

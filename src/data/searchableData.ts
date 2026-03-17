@@ -103,59 +103,65 @@ export const TEAMS_DATA: Department[] = [
   {
     emoji: '🧠', name: 'Core Committee', color: '#00ffaa',
     members: [
-      { name: 'Aditya Sharma', role: 'President', linkedin: 'https://linkedin.com/in/aditya-sharma' },
-      { name: 'Meera Reddy', role: 'Vice President', linkedin: 'https://linkedin.com/in/meera-reddy' },
-      { name: 'Karan Singh', role: 'Secretary', linkedin: 'https://linkedin.com/in/karan-singh' },
+      { name: 'Kruthi C', role: 'President', linkedin: 'https://linkedin.com/in/kruthi-c-1a7a44324' },
+      { name: 'Muizza', role: 'Secretary', linkedin: 'linkedin.com/in/muizzah-m-ahmed-1aa5a1321' },
     ],
   },
   {
     emoji: '⚙️', name: 'Tech Wing', color: '#7b8cff',
     members: [
-      { name: 'Rohan Das', role: 'Tech Lead', linkedin: 'https://linkedin.com/in/rohan-das' },
-      { name: 'Sneha Gupta', role: 'Developer', linkedin: 'https://linkedin.com/in/sneha-gupta' },
-      { name: 'Vikram Joshi', role: 'Designer', linkedin: 'https://linkedin.com/in/vikram-joshi' },
+      { name: 'Chandu K H', role: 'Tech Lead', linkedin: 'https://linkedin.com/in/chandukh' },
+      { name: 'Veresh Mahalinpur', role: 'Developer', linkedin: '#' },
+      { name: 'Roshan R Babu', role: 'Developer', linkedin: '#' },
+      { name: 'Aditnya H S', role: 'Developer', linkedin: 'http://linkedin.com/in/adithya-h-s-0a6387337' },
     ],
   },
   {
     emoji: '📅', name: 'Event Management Wing', color: '#ff6b35',
     members: [
-      { name: 'Priya Nair', role: 'Events Head', linkedin: 'https://linkedin.com/in/priya-nair' },
-      { name: 'Amit Kumar', role: 'Event Coordinator', linkedin: 'https://linkedin.com/in/amit-kumar' },
-      { name: 'Riya Chopra', role: 'Event Assistant', linkedin: 'https://linkedin.com/in/riya-chopra' },
+      { name: 'S. Pooja Chandana', role: 'Events Head', linkedin: 'https://linkedin.com/in/priya-nair' },
+      { name: 'Mohammad Faud', role: 'Event Coordinator', linkedin: 'https://linkedin.com/in/amit-kumar' },
+      { name: 'Pranav P Desai', role: 'Event Assistant', linkedin: 'https://linkedin.com/in/riya-chopra' },
+      { name: 'Yukshi', role: 'Event Coordinator', linkedin: 'https://linkedin.com/in/amit-kumar' },
+      { name: 'Prisulla Y', role: 'Event Assistant', linkedin: 'https://linkedin.com/in/riya-chopra' },
+      { name: 'Mahadiya Khanum', role: 'Event Assistant', linkedin: 'https://linkedin.com/in/riya-chopra' },
+      { name: 'Mehnaz Filak', role: 'Event Assistant', linkedin: 'https://linkedin.com/in/riya-chopra' },
     ],
   },
   {
     emoji: '📹', name: 'Media & Production Wing', color: '#ffd166',
     members: [
-      { name: 'Deepak Verma', role: 'Media Head', linkedin: 'https://linkedin.com/in/deepak-verma' },
-      { name: 'Anjali Mishra', role: 'Photographer', linkedin: 'https://linkedin.com/in/anjali-mishra' },
-      { name: 'Siddharth Rao', role: 'Videographer', linkedin: 'https://linkedin.com/in/siddharth-rao' },
-      { name: 'Kavya Singh', role: 'Editor', linkedin: 'https://linkedin.com/in/kavya-singh' },
+      { name: 'Abiram Bhargav M Y', role: 'Media Head', linkedin: 'https://linkedin.com/in/deepak-verma' },
+      { name: 'Chinmayi ', role: 'Photographer', linkedin: 'https://linkedin.com/in/anjali-mishra' },
+      { name: 'Chandan H', role: 'Videographer', linkedin: 'https://linkedin.com/in/siddharth-rao' },
+      { name: 'Sinchana HP', role: 'Editor', linkedin: 'https://linkedin.com/in/kavya-singh' },
 
     ],
   },
   {
     emoji: '🎨', name: 'Creative Wing', color: '#ff3b6b',
     members: [
-      { name: 'Deepak Verma', role: 'Creative Head', linkedin: 'https://linkedin.com/in/deepak-verma-creative' },
-      { name: 'Anjali Mishra', role: 'Graphic Designer', linkedin: 'https://linkedin.com/in/anjali-mishra-designer' },
-      { name: 'Siddharth Rao', role: 'Copywriter', linkedin: 'https://linkedin.com/in/siddharth-rao-writer' },
+       { name: 'Rohith A', role: 'Graphic Designer', linkedin: '#' },
+      { name: 'Open Spot', role: 'Creative Head', linkedin: '#/join' },
+      { name: 'Open Spot', role: 'Copywriter', linkedin: '#/join' },
       
     ],
   },
   {
-    emoji: '📱', name: 'Social & Communications Wing', color: '#9b59b6',
+    emoji: '📱', name: 'Social & Community Wing', color: '#9b59b6',
     members: [
-      { name: 'Ishaan Malik', role: 'Social Media Manager', linkedin: 'https://linkedin.com/in/ishaan-malik' },
-      { name: 'Tanvi Shah', role: 'Public Relations', linkedin: 'https://linkedin.com/in/tanvi-shah' },
+      { name: 'Bhoomi S Jain', role: 'Social Media Manager', linkedin: 'https://linkedin.com/in/ishaan-malik' },
+      { name: 'Amrutha ', role: 'Social Media Manager', linkedin: 'https://linkedin.com/in/ishaan-malik' },
+      { name: 'Hamsavri', role: 'Social Media Manager', linkedin: 'https://linkedin.com/in/ishaan-malik' },
+      { name: 'Mahi H H', role: 'Community Manager', linkedin: 'https://linkedin.com/in/mahi-h-h' },
     ],
   },
   {
     emoji: '🎪', name: ' Operations & Relations Wing', color: '#e67e22',
     members: [
-      { name: 'Ishaan Malik', role: 'Alumni Relations Head', linkedin: 'https://linkedin.com/in/ishaan-malik' },
-      { name: 'Tanvi Shah', role: 'Support Coordinator', linkedin: 'https://linkedin.com/in/tanvi-shah' },
-      { name: 'Neha Patel', role: 'Community Manager', linkedin: 'https://linkedin.com/in/neha-patel' },
+      { name: 'Mahi H H', role: 'Public Relations Head', linkedin: 'https://linkedin.com/in/mahi-h-h' },
+      { name: 'Open Spot', role: 'Alumni Relations Head', linkedin: '#/join' },
+      { name: 'Open Spot', role: 'Support Coordinator', linkedin: '#/join' },
     ],
   },
 ];
