@@ -7,7 +7,7 @@ import GalleryPage from "./pages/GalleryPage";
 import CommunityPage from "./pages/CommunityPage";
 import AlumniPage from "./pages/AlumniPage";
 import JoinPage from "./pages/JoinPage";
-// import ResourcesPage from "./pages/ResourcesPage";
+import ResourcesPage from "./pages/ResourcesPage";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
