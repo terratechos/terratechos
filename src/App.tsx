@@ -8,6 +8,7 @@ import CommunityPage from "./pages/CommunityPage";
 import AlumniPage from "./pages/AlumniPage";
 import JoinPage from "./pages/JoinPage";
 import ResourcesPage from "./pages/ResourcesPage";
+import EventsPage from "./pages/EventsPage";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -24,6 +25,7 @@ const App = () => (
           <Route path="/community" element={<CommunityPage />} />
           <Route path="/alumni" element={<AlumniPage />} />
           <Route path="/join" element={<JoinPage />} />
+          <Route path="/events" element={<EventsPage />} />
           <Route path="/resources" element={<ResourcesPage />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
