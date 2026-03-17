@@ -4,7 +4,7 @@ import { useSectionFade } from '../hooks/useSectionFade';
 import { Link } from 'react-router-dom';
 
 const stats = [
-  { value: '200+', label: 'Members' },
+  { value: '100+', label: 'Members' },
   { value: '30+', label: 'Events' },
   { value: '12', label: 'Industry Talks' },
   { value: '2024', label: 'Founded' },
