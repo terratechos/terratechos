@@ -101,36 +101,60 @@ const EventsPage = () => {
             </div>
           ) : (
             <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-              {filtered.map(event => (
-                <div
-                  key={event.title}
-                  className={`relative rounded-xl p-6 transition-all duration-300 ${
-                    isDark ? 'glass-card hover-glow' : 'bg-[#ffffff] border border-[#d0e8da] hover-lift'
-                  }`}
-                  style={!isDark ? { borderBottom: `3px solid ${tagColors[event.tag]}` } : {}}
-                >
-                  {event.status === 'ongoing' && (
-                    <span className="absolute top-4 right-4 w-3 h-3 rounded-full pulse-dot" style={{ background: '#ff3b3b' }} />
-                  )}
-                  <span
-                    className="inline-block px-2 py-0.5 rounded font-mono-label text-xs mb-3"
-                    style={{ background: `${tagColors[event.tag]}22`, color: tagColors[event.tag] }}
+              {filtered.map(event => {
+                const titleSponsors = event.sponsors?.filter(s => s.tier === 'title') || [];
+                return (
+                  <div
+                    key={event.title}
+                    className={`relative rounded-xl p-6 transition-all duration-300 flex flex-col ${
+                      isDark ? 'glass-card hover-glow' : 'bg-[#ffffff] border border-[#d0e8da] hover-lift'
+                    }`}
+                    style={!isDark ? { borderBottom: `3px solid ${tagColors[event.tag]}` } : {}}
                   >
-                    {event.tag}
-                  </span>
-                  <h3 className="font-body text-lg font-semibold mb-1" style={{ color: 'var(--tt-text)' }}>{event.title}</h3>
-                  <p className="font-mono-label text-xs mb-3" style={{ color: 'var(--tt-text-muted)' }}>{event.date}</p>
-                  <p className="font-body text-sm mb-4" style={{ color: 'var(--tt-text-secondary)' }}>{event.description}</p>
-                  <button
-                    onClick={() => setSelectedEvent(event)}
-                    className="font-mono-label text-xs transition-colors"
-                    style={{ color: 'var(--tt-accent)' }}
-                    aria-label={`View details for ${event.title}`}
-                  >
-                    VIEW DETAILS →
-                  </button>
-                </div>
-              ))}
+                    {event.status === 'ongoing' && (
+                      <span className="absolute top-4 right-4 w-3 h-3 rounded-full pulse-dot" style={{ background: '#ff3b3b' }} />
+                    )}
+                    <span
+                      className="inline-block px-2 py-0.5 rounded font-mono-label text-xs mb-3 self-start"
+                      style={{ background: `${tagColors[event.tag]}22`, color: tagColors[event.tag] }}
+                    >
+                      {event.tag}
+                    </span>
+                    <h3 className="font-body text-lg font-semibold mb-1" style={{ color: 'var(--tt-text)' }}>{event.title}</h3>
+                    <p className="font-mono-label text-xs mb-3" style={{ color: 'var(--tt-text-muted)' }}>{event.date}</p>
+                    <p className="font-body text-sm mb-4 flex-1" style={{ color: 'var(--tt-text-secondary)' }}>{event.description}</p>
+
+                    {/* Sponsors preview */}
+                    {titleSponsors.length > 0 && (
+                      <div className="mb-4">
+                        <p className="font-mono-label text-xs mb-1.5" style={{ color: 'var(--tt-text-muted)' }}>POWERED BY</p>
+                        <div className="flex flex-wrap gap-1.5">
+                          {titleSponsors.map(s => (
+                            <span
+                              key={s.name}
+                              className={`px-2 py-0.5 rounded font-mono-label text-xs ${
+                                isDark ? 'bg-[rgba(0,255,170,0.06)]' : 'bg-[#f0faf4]'
+                              }`}
+                              style={{ color: 'var(--tt-text-muted)' }}
+                            >
+                              {s.name}
+                            </span>
+                          ))}
+                        </div>
+                      </div>
+                    )}
+
+                    <button
+                      onClick={() => setSelectedEvent(event)}
+                      className="font-mono-label text-xs transition-colors self-start"
+                      style={{ color: 'var(--tt-accent)' }}
+                      aria-label={`View details for ${event.title}`}
+                    >
+                      VIEW DETAILS →
+                    </button>
+                  </div>
+                );
+              })}
             </div>
           )}
         </div>
