@@ -10,7 +10,6 @@ import { SponsorsSection } from '../sections/SponsorsSection';
 import { AchievementsSection } from '../sections/AchievementsSection';
 import { UpdatesSection } from '../sections/UpdatesSection';
 import { ContactSection } from '../sections/ContactSection';
-import { NewsletterSection } from '../sections/NewsletterSection';
 
 const Index = () => {
   return (
@@ -25,7 +24,6 @@ const Index = () => {
         <SponsorsSection />
         <AchievementsSection />
         <UpdatesSection />
-        <NewsletterSection />
         <ContactSection />
       </main>
       <Footer />
