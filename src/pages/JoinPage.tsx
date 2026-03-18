@@ -2,6 +2,7 @@ import { useTheme } from '../components/ThemeProvider';
 import { Navbar } from '../components/Navbar';
 import { Footer } from '../components/Footer';
 import { BackToTop } from '../components/BackToTop';
+import confetti from 'canvas-confetti';
 
 const joinBenefits = [
   { icon: '📚', label: 'Learn & Grow', description: 'Access to workshops and mentorship' },
@@ -11,6 +12,14 @@ const joinBenefits = [
   { icon: '🌐', label: 'Community', description: 'Join a supportive tech community' },
 ];
 
+const triggerConfetti = () => {
+  confetti({
+    particleCount: 120,
+    spread: 80,
+    colors: ['#00ffaa', '#5865F2', '#ffd166', '#ff6b35'],
+  });
+};
+
 const JoinPage = () => {
   const { theme } = useTheme();
   const isDark = theme === 'dark';
@@ -18,6 +27,11 @@ const JoinPage = () => {
   const scrollToApplication = () => {
     const element = document.getElementById('application');
     element?.scrollIntoView({ behavior: 'smooth' });
+  };
+
+  const handleApplyClick = () => {
+    // Trigger confetti as a fun interaction when clicking apply
+    triggerConfetti();
   };
 
   return (
@@ -109,7 +123,6 @@ const JoinPage = () => {
                       'UI/UX Design',
                       'Technical Writing',
                       'Creative Head',
-                      // 'Finance & Operations',
                       'Content & Marketing',
                       'Copywriting',
                       'Alumni Relation',
@@ -134,10 +147,11 @@ const JoinPage = () => {
                   href="https://forms.gle/form"
                   target="_blank"
                   rel="noopener noreferrer"
+                  onClick={handleApplyClick}
                   className="inline-block px-8 py-3 rounded-lg font-mono-label text-sm"
                   style={{ background: 'var(--tt-accent)', color: isDark ? '#050a07' : '#ffffff' }}
                 >
-                  SUBMIT YOUR APPLICATION
+                  SUBMIT YOUR APPLICATION 🎉
                 </a>
                 <p className="font-mono-label text-xs mt-4" style={{ color: 'var(--tt-text-muted)' }}>
                   APPLICATIONS ARE OPEN DURING THE FIRST 2 WEEKS OF MARCH & SEPTEMBER

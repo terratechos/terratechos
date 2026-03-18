@@ -1,6 +1,9 @@
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { HashRouter, Route, Routes } from "react-router-dom";
+import { HashRouter, Route, Routes, useLocation } from "react-router-dom";
 import { ThemeProvider } from "@/components/ThemeProvider";
+import { PageTransition } from "@/components/PageTransition";
+import { TopProgressBar } from "@/components/TopProgressBar";
+import { CookieConsent } from "@/components/CookieConsent";
 import Index from "./pages/Index";
 import TeamPage from "./pages/TeamPage";
 import GalleryPage from "./pages/GalleryPage";
@@ -13,11 +16,13 @@ import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
 
-const App = () => (
-  <QueryClientProvider client={queryClient}>
-    <ThemeProvider>
-      <HashRouter>
-        <Routes>
+const AppRoutes = () => {
+  const location = useLocation();
+  return (
+    <>
+      <TopProgressBar />
+      <PageTransition>
+        <Routes location={location} key={location.pathname}>
           <Route path="/" element={<Index />} />
           <Route path="/home" element={<Index />} />
           <Route path="/team" element={<TeamPage />} />
@@ -29,6 +34,17 @@ const App = () => (
           <Route path="/resources" element={<ResourcesPage />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
+      </PageTransition>
+      <CookieConsent />
+    </>
+  );
+};
+
+const App = () => (
+  <QueryClientProvider client={queryClient}>
+    <ThemeProvider>
+      <HashRouter>
+        <AppRoutes />
       </HashRouter>
     </ThemeProvider>
   </QueryClientProvider>
