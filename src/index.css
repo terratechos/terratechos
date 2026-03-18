@@ -118,6 +118,7 @@
 /* Custom scrollbar */
 ::-webkit-scrollbar {
   width: 8px;
+  height: 8px;
 }
 ::-webkit-scrollbar-track {
   background: var(--tt-bg);
@@ -129,6 +130,23 @@
 ::-webkit-scrollbar-thumb:hover {
   background: var(--tt-accent);
   opacity: 0.8;
+}
+
+/* Achievements scroller */
+.achievements-scroller {
+  scrollbar-width: thin;
+  scrollbar-color: var(--tt-accent) transparent;
+}
+.achievements-scroller::-webkit-scrollbar {
+  height: 6px;
+}
+.achievements-scroller::-webkit-scrollbar-track {
+  background: transparent;
+  border-radius: 3px;
+}
+.achievements-scroller::-webkit-scrollbar-thumb {
+  background: var(--tt-accent);
+  border-radius: 3px;
 }
 
 /* Dot grid background for light mode */
