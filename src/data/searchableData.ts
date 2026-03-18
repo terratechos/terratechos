@@ -4,6 +4,12 @@ export type EventTag = 'Hackathon' | 'Workshop' | 'Talk' | 'Competition' | 'Coll
 export type EventStatus = 'ongoing' | 'upcoming';
 export type EventPeriod = 'thisMonth' | 'nextMonth' | 'nextTerm';
 
+export interface EventSponsor {
+  name: string;
+  tier: 'title' | 'associate';
+  href?: string;
+}
+
 export interface ClubEvent {
   title: string;
   tag: EventTag;
@@ -17,6 +23,7 @@ export interface ClubEvent {
   prize: string;
   expectations: string[];
   registerUrl: string;
+  sponsors: EventSponsor[];
 }
 
 export const tagColors: Record<EventTag, string> = {
@@ -34,6 +41,12 @@ export const EVENTS_DATA: ClubEvent[] = [
     location: 'Main Auditorium', format: 'Hybrid', teamSize: '2–4 members', prize: '₹10,000 pool',
     expectations: ['Build a working prototype in 48 hours', 'Get mentored by industry professionals', 'Network with fellow developers', 'Win exciting prizes and goodies'],
     registerUrl: '#',
+    sponsors: [
+      { name: 'TechCorp Solutions', tier: 'title', href: '#' },
+      { name: 'CloudNova', tier: 'title', href: '#' },
+      { name: 'DevHub', tier: 'associate', href: '#' },
+      { name: 'ByteWorks', tier: 'associate', href: '#' },
+    ],
   },
   {
     title: 'AI Workshop Series', tag: 'Workshop', date: 'Mar 15', status: 'ongoing', period: 'thisMonth',
@@ -41,6 +54,10 @@ export const EVENTS_DATA: ClubEvent[] = [
     location: 'CS Lab 301', format: 'Offline', teamSize: 'Individual', prize: 'Certificates',
     expectations: ['Learn ML fundamentals from scratch', 'Hands-on model training and deployment', 'Work with real-world datasets'],
     registerUrl: '#',
+    sponsors: [
+      { name: 'OpenStack India', tier: 'title', href: '#' },
+      { name: 'SkillForge', tier: 'associate', href: '#' },
+    ],
   },
   {
     title: 'DevTalks Vol.3', tag: 'Talk', date: 'Apr 5', status: 'upcoming', period: 'nextMonth',
@@ -48,6 +65,11 @@ export const EVENTS_DATA: ClubEvent[] = [
     location: 'Seminar Hall B', format: 'Hybrid', teamSize: 'Individual', prize: 'Swag kits',
     expectations: ['Hear from Google & Microsoft engineers', 'Q&A with industry leaders', 'Networking opportunities'],
     registerUrl: '#',
+    sponsors: [
+      { name: 'CloudNova', tier: 'title', href: '#' },
+      { name: 'DevHub', tier: 'associate', href: '#' },
+      { name: 'SkillForge', tier: 'associate', href: '#' },
+    ],
   },
   {
     title: 'CTF Championship', tag: 'Competition', date: 'Apr 20', status: 'upcoming', period: 'nextMonth',
@@ -55,6 +77,10 @@ export const EVENTS_DATA: ClubEvent[] = [
     location: 'Online', format: 'Online', teamSize: '1–3 members', prize: '₹5,000 pool',
     expectations: ['Solve real-world security challenges', 'Learn offensive and defensive techniques', 'Compete with top security enthusiasts'],
     registerUrl: '#',
+    sponsors: [
+      { name: 'ByteWorks', tier: 'title', href: '#' },
+      { name: 'OpenStack India', tier: 'associate', href: '#' },
+    ],
   },
   {
     title: 'Open Source Sprint', tag: 'Collab', date: 'May 1', status: 'upcoming', period: 'nextTerm',
@@ -62,6 +88,9 @@ export const EVENTS_DATA: ClubEvent[] = [
     location: 'CS Lab 201', format: 'Offline', teamSize: '2–5 members', prize: 'GitHub swag',
     expectations: ['Contribute to popular OSS projects', 'Learn Git workflow and code review', 'Build your open source portfolio'],
     registerUrl: '#',
+    sponsors: [
+      { name: 'DevHub', tier: 'title', href: '#' },
+    ],
   },
   {
     title: 'Annual Tech Fest', tag: 'Hackathon', date: 'Jun 14', status: 'upcoming', period: 'nextTerm',
@@ -69,6 +98,14 @@ export const EVENTS_DATA: ClubEvent[] = [
     location: 'University Campus', format: 'Offline', teamSize: '2–6 members', prize: '₹25,000 pool',
     expectations: ['Multiple tracks: AI, Web, Mobile, IoT', 'Industry-sponsored challenges', 'Career fair with top companies', 'Live entertainment and food stalls'],
     registerUrl: '#',
+    sponsors: [
+      { name: 'TechCorp Solutions', tier: 'title', href: '#' },
+      { name: 'CloudNova', tier: 'title', href: '#' },
+      { name: 'DevHub', tier: 'associate', href: '#' },
+      { name: 'ByteWorks', tier: 'associate', href: '#' },
+      { name: 'OpenStack India', tier: 'associate', href: '#' },
+      { name: 'SkillForge', tier: 'associate', href: '#' },
+    ],
   },
 ];
 
@@ -135,7 +172,6 @@ export const TEAMS_DATA: Department[] = [
       { name: 'Chinmayi ', role: 'Photographer', linkedin: 'https://linkedin.com/in/anjali-mishra' },
       { name: 'Chandan H', role: 'Videographer', linkedin: 'https://linkedin.com/in/siddharth-rao' },
       { name: 'Sinchana HP', role: 'Editor', linkedin: 'https://linkedin.com/in/kavya-singh' },
-
     ],
   },
   {
@@ -144,7 +180,6 @@ export const TEAMS_DATA: Department[] = [
        { name: 'Rohith A', role: 'Graphic Designer', linkedin: '#' },
       { name: 'Open Spot', role: 'Creative Head', linkedin: '#/join' },
       { name: 'Open Spot', role: 'Copywriter', linkedin: '#/join' },
-      
     ],
   },
   {
