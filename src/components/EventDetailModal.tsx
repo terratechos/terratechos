@@ -19,7 +19,6 @@ export const EventDetailModal = ({ event, onClose }: Props) => {
     if (!event) return;
     const handleKey = (e: KeyboardEvent) => {
       if (e.key === 'Escape') onClose();
-      // Focus trap
       if (e.key === 'Tab' && modalRef.current) {
         const focusable = modalRef.current.querySelectorAll<HTMLElement>('button, a, input, [tabindex]:not([tabindex="-1"])');
         if (focusable.length === 0) return;
@@ -42,6 +41,9 @@ export const EventDetailModal = ({ event, onClose }: Props) => {
       toast({ title: 'Link copied!', description: 'Event link copied to clipboard.' });
     });
   };
+
+  const titleSponsors = event.sponsors?.filter(s => s.tier === 'title') || [];
+  const associateSponsors = event.sponsors?.filter(s => s.tier === 'associate') || [];
 
   return (
     <div className="fixed inset-0 z-[100] flex items-center justify-center p-4" onClick={onClose}>
@@ -103,6 +105,49 @@ export const EventDetailModal = ({ event, onClose }: Props) => {
             ))}
           </ul>
         </div>
+
+        {/* Sponsors & Partners */}
+        {(titleSponsors.length > 0 || associateSponsors.length > 0) && (
+          <div className="px-6 pb-4">
+            <h3 className="font-display text-lg mb-3" style={{ color: 'var(--tt-text)' }}>SPONSORS & PARTNERS</h3>
+            {titleSponsors.length > 0 && (
+              <div className="mb-3">
+                <p className="font-mono-label text-xs mb-2" style={{ color: 'var(--tt-text-muted)' }}>TITLE SPONSORS</p>
+                <div className="flex flex-wrap gap-2">
+                  {titleSponsors.map(s => (
+                    <span
+                      key={s.name}
+                      className={`inline-flex items-center px-3 py-1.5 rounded-lg font-mono-label text-xs ${
+                        isDark ? 'bg-[rgba(0,255,170,0.08)] border border-[rgba(0,255,170,0.15)]' : 'bg-[#f0faf4] border border-[#d0e8da]'
+                      }`}
+                      style={{ color: 'var(--tt-text)' }}
+                    >
+                      🏢 {s.name}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            )}
+            {associateSponsors.length > 0 && (
+              <div>
+                <p className="font-mono-label text-xs mb-2" style={{ color: 'var(--tt-text-muted)' }}>ASSOCIATE PARTNERS</p>
+                <div className="flex flex-wrap gap-2">
+                  {associateSponsors.map(s => (
+                    <span
+                      key={s.name}
+                      className={`inline-flex items-center px-3 py-1.5 rounded-lg font-mono-label text-xs ${
+                        isDark ? 'bg-[rgba(255,255,255,0.03)]' : 'bg-[#fafff9] border border-[#e0ede5]'
+                      }`}
+                      style={{ color: 'var(--tt-text-secondary)' }}
+                    >
+                      {s.name}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            )}
+          </div>
+        )}
 
         {/* Actions */}
         <div className="px-6 pb-6 flex gap-3">

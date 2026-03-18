@@ -2,19 +2,19 @@ import { useState, useEffect, useRef } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { useTheme } from './ThemeProvider';
 import { GlobalSearch } from './GlobalSearch';
+import { useScrollSpy } from '@/hooks/useScrollSpy';
 
 const navLinks = [
-  { label: 'Home', href: '/' },
-  { label: 'About', href: '/#about' },
-  { label: 'Events', href: '/#events' },
-  { label: 'Updates', href: '/#updates' },
-  { label: 'Team', href: '/team' },
-  { label: 'Gallery', href: '/gallery' },
-  { label: 'Community', href: '/community' },
-  // { label: 'Resources', href: '/resources' },
-  { label: 'Alumni', href: '/alumni' },
-  { label: 'Contact', href: '/#contact' },
-  { label: 'Join Us', href: '/join' },
+  { label: 'Home', href: '/', section: 'home' },
+  { label: 'About', href: '/#about', section: 'about' },
+  { label: 'Events', href: '/#events', section: 'events' },
+  { label: 'Updates', href: '/#updates', section: 'updates' },
+  { label: 'Team', href: '/team', section: '' },
+  { label: 'Gallery', href: '/gallery', section: '' },
+  { label: 'Community', href: '/community', section: '' },
+  { label: 'Alumni', href: '/alumni', section: '' },
+  { label: 'Contact', href: '/#contact', section: 'contact' },
+  { label: 'Join Us', href: '/join', section: '' },
 ];
 
 export const Navbar = () => {
@@ -24,6 +24,7 @@ export const Navbar = () => {
   const [searchOpen, setSearchOpen] = useState(false);
   const location = useLocation();
   const navRef = useRef<HTMLElement>(null);
+  const activeSection = useScrollSpy();
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 20);
@@ -69,6 +70,18 @@ export const Navbar = () => {
     }
   };
 
+  const isActive = (link: typeof navLinks[0]) => {
+    // For hash links on home page, use scroll spy
+    if (link.section && (location.pathname === '/' || location.pathname === '/home')) {
+      return activeSection === link.section;
+    }
+    // For standalone pages
+    if (!link.href.startsWith('/#') && link.href !== '/') {
+      return location.pathname === link.href;
+    }
+    return false;
+  };
+
   const isDark = theme === 'dark';
 
   return (
@@ -95,23 +108,26 @@ export const Navbar = () => {
 
             <div className="hidden lg:flex items-center gap-1">
               {navLinks.map(link => {
-                const isHashLink = link.href.startsWith('/#');
-                const to = isHashLink ? link.href : link.href;
                 const isJoinButton = link.label === 'Join Us';
+                const active = isActive(link);
                 return (
                   <Link
                     key={link.label}
-                    to={to}
+                    to={link.href}
                     onClick={() => handleNavClick(link.href)}
                     className={`font-mono-label text-xs px-3 py-2 rounded-md transition-all ${
                       isJoinButton
                         ? 'font-semibold hover:opacity-90'
-                        : 'hover:bg-[var(--tt-accent)]/10'
+                        : active
+                          ? isDark ? 'bg-[rgba(0,255,170,0.12)]' : 'bg-[#e8f5ef]'
+                          : 'hover:bg-[var(--tt-accent)]/10'
                     }`}
                     style={isJoinButton ? {
                       background: 'var(--tt-accent)',
                       color: isDark ? '#050a07' : '#ffffff'
-                    } : { color: 'var(--tt-text-secondary)' }}
+                    } : {
+                      color: active ? 'var(--tt-accent)' : 'var(--tt-text-secondary)'
+                    }}
                   >
                     {link.label.toUpperCase()}
                   </Link>
@@ -153,23 +169,26 @@ export const Navbar = () => {
           <div className={`lg:hidden border-t ${isDark ? 'bg-[rgba(5,10,7,0.95)] border-[rgba(0,255,170,0.1)]' : 'bg-[#ffffff] border-[#d0e8da]'}`}>
             <div className="px-4 py-4 space-y-1">
               {navLinks.map(link => {
-                const isHashLink = link.href.startsWith('/#');
-                const to = isHashLink ? link.href : link.href;
                 const isJoinButton = link.label === 'Join Us';
+                const active = isActive(link);
                 return (
                   <Link
                     key={link.label}
-                    to={to}
+                    to={link.href}
                     onClick={() => handleNavClick(link.href)}
                     className={`block font-mono-label text-sm px-3 py-2 rounded-md transition-all ${
                       isJoinButton
                         ? 'font-semibold hover:opacity-90'
-                        : 'hover:bg-[var(--tt-accent)]/10'
+                        : active
+                          ? isDark ? 'bg-[rgba(0,255,170,0.12)]' : 'bg-[#e8f5ef]'
+                          : 'hover:bg-[var(--tt-accent)]/10'
                     }`}
                     style={isJoinButton ? {
                       background: 'var(--tt-accent)',
                       color: isDark ? '#050a07' : '#ffffff'
-                    } : { color: 'var(--tt-text-secondary)' }}
+                    } : {
+                      color: active ? 'var(--tt-accent)' : 'var(--tt-text-secondary)'
+                    }}
                   >
                     {link.label.toUpperCase()}
                   </Link>
