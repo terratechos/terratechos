@@ -2,6 +2,7 @@ import { useState, useEffect, useRef } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { useTheme } from './ThemeProvider';
 import { GlobalSearch } from './GlobalSearch';
+import { Search, Sun, Moon } from 'lucide-react';
 
 const navLinks = [
   { label: 'Home', href: '/', section: 'home' },
