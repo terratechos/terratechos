@@ -42,12 +42,6 @@ export const tagColors: Record<EventTag, string> = {
   Competition: '#ff3b6b',
   Collab: '#ffd166',
 };
-  Hackathon: '#ff6b35',
-  Workshop: 'var(--tt-accent)',
-  Talk: '#7b8cff',
-  Competition: '#ff3b6b',
-  Collab: '#ffd166',
-};
 
 export const EVENTS_DATA: ClubEvent[] = [
   {
