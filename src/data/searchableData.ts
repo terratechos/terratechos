@@ -11,6 +11,7 @@ export interface EventSponsor {
 }
 
 export interface ClubEvent {
+  id: string;
   title: string;
   tag: EventTag;
   date: string;
@@ -36,20 +37,20 @@ export const tagColors: Record<EventTag, string> = {
 
 export const EVENTS_DATA: ClubEvent[] = [
   {
-    title: 'HackTerra 2025', tag: 'Hackathon', date: 'Mar 10–12', status: 'ongoing', period: 'thisMonth',
+    id: 'hackterra-2025', title: 'HackTerra 2025', tag: 'Hackathon', date: 'Mar 10–12', status: 'ongoing', period: 'thisMonth',
     description: '48-hour hackathon with industry mentors and prizes',
     location: 'Main Auditorium', format: 'Hybrid', teamSize: '2–4 members', prize: '₹10,000 pool',
     expectations: ['Build a working prototype in 48 hours', 'Get mentored by industry professionals', 'Network with fellow developers', 'Win exciting prizes and goodies'],
     registerUrl: '#',
     sponsors: [
-      { name: 'TechCorp Solutions', tier: 'title', href: '#' },
-      { name: 'CloudNova', tier: 'title', href: '#' },
-      { name: 'DevHub', tier: 'associate', href: '#' },
-      { name: 'ByteWorks', tier: 'associate', href: '#' },
+      { name: 'SPONSOR 1', tier: 'title', href: '#' },
+      { name: 'SPONSOR 2', tier: 'title', href: '#' },
+      { name: 'SPONSOR 3', tier: 'associate', href: '#' },
+      { name: 'SPONSOR 4', tier: 'associate', href: '#' },
     ],
   },
   {
-    title: 'AI Workshop Series', tag: 'Workshop', date: 'Mar 15', status: 'ongoing', period: 'thisMonth',
+    id: 'ai-workshop-series', title: 'AI Workshop Series', tag: 'Workshop', date: 'Mar 15', status: 'ongoing', period: 'thisMonth',
     description: 'Hands-on workshop covering ML fundamentals and deployment',
     location: 'CS Lab 301', format: 'Offline', teamSize: 'Individual', prize: 'Certificates',
     expectations: ['Learn ML fundamentals from scratch', 'Hands-on model training and deployment', 'Work with real-world datasets'],
@@ -60,7 +61,7 @@ export const EVENTS_DATA: ClubEvent[] = [
     ],
   },
   {
-    title: 'DevTalks Vol.3', tag: 'Talk', date: 'Apr 5', status: 'upcoming', period: 'nextMonth',
+    id: 'devtalks-vol3', title: 'DevTalks Vol.3', tag: 'Talk', date: 'Apr 5', status: 'upcoming', period: 'nextMonth',
     description: 'Industry speakers on cloud-native, web3, and OSS',
     location: 'Seminar Hall B', format: 'Hybrid', teamSize: 'Individual', prize: 'Swag kits',
     expectations: ['Hear from Google & Microsoft engineers', 'Q&A with industry leaders', 'Networking opportunities'],
@@ -72,7 +73,7 @@ export const EVENTS_DATA: ClubEvent[] = [
     ],
   },
   {
-    title: 'CTF Championship', tag: 'Competition', date: 'Apr 20', status: 'upcoming', period: 'nextMonth',
+    id: 'ctf-championship', title: 'CTF Championship', tag: 'Competition', date: 'Apr 20', status: 'upcoming', period: 'nextMonth',
     description: 'Capture the flag security competition',
     location: 'Online', format: 'Online', teamSize: '1–3 members', prize: '₹5,000 pool',
     expectations: ['Solve real-world security challenges', 'Learn offensive and defensive techniques', 'Compete with top security enthusiasts'],
@@ -83,7 +84,7 @@ export const EVENTS_DATA: ClubEvent[] = [
     ],
   },
   {
-    title: 'Open Source Sprint', tag: 'Collab', date: 'May 1', status: 'upcoming', period: 'nextTerm',
+    id: 'open-source-sprint', title: 'Open Source Sprint', tag: 'Collab', date: 'May 1', status: 'upcoming', period: 'nextTerm',
     description: 'Contribute to real open source projects',
     location: 'CS Lab 201', format: 'Offline', teamSize: '2–5 members', prize: 'GitHub swag',
     expectations: ['Contribute to popular OSS projects', 'Learn Git workflow and code review', 'Build your open source portfolio'],
@@ -93,18 +94,18 @@ export const EVENTS_DATA: ClubEvent[] = [
     ],
   },
   {
-    title: 'Annual Tech Fest', tag: 'Hackathon', date: 'Jun 14', status: 'upcoming', period: 'nextTerm',
+    id: 'annual-tech-fest', title: 'Annual Tech Fest', tag: 'Hackathon', date: 'Jun 14', status: 'upcoming', period: 'nextTerm',
     description: 'Our flagship annual technology festival',
     location: 'University Campus', format: 'Offline', teamSize: '2–6 members', prize: '₹25,000 pool',
     expectations: ['Multiple tracks: AI, Web, Mobile, IoT', 'Industry-sponsored challenges', 'Career fair with top companies', 'Live entertainment and food stalls'],
     registerUrl: '#',
     sponsors: [
-      { name: 'TechCorp Solutions', tier: 'title', href: '#' },
-      { name: 'CloudNova', tier: 'title', href: '#' },
-      { name: 'DevHub', tier: 'associate', href: '#' },
-      { name: 'ByteWorks', tier: 'associate', href: '#' },
-      { name: 'OpenStack India', tier: 'associate', href: '#' },
-      { name: 'SkillForge', tier: 'associate', href: '#' },
+      { name: 'SPONSOR 1', tier: 'title', href: '#' },
+      { name: 'SPONSOR 2', tier: 'title', href: '#' },
+      { name: 'SPONSOR 3', tier: 'associate', href: '#' },
+      { name: 'SPONSOR 4', tier: 'associate', href: '#' },
+      { name: 'SPONSOR 5', tier: 'associate', href: '#' },
+      { name: 'SPONSOR 6', tier: 'associate', href: '#' },
     ],
   },
 ];

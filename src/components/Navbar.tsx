@@ -2,7 +2,6 @@ import { useState, useEffect, useRef } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { useTheme } from './ThemeProvider';
 import { GlobalSearch } from './GlobalSearch';
-import { useScrollSpy } from '@/hooks/useScrollSpy';
 
 const navLinks = [
   { label: 'Home', href: '/', section: 'home' },
@@ -24,7 +23,6 @@ export const Navbar = () => {
   const [searchOpen, setSearchOpen] = useState(false);
   const location = useLocation();
   const navRef = useRef<HTMLElement>(null);
-  const activeSection = useScrollSpy();
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 20);
@@ -71,10 +69,6 @@ export const Navbar = () => {
   };
 
   const isActive = (link: typeof navLinks[0]) => {
-    // For hash links on home page, use scroll spy
-    if (link.section && (location.pathname === '/' || location.pathname === '/home')) {
-      return activeSection === link.section;
-    }
     // For standalone pages
     if (!link.href.startsWith('/#') && link.href !== '/') {
       return location.pathname === link.href;

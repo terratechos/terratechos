@@ -90,13 +90,7 @@ const TeamPage = () => {
                         <h3 className="font-body font-semibold text-sm" style={{ color: 'var(--tt-text)' }}>{m.name}</h3>
                         <p className="font-mono-label text-xs" style={{ color: 'var(--tt-text-muted)' }}>{m.role}</p>
                       </div>
-                      <span
-                        className="px-2 py-0.5 rounded-full font-mono-label text-xs"
-                        style={{ background: `${dept.color}15`, color: dept.color }}
-                      >
-                        {dept.name}
-                      </span>
-                      {m.linkedin && (
+                    {m.linkedin && (
                         <a 
                           href={m.linkedin} 
                           target="_blank" 

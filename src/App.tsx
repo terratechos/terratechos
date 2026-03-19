@@ -1,9 +1,7 @@
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { HashRouter, Route, Routes, useLocation } from "react-router-dom";
 import { ThemeProvider } from "@/components/ThemeProvider";
-import { PageTransition } from "@/components/PageTransition";
 import { TopProgressBar } from "@/components/TopProgressBar";
-import { CookieConsent } from "@/components/CookieConsent";
 import Index from "./pages/Index";
 import TeamPage from "./pages/TeamPage";
 import GalleryPage from "./pages/GalleryPage";
@@ -21,21 +19,18 @@ const AppRoutes = () => {
   return (
     <>
       <TopProgressBar />
-      <PageTransition>
-        <Routes location={location} key={location.pathname}>
-          <Route path="/" element={<Index />} />
-          <Route path="/home" element={<Index />} />
-          <Route path="/team" element={<TeamPage />} />
-          <Route path="/gallery" element={<GalleryPage />} />
-          <Route path="/community" element={<CommunityPage />} />
-          <Route path="/alumni" element={<AlumniPage />} />
-          <Route path="/join" element={<JoinPage />} />
-          <Route path="/events" element={<EventsPage />} />
-          <Route path="/resources" element={<ResourcesPage />} />
-          <Route path="*" element={<NotFound />} />
-        </Routes>
-      </PageTransition>
-      <CookieConsent />
+      <Routes location={location} key={location.pathname}>
+        <Route path="/" element={<Index />} />
+        <Route path="/home" element={<Index />} />
+        <Route path="/team" element={<TeamPage />} />
+        <Route path="/gallery" element={<GalleryPage />} />
+        <Route path="/community" element={<CommunityPage />} />
+        <Route path="/alumni" element={<AlumniPage />} />
+        <Route path="/join" element={<JoinPage />} />
+        <Route path="/events" element={<EventsPage />} />
+        <Route path="/resources" element={<ResourcesPage />} />
+        <Route path="*" element={<NotFound />} />
+      </Routes>
     </>
   );
 };

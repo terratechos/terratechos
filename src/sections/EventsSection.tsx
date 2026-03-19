@@ -81,7 +81,9 @@ export const EventsSection = () => {
             <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
               {filtered.map(event => (
                 <div
-                  key={event.title}
+                  key={event.id}
+                  id={event.id}
+                  data-event-id={event.id}
                   className={`relative rounded-xl p-6 transition-all duration-300 ${
                     isDark ? 'glass-card hover-glow' : 'bg-[#ffffff] border border-[#d0e8da] hover-lift'
                   }`}
@@ -96,7 +98,10 @@ export const EventsSection = () => {
                   >
                     {event.tag}
                   </span>
-                  <h3 className="font-body text-lg font-semibold mb-1" style={{ color: 'var(--tt-text)' }}>{event.title}</h3>
+                  <div className="flex items-start gap-2 mb-1">
+                    <h3 className="font-body text-lg font-semibold flex-1" style={{ color: 'var(--tt-text)' }}>{event.title}</h3>
+                    <span className="font-mono-label text-xs px-2 py-0.5 rounded whitespace-nowrap" style={{ background: 'rgba(0,0,0,0.1)', color: 'var(--tt-text-muted)' }}>{event.id}</span>
+                  </div>
                   <p className="font-mono-label text-xs mb-3" style={{ color: 'var(--tt-text-muted)' }}>{event.date}</p>
                   <p className="font-body text-sm mb-4" style={{ color: 'var(--tt-text-secondary)' }}>{event.description}</p>
                   <button

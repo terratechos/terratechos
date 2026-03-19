@@ -2,14 +2,14 @@ import { useTheme } from '../components/ThemeProvider';
 import { useSectionFade } from '../hooks/useSectionFade';
 
 const titlePartners = [
-  { name: 'TechCorp Solutions', href: '#' },
-  { name: 'CloudNova', href: '#' },
+  { name: 'TP1', href: '#' },
+  { name: 'TP2', href: '#' },
 ];
 const associatePartners = [
-  { name: 'DevHub', href: '#' },
-  { name: 'OpenStack India', href: '#' },
-  { name: 'ByteWorks', href: '#' },
-  { name: 'SkillForge', href: '#' },
+  { name: 'AP1', href: '#' },
+  { name: 'AP2', href: '#' },
+  { name: 'AP3', href: '#' },
+  { name: 'AP4', href: '#' },
 ];
 
 const LogoPlaceholder = ({ name, large, isDark }: { name: string; large?: boolean; isDark: boolean }) => (

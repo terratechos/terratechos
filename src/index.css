@@ -90,7 +90,7 @@
 
 @layer utilities {
   .font-display {
-    font-family: 'Bebas Neue', cursive;
+    /* font-family: 'Bebas Neue', cursive; */
   }
   .font-mono-label {
     font-family: 'DM Mono', monospace;

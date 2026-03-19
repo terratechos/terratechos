@@ -144,8 +144,8 @@ const JoinPage = () => {
                   Ready to be part of something amazing? Fill out our application form and join the TerraTech community!
                 </p>
                 <a
-                  href="https://forms.gle/form"
-                  target="_blank"
+                  href="https://forms.gle/G9Gi14AboTBKMWaXA"
+                  // target="_blank"
                   rel="noopener noreferrer"
                   onClick={handleApplyClick}
                   className="inline-block px-8 py-3 rounded-lg font-mono-label text-sm"

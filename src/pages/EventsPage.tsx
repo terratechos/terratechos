@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Navbar } from '../components/Navbar';
 import { Footer } from '../components/Footer';
 import { BackToTop } from '../components/BackToTop';
@@ -15,6 +15,33 @@ const EventsPage = () => {
   const [periodFilter, setPeriodFilter] = useState<'all' | EventPeriod>('all');
   const [tagFilter, setTagFilter] = useState<'all' | EventTag>('all');
   const [selectedEvent, setSelectedEvent] = useState<ClubEvent | null>(null);
+
+  useEffect(() => {
+    // Handle hash-based navigation to specific events
+    const handleHashScroll = () => {
+      const hash = window.location.hash;
+      // Extract event ID from hash (e.g., #hackterra-2025)
+      const eventId = hash.replace(/^#\/?/, '');
+      
+      if (eventId && eventId !== 'events') {
+        // Add a small delay to ensure DOM is ready
+        setTimeout(() => {
+          const element = document.getElementById(eventId);
+          if (element) {
+            element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            element.focus();
+          }
+        }, 50);
+      }
+    };
+
+    // Scroll on load if hash exists
+    handleHashScroll();
+
+    // Listen for hash changes (when clicking links)
+    window.addEventListener('hashchange', handleHashScroll);
+    return () => window.removeEventListener('hashchange', handleHashScroll);
+  }, []);
 
   const filtered = EVENTS_DATA.filter(e =>
     (statusFilter === 'all' || e.status === statusFilter) &&
@@ -105,7 +132,9 @@ const EventsPage = () => {
                 const titleSponsors = event.sponsors?.filter(s => s.tier === 'title') || [];
                 return (
                   <div
-                    key={event.title}
+                    key={event.id}
+                    id={event.id}
+                    data-event-id={event.id}
                     className={`relative rounded-xl p-6 transition-all duration-300 flex flex-col ${
                       isDark ? 'glass-card hover-glow' : 'bg-[#ffffff] border border-[#d0e8da] hover-lift'
                     }`}
@@ -120,7 +149,10 @@ const EventsPage = () => {
                     >
                       {event.tag}
                     </span>
-                    <h3 className="font-body text-lg font-semibold mb-1" style={{ color: 'var(--tt-text)' }}>{event.title}</h3>
+                    <div className="flex items-start gap-2">
+                      <h3 className="font-body text-lg font-semibold mb-1 flex-1" style={{ color: 'var(--tt-text)' }}>{event.title}</h3>
+                      <span className="font-mono-label text-xs px-2 py-0.5 rounded whitespace-nowrap" style={{ background: 'rgba(0,0,0,0.1)', color: 'var(--tt-text-muted)' }}>{event.id}</span>
+                    </div>
                     <p className="font-mono-label text-xs mb-3" style={{ color: 'var(--tt-text-muted)' }}>{event.date}</p>
                     <p className="font-body text-sm mb-4 flex-1" style={{ color: 'var(--tt-text-secondary)' }}>{event.description}</p>
 
