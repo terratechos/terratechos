@@ -58,7 +58,7 @@ export const EventDetailModal = ({ event, onClose }: Props) => {
       />
       <div
         ref={modalRef}
-        className={`relative w-full max-w-lg rounded-xl overflow-hidden max-h-[90vh] overflow-y-auto ${
+        className={`relative w-full max-w-lg lg:max-w-3xl rounded-xl overflow-hidden max-h-[90vh] overflow-y-auto ${
           isDark
             ? 'bg-[rgba(10,20,15,0.95)] border border-[rgba(0,255,170,0.15)] shadow-[0_0_40px_rgba(0,255,170,0.08)]'
             : 'bg-white border border-[hsl(var(--border))] shadow-xl'
