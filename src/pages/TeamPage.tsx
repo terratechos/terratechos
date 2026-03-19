@@ -78,11 +78,12 @@ const TeamPage = () => {
                   ))}
                 </div>
               ) : (
-                <div className="flex gap-4 overflow-x-auto pb-2" style={{ scrollbarWidth: 'thin' }}>
+                /* Light mode: full-width grid instead of horizontal scroll */
+                <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4">
                   {dept.members.map(m => (
                     <div
                       key={m.name}
-                      className="min-w-[220px] bg-[#ffffff] border border-[#d0e8da] rounded-xl p-5 flex flex-col items-center gap-3 hover-lift transition-all"
+                      className="bg-white border border-[hsl(var(--border))] rounded-xl p-5 flex flex-col items-center gap-3 hover-lift transition-all"
                       style={{ borderTop: `3px solid ${dept.color}` }}
                     >
                       <InitialsAvatar name={m.name} color={dept.color} isDark={false} />
