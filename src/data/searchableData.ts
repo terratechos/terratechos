@@ -27,6 +27,14 @@ export interface ClubEvent {
   sponsors: EventSponsor[];
 }
 
+// Generate a deterministic slug from event title + date
+export function generateEventSlug(event: ClubEvent): string {
+  return `${event.title}-${event.date}`
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, '-')
+    .replace(/(^-|-$)/g, '');
+}
+
 export const tagColors: Record<EventTag, string> = {
   Hackathon: '#ff6b35',
   Workshop: 'var(--tt-accent)',

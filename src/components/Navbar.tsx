@@ -2,6 +2,7 @@ import { useState, useEffect, useRef } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { useTheme } from './ThemeProvider';
 import { GlobalSearch } from './GlobalSearch';
+import { Search, Sun, Moon } from 'lucide-react';
 
 const navLinks = [
   { label: 'Home', href: '/', section: 'home' },
@@ -135,14 +136,14 @@ export const Navbar = () => {
                 className="w-10 h-10 flex items-center justify-center rounded-lg transition-colors hover:bg-[var(--tt-accent)]/10"
                 aria-label="Open search"
               >
-                🔍
+                <Search className="w-5 h-5" style={{ color: 'var(--tt-text-secondary)' }} />
               </button>
               <button
                 onClick={toggleTheme}
                 className="w-10 h-10 flex items-center justify-center rounded-lg transition-colors hover:bg-[var(--tt-accent)]/10"
                 aria-label={`Switch to ${isDark ? 'light' : 'dark'} mode`}
               >
-                {isDark ? '☀️' : '🌙'}
+                {isDark ? <Sun className="w-5 h-5" style={{ color: 'var(--tt-text-secondary)' }} /> : <Moon className="w-5 h-5" style={{ color: 'var(--tt-text-secondary)' }} />}
               </button>
               <button
                 onClick={() => setMobileOpen(!mobileOpen)}

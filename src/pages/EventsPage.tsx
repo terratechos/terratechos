@@ -4,9 +4,10 @@ import { Footer } from '../components/Footer';
 import { BackToTop } from '../components/BackToTop';
 import { ParticleBackground } from '../components/ParticleBackground';
 import { useTheme } from '../components/ThemeProvider';
-import { EVENTS_DATA, tagColors } from '@/data/searchableData';
+import { EVENTS_DATA, tagColors, generateEventSlug } from '@/data/searchableData';
 import type { ClubEvent, EventStatus, EventPeriod, EventTag } from '@/data/searchableData';
 import { EventDetailModal } from '@/components/EventDetailModal';
+import { CalendarX } from 'lucide-react';
 
 const EventsPage = () => {
   const { theme } = useTheme();
@@ -17,30 +18,14 @@ const EventsPage = () => {
   const [selectedEvent, setSelectedEvent] = useState<ClubEvent | null>(null);
 
   useEffect(() => {
-    // Handle hash-based navigation to specific events
-    const handleHashScroll = () => {
-      const hash = window.location.hash;
-      // Extract event ID from hash (e.g., #hackterra-2025)
-      const eventId = hash.replace(/^#\/?/, '');
-      
-      if (eventId && eventId !== 'events') {
-        // Add a small delay to ensure DOM is ready
-        setTimeout(() => {
-          const element = document.getElementById(eventId);
-          if (element) {
-            element.scrollIntoView({ behavior: 'smooth', block: 'start' });
-            element.focus();
-          }
-        }, 50);
+    // Auto-open event modal from URL hash
+    const hash = window.location.hash.replace('#', '');
+    if (hash) {
+      const matched = EVENTS_DATA.find(e => generateEventSlug(e) === hash);
+      if (matched) {
+        setSelectedEvent(matched);
       }
-    };
-
-    // Scroll on load if hash exists
-    handleHashScroll();
-
-    // Listen for hash changes (when clicking links)
-    window.addEventListener('hashchange', handleHashScroll);
-    return () => window.removeEventListener('hashchange', handleHashScroll);
+    }
   }, []);
 
   const filtered = EVENTS_DATA.filter(e =>
@@ -115,7 +100,7 @@ const EventsPage = () => {
           {/* Events grid */}
           {filtered.length === 0 ? (
             <div className="text-center py-16">
-              <span className="text-5xl mb-4 block">🗓️</span>
+              <CalendarX className="w-12 h-12 mx-auto mb-4" style={{ color: 'var(--tt-text-muted)' }} />
               <h3 className="font-display text-2xl mb-2" style={{ color: 'var(--tt-text)' }}>No events found</h3>
               <p className="font-body text-sm mb-4" style={{ color: 'var(--tt-text-muted)' }}>Try changing your filters or check back soon.</p>
               <button
@@ -136,7 +121,7 @@ const EventsPage = () => {
                     id={event.id}
                     data-event-id={event.id}
                     className={`relative rounded-xl p-6 transition-all duration-300 flex flex-col ${
-                      isDark ? 'glass-card hover-glow' : 'bg-[#ffffff] border border-[#d0e8da] hover-lift'
+                      isDark ? 'glass-card hover-glow' : 'bg-white border border-[hsl(var(--border))] hover-lift'
                     }`}
                     style={!isDark ? { borderBottom: `3px solid ${tagColors[event.tag]}` } : {}}
                   >
@@ -149,10 +134,7 @@ const EventsPage = () => {
                     >
                       {event.tag}
                     </span>
-                    <div className="flex items-start gap-2">
-                      <h3 className="font-body text-lg font-semibold mb-1 flex-1" style={{ color: 'var(--tt-text)' }}>{event.title}</h3>
-                      <span className="font-mono-label text-xs px-2 py-0.5 rounded whitespace-nowrap" style={{ background: 'rgba(0,0,0,0.1)', color: 'var(--tt-text-muted)' }}>{event.id}</span>
-                    </div>
+                    <h3 className="font-body text-lg font-semibold mb-1" style={{ color: 'var(--tt-text)' }}>{event.title}</h3>
                     <p className="font-mono-label text-xs mb-3" style={{ color: 'var(--tt-text-muted)' }}>{event.date}</p>
                     <p className="font-body text-sm mb-4 flex-1" style={{ color: 'var(--tt-text-secondary)' }}>{event.description}</p>
 
@@ -165,7 +147,7 @@ const EventsPage = () => {
                             <span
                               key={s.name}
                               className={`px-2 py-0.5 rounded font-mono-label text-xs ${
-                                isDark ? 'bg-[rgba(0,255,170,0.06)]' : 'bg-[#f0faf4]'
+                                isDark ? 'bg-[rgba(0,255,170,0.06)]' : 'bg-muted/50'
                               }`}
                               style={{ color: 'var(--tt-text-muted)' }}
                             >
