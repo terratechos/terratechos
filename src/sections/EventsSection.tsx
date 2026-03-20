@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { Link } from 'react-router-dom';
 import { useTheme } from '../components/ThemeProvider';
 import { useSectionFade } from '../hooks/useSectionFade';
 import { EVENTS_DATA, tagColors } from '@/data/searchableData';
@@ -33,7 +34,7 @@ export const EventsSection = () => {
 
   return (
     <>
-      <section ref={ref} id="events" className="section-fade py-20 px-4">
+      <section ref={ref} id="events" className="section-fade py-28 px-4">
         <div className="max-w-6xl mx-auto">
           <h2
             className={`font-display text-4xl sm:text-5xl mb-2 ${!isDark ? 'pl-4 border-l-4 border-[#00a86b]' : ''}`}
@@ -43,7 +44,7 @@ export const EventsSection = () => {
           </h2>
           <p className="font-mono-label text-xs mb-8" style={{ color: 'var(--tt-text-muted)' }}>UPCOMING & ONGOING</p>
 
-          <div className="flex flex-wrap gap-2 mb-8">
+          <div className="flex flex-wrap gap-3 mb-8">
             <FilterBtn active={statusFilter === 'all'} onClick={() => setStatusFilter('all')}>ALL</FilterBtn>
             <FilterBtn active={statusFilter === 'ongoing'} onClick={() => setStatusFilter('ongoing')}>🔴 ONGOING</FilterBtn>
             <FilterBtn active={statusFilter === 'upcoming'} onClick={() => setStatusFilter('upcoming')}>UPCOMING</FilterBtn>
@@ -55,13 +56,13 @@ export const EventsSection = () => {
           </div>
 
           <div className="flex justify-end mb-6">
-            <a
-              href="#/events"
+            <Link
+              to="/events"
               className="font-mono-label text-xs transition-colors hover:underline"
               style={{ color: 'var(--tt-accent)' }}
             >
               VIEW ALL EVENTS →
-            </a>
+            </Link>
           </div>
 
           {filtered.length === 0 ? (

@@ -1,7 +1,8 @@
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { HashRouter, Route, Routes, useLocation } from "react-router-dom";
+import { BrowserRouter, Route, Routes, useLocation } from "react-router-dom";
 import { ThemeProvider } from "@/components/ThemeProvider";
 import { TopProgressBar } from "@/components/TopProgressBar";
+import { Toaster } from "@/components/ui/sonner";
 import Index from "./pages/Index";
 import TeamPage from "./pages/TeamPage";
 import GalleryPage from "./pages/GalleryPage";
@@ -28,6 +29,7 @@ const AppRoutes = () => {
         <Route path="/alumni" element={<AlumniPage />} />
         <Route path="/join" element={<JoinPage />} />
         <Route path="/events" element={<EventsPage />} />
+        <Route path="/events/:eventSlug" element={<EventsPage />} />
         <Route path="/resources" element={<ResourcesPage />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
@@ -38,9 +40,10 @@ const AppRoutes = () => {
 const App = () => (
   <QueryClientProvider client={queryClient}>
     <ThemeProvider>
-      <HashRouter>
+      <BrowserRouter>
         <AppRoutes />
-      </HashRouter>
+        <Toaster />
+      </BrowserRouter>
     </ThemeProvider>
   </QueryClientProvider>
 );

@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { useParams } from 'react-router-dom';
 import { Navbar } from '../components/Navbar';
 import { Footer } from '../components/Footer';
 import { BackToTop } from '../components/BackToTop';
@@ -10,6 +11,7 @@ import { EventDetailModal } from '@/components/EventDetailModal';
 import { CalendarX } from 'lucide-react';
 
 const EventsPage = () => {
+  const { eventSlug } = useParams<{ eventSlug?: string }>();
   const { theme } = useTheme();
   const isDark = theme === 'dark';
   const [statusFilter, setStatusFilter] = useState<'all' | EventStatus>('all');
@@ -18,15 +20,14 @@ const EventsPage = () => {
   const [selectedEvent, setSelectedEvent] = useState<ClubEvent | null>(null);
 
   useEffect(() => {
-    // Auto-open event modal from URL hash
-    const hash = window.location.hash.replace('#', '');
-    if (hash) {
-      const matched = EVENTS_DATA.find(e => generateEventSlug(e) === hash);
+    // Auto-open event modal from URL parameter
+    if (eventSlug) {
+      const matched = EVENTS_DATA.find(e => generateEventSlug(e) === eventSlug);
       if (matched) {
         setSelectedEvent(matched);
       }
     }
-  }, []);
+  }, [eventSlug]);
 
   const filtered = EVENTS_DATA.filter(e =>
     (statusFilter === 'all' || e.status === statusFilter) &&
@@ -69,20 +70,20 @@ const EventsPage = () => {
           </div>
 
           {/* Filters */}
-          <div className="flex flex-wrap gap-2 mb-4">
+          <div className="flex flex-wrap gap-3 mb-4">
             <span className="font-mono-label text-xs self-center mr-1" style={{ color: 'var(--tt-text-muted)' }}>STATUS:</span>
             <FilterBtn active={statusFilter === 'all'} onClick={() => setStatusFilter('all')}>ALL</FilterBtn>
             <FilterBtn active={statusFilter === 'ongoing'} onClick={() => setStatusFilter('ongoing')}>🔴 ONGOING</FilterBtn>
             <FilterBtn active={statusFilter === 'upcoming'} onClick={() => setStatusFilter('upcoming')}>UPCOMING</FilterBtn>
           </div>
-          <div className="flex flex-wrap gap-2 mb-4">
+          <div className="flex flex-wrap gap-3 mb-4">
             <span className="font-mono-label text-xs self-center mr-1" style={{ color: 'var(--tt-text-muted)' }}>PERIOD:</span>
             <FilterBtn active={periodFilter === 'all'} onClick={() => setPeriodFilter('all')}>ALL</FilterBtn>
             <FilterBtn active={periodFilter === 'thisMonth'} onClick={() => setPeriodFilter('thisMonth')}>THIS MONTH</FilterBtn>
             <FilterBtn active={periodFilter === 'nextMonth'} onClick={() => setPeriodFilter('nextMonth')}>NEXT MONTH</FilterBtn>
             <FilterBtn active={periodFilter === 'nextTerm'} onClick={() => setPeriodFilter('nextTerm')}>NEXT TERM</FilterBtn>
           </div>
-          <div className="flex flex-wrap gap-2 mb-8">
+          <div className="flex flex-wrap gap-3 mb-8">
             <span className="font-mono-label text-xs self-center mr-1" style={{ color: 'var(--tt-text-muted)' }}>TYPE:</span>
             <FilterBtn active={tagFilter === 'all'} onClick={() => setTagFilter('all')}>ALL</FilterBtn>
             {allTags.map(tag => (
@@ -141,8 +142,8 @@ const EventsPage = () => {
                     {/* Sponsors preview */}
                     {titleSponsors.length > 0 && (
                       <div className="mb-4">
-                        <p className="font-mono-label text-xs mb-1.5" style={{ color: 'var(--tt-text-muted)' }}>POWERED BY</p>
-                        <div className="flex flex-wrap gap-1.5">
+                        <p className="font-mono-label text-xs mb-2" style={{ color: 'var(--tt-text-muted)' }}>POWERED BY</p>
+                        <div className="flex flex-wrap gap-2">
                           {titleSponsors.map(s => (
                             <span
                               key={s.name}

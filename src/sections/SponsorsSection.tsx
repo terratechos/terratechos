@@ -28,17 +28,17 @@ export const SponsorsSection = () => {
   const ref = useSectionFade();
 
   return (
-    <section ref={ref} id="sponsors" className="section-fade py-20 px-4" style={{ background: isDark ? 'transparent' : '#ffffff' }}>
+    <section ref={ref} id="sponsors" className="section-fade py-28 px-4" style={{ background: isDark ? 'transparent' : '#ffffff' }}>
       <div className="max-w-6xl mx-auto">
         <h2 className={`font-display text-4xl sm:text-5xl mb-2 ${!isDark ? 'pl-4 border-l-4 border-[#00a86b]' : ''}`} style={{ color: 'var(--tt-text)' }}>
           SPONSORS & PARTNERS
         </h2>
         <p className="font-mono-label text-xs mb-8" style={{ color: 'var(--tt-text-muted)' }}>TITLE PARTNERS</p>
-        <div className="grid sm:grid-cols-2 gap-6 mb-10">
+        <div className="grid sm:grid-cols-2 gap-6 mb-12">
           {titlePartners.map(p => <LogoPlaceholder key={p.name} name={p.name} large isDark={isDark} />)}
         </div>
-        <p className="font-mono-label text-xs mb-4" style={{ color: 'var(--tt-text-muted)' }}>ASSOCIATE PARTNERS</p>
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+        <p className="font-mono-label text-xs mb-6" style={{ color: 'var(--tt-text-muted)' }}>ASSOCIATE PARTNERS</p>
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
           {associatePartners.map(p => <LogoPlaceholder key={p.name} name={p.name} isDark={isDark} />)}
         </div>
       </div>

@@ -10,12 +10,12 @@ export const UpdatesSection = () => {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
 
   return (
-    <section ref={ref} id="updates" className="section-fade py-20 px-4" style={{ background: isDark ? 'transparent' : '#f0faf4' }}>
+    <section ref={ref} id="updates" className="section-fade py-28 px-4" style={{ background: isDark ? 'transparent' : '#f0faf4' }}>
       <div className="max-w-3xl mx-auto">
         <h2 className={`font-display text-4xl sm:text-5xl mb-8 ${!isDark ? 'pl-4 border-l-4 border-[#00a86b]' : ''}`} style={{ color: 'var(--tt-text)' }}>
           UPDATES
         </h2>
-        <div className="space-y-3">
+        <div className="space-y-4">
           {UPDATES_DATA.map((post, i) => (
             <div
               key={i}

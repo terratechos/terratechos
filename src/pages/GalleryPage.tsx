@@ -89,7 +89,7 @@ const GalleryModal = ({ item, onClose, isDark }: { item: any; onClose: () => voi
           <h3 className="font-display text-xl sm:text-2xl mb-2" style={{ color: 'var(--tt-text)' }}>{item.title}</h3>
           <p className="font-body text-sm mb-4" style={{ color: 'var(--tt-text-secondary)' }}>{item.desc}</p>
 
-          <div className="flex items-center justify-center gap-1.5">
+          <div className="flex items-center justify-center gap-2">
             {item.images.map((_: string, i: number) => (
               <button
                 key={i}

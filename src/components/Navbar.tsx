@@ -5,15 +5,15 @@ import { GlobalSearch } from './GlobalSearch';
 import { Search, Sun, Moon } from 'lucide-react';
 
 const navLinks = [
-  { label: 'Home', href: '/', section: 'home' },
-  { label: 'About', href: '/#about', section: 'about' },
-  { label: 'Events', href: '/#events', section: 'events' },
-  { label: 'Updates', href: '/#updates', section: 'updates' },
+  { label: 'Home', href: '/', section: '' },
+  { label: 'About', href: '/', section: 'about' },
+  { label: 'Events', href: '/', section: 'events' },
+  { label: 'Updates', href: '/', section: 'updates' },
   { label: 'Team', href: '/team', section: '' },
   { label: 'Gallery', href: '/gallery', section: '' },
   { label: 'Community', href: '/community', section: '' },
   { label: 'Alumni', href: '/alumni', section: '' },
-  { label: 'Contact', href: '/#contact', section: 'contact' },
+  { label: 'Contact', href: '/', section: 'contact' },
   { label: 'Join Us', href: '/join', section: '' },
 ];
 
@@ -59,22 +59,32 @@ export const Navbar = () => {
     return () => document.removeEventListener('keydown', handleKey);
   }, []);
 
-  const handleNavClick = (href: string) => {
-    if (href.startsWith('/#')) {
-      const id = href.slice(2);
+  const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, link: typeof navLinks[0]) => {
+    if (link.section) {
+      e.preventDefault();
+      // If not on home page, navigate to home first
+      if (location.pathname !== '/') {
+        window.location.href = '/';
+        return;
+      }
+      // Scroll to section
       setTimeout(() => {
-        const el = document.getElementById(id);
+        const el = document.getElementById(link.section);
         el?.scrollIntoView({ behavior: 'smooth' });
       }, 50);
     }
   };
 
   const isActive = (link: typeof navLinks[0]) => {
+    // For section links (About, Events, etc on home), don't highlight as active
+    if (link.section) {
+      return false;
+    }
     // For standalone pages
-    if (!link.href.startsWith('/#') && link.href !== '/') {
+    if (link.href !== '/') {
       return location.pathname === link.href;
     }
-    return false;
+    return location.pathname === '/';
   };
 
   const isDark = theme === 'dark';
@@ -101,7 +111,7 @@ export const Navbar = () => {
               TERRA<span style={{ color: 'var(--tt-text)' }}>TECH</span>
             </Link>
 
-            <div className="hidden lg:flex items-center gap-1">
+            <div className="hidden lg:flex items-center gap-2">
               {navLinks.map(link => {
                 const isJoinButton = link.label === 'Join Us';
                 const active = isActive(link);
@@ -109,7 +119,7 @@ export const Navbar = () => {
                   <Link
                     key={link.label}
                     to={link.href}
-                    onClick={() => handleNavClick(link.href)}
+                    onClick={(e) => handleNavClick(e, link)}
                     className={`font-mono-label text-xs px-3 py-2 rounded-md transition-all ${
                       isJoinButton
                         ? 'font-semibold hover:opacity-90'
@@ -130,7 +140,7 @@ export const Navbar = () => {
               })}
             </div>
 
-            <div className="flex items-center gap-2">
+            <div className="flex items-center gap-3">
               <button
                 onClick={() => setSearchOpen(true)}
                 className="w-10 h-10 flex items-center justify-center rounded-lg transition-colors hover:bg-[var(--tt-accent)]/10"
@@ -150,7 +160,7 @@ export const Navbar = () => {
                 className="lg:hidden w-10 h-10 flex items-center justify-center rounded-lg hover:bg-[var(--tt-accent)]/10"
                 aria-label="Toggle menu"
               >
-                <div className="space-y-1.5">
+                <div className="space-y-2">
                   <span className={`block w-5 h-0.5 transition-all duration-300 ${mobileOpen ? 'rotate-45 translate-y-2' : ''}`} style={{ background: 'var(--tt-text)' }} />
                   <span className={`block w-5 h-0.5 transition-all duration-300 ${mobileOpen ? 'opacity-0' : ''}`} style={{ background: 'var(--tt-text)' }} />
                   <span className={`block w-5 h-0.5 transition-all duration-300 ${mobileOpen ? '-rotate-45 -translate-y-2' : ''}`} style={{ background: 'var(--tt-text)' }} />
@@ -162,7 +172,7 @@ export const Navbar = () => {
 
         {mobileOpen && (
           <div className={`lg:hidden border-t ${isDark ? 'bg-[rgba(5,10,7,0.95)] border-[rgba(0,255,170,0.1)]' : 'bg-[#ffffff] border-[#d0e8da]'}`}>
-            <div className="px-4 py-4 space-y-1">
+            <div className="px-4 py-4 space-y-2">
               {navLinks.map(link => {
                 const isJoinButton = link.label === 'Join Us';
                 const active = isActive(link);
@@ -170,7 +180,7 @@ export const Navbar = () => {
                   <Link
                     key={link.label}
                     to={link.href}
-                    onClick={() => handleNavClick(link.href)}
+                    onClick={(e) => handleNavClick(e, link)}
                     className={`block font-mono-label text-sm px-3 py-2 rounded-md transition-all ${
                       isJoinButton
                         ? 'font-semibold hover:opacity-90'

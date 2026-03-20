@@ -33,7 +33,7 @@ const AlumniPage = () => {
           </h1>
           <p className="font-body text-lg mb-8" style={{ color: 'var(--tt-text-secondary)' }}>The builders who started here</p>
 
-          <div className="flex gap-2 mb-10">
+          <div className="flex gap-3 mb-10">
             {years.map(y => (
               <button
                 key={y}

@@ -75,7 +75,7 @@ const EventModal = ({ event, onClose, isDark }: { event: DiscordEvent; onClose: 
         <p className="font-mono-label text-xs mb-4" style={{ color: 'var(--tt-accent)' }}>{event.date}</p>
         <p className="font-body text-sm mb-6" style={{ color: 'var(--tt-text-secondary)' }}>{event.description}</p>
 
-        <div className="space-y-2 mb-6">
+        <div className="space-y-3 mb-6">
           {details.map(d => (
             <div key={d.label} className="flex gap-4">
               <span className="font-mono-label text-xs w-20" style={{ color: 'var(--tt-text-muted)' }}>{d.label}</span>
@@ -85,9 +85,9 @@ const EventModal = ({ event, onClose, isDark }: { event: DiscordEvent; onClose: 
         </div>
 
         <h4 className="font-mono-label text-xs mb-3" style={{ color: 'var(--tt-accent)' }}>WHAT YOU'LL LEARN</h4>
-        <ul className="space-y-1 mb-6">
+        <ul className="space-y-2 mb-6">
           {event.learnings.map(l => (
-            <li key={l} className="font-body text-sm flex items-center gap-2" style={{ color: 'var(--tt-text-secondary)' }}>
+            <li key={l} className="font-body text-sm flex items-center gap-3" style={{ color: 'var(--tt-text-secondary)' }}>
               <span style={{ color: 'var(--tt-accent)' }}>→</span> {l}
             </li>
           ))}
@@ -142,13 +142,16 @@ const CommunityPage = () => {
         <p className="font-body text-lg mb-6 max-w-xl mx-auto" style={{ color: 'var(--tt-text-secondary)' }}>
           Our community hub for builders, learners, and innovators
         </p>
-        <a
-          href="#discord"
+        <button
+          onClick={() => {
+            const el = document.getElementById('discord');
+            el?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          }}
           className="inline-block px-8 py-3 rounded-lg font-mono-label text-sm"
           style={{ background: 'var(--tt-accent)', color: isDark ? '#050a07' : '#ffffff' }}
         >
           JOIN OUR DISCORD ↓
-        </a>
+        </button>
       </section>
 
       <main className="relative z-10 px-4">

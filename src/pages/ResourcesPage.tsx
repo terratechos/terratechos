@@ -141,7 +141,7 @@ const ResourcesPage = () => {
                   {openCategory === category && (
                     <div className="px-5 pb-5 space-y-3" style={!isDark ? { background: '#f0faf4' } : {}}>
                       {books.map(b => (
-                        <div key={b.title} className="flex items-start gap-2">
+                        <div key={b.title} className="flex items-start gap-3">
                           <span style={{ color: 'var(--tt-accent)' }}>▸</span>
                           <div>
                             <p className="font-body text-sm font-semibold" style={{ color: 'var(--tt-text)' }}>{b.title}</p>

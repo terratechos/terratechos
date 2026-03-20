@@ -13,10 +13,10 @@ export const AboutSection = () => {
   const ref = useSectionFade();
 
   return (
-    <section ref={ref} id="about" className="section-fade py-20 px-4" style={{ background: isDark ? 'transparent' : '#f0faf4' }}>
+    <section ref={ref} id="about" className="section-fade py-28 px-4" style={{ background: isDark ? 'transparent' : '#f0faf4' }}>
       <div className="max-w-6xl mx-auto">
         {isDark ?
-        <div className="grid md:grid-cols-2 gap-12 items-start">
+        <div className="grid md:grid-cols-2 gap-16 items-start">
             <div>
               <h2 className="font-display text-4xl sm:text-5xl mb-6" style={{ color: 'var(--tt-text)' }}>
                 About <span style={{ color: 'var(--tt-accent)' }}>TerraTech</span>
@@ -25,14 +25,14 @@ export const AboutSection = () => {
                 Founded in 2024, TerraTech is a community-driven technical club focused on fostering creativity, innovation, and hands-on experience in the ever-evolving tech industry. Our mission is to create a dynamic platform where members can collaborate, learn, and grow in various technology fields, empowering them to become leaders and innovators in the tech world.
               </p>
             </div>
-            <div className="space-y-6">
+            <div className="space-y-8">
               <div className="glass-card rounded-xl p-6 hover-glow transition-all">
                 <p className="font-body italic leading-relaxed" style={{ color: 'var(--tt-text-secondary)' }}>
                   <h4 className="font-bold mb-2">Our Mission</h4>
                   "We aim to empower tech enthusiasts through workshops, events, and collaborative projects, fostering both personal and professional growth."
                 </p>
               </div>
-              <div className="flex gap-4">
+              <div className="flex gap-6">
                 {values.map((v) => <div key={v.label} className="glass-card rounded-xl p-4 flex-1 text-center hover-glow transition-all">
                     <div className="text-2xl mb-2">{v.icon}</div>
                     <div className="font-mono-label text-xs" style={{ color: 'var(--tt-accent)' }}>{v.label}</div>
@@ -53,7 +53,7 @@ export const AboutSection = () => {
                 "We aim to empower tech enthusiasts through workshops, events, and collaborative projects, fostering both personal and professional growth."
               </p>
             </div>
-            <div className="flex gap-4">
+            <div className="flex gap-6">
               {values.map((v) =>
             <div key={v.label} className="bg-[#ffffff] border border-[#d0e8da] rounded-xl p-4 flex-1 text-center hover-lift transition-all">
                   <div className="text-2xl mb-2">{v.icon}</div>

@@ -97,7 +97,7 @@ export const ContactSection = () => {
 
   if (status === 'success') {
     return (
-      <section ref={ref} id="contact" className="section-fade py-20 px-4" style={{ background: isDark ? 'transparent' : '#ffffff' }}>
+      <section ref={ref} id="contact" className="section-fade py-28 px-4" style={{ background: isDark ? 'transparent' : '#ffffff' }}>
         <div className="max-w-lg mx-auto text-center">
           <div className="text-5xl mb-4">✅</div>
           <h3 className="font-display text-3xl mb-4" style={{ color: 'var(--tt-text)' }}>MESSAGE SENT</h3>
@@ -127,12 +127,12 @@ export const ContactSection = () => {
   }`;
 
   return (
-    <section ref={ref} id="contact" className="section-fade py-20 px-4" style={{ background: isDark ? 'transparent' : '#ffffff' }}>
+    <section ref={ref} id="contact" className="section-fade py-28 px-4" style={{ background: isDark ? 'transparent' : '#ffffff' }}>
       <div className="max-w-lg mx-auto">
         <h2 className={`font-display text-4xl sm:text-5xl mb-8 ${!isDark ? 'pl-4 border-l-4 border-[#00a86b]' : ''}`} style={{ color: 'var(--tt-text)' }}>
           CONTACT US
         </h2>
-        <form onSubmit={handleSubmit} className="space-y-4">
+        <form onSubmit={handleSubmit} className="space-y-5">
           {/* Honeypot */}
           <input
             name="website"

@@ -16,7 +16,7 @@ export const HeroSection = () => {
   const ref = useSectionFade();
 
   return (
-    <section ref={ref} className="section-fade min-h-screen flex flex-col items-center justify-center relative px-4 pt-20">
+    <section ref={ref} className="section-fade min-h-screen flex flex-col items-center justify-center relative px-4 pt-20 pb-12">
       {!isDark && <div className="absolute inset-0 dot-grid-bg opacity-40" />}
       {isDark && (
         <>
@@ -46,9 +46,12 @@ export const HeroSection = () => {
           )}
         </div>
 
-        <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12">
-          <a
-            href="#events"
+        <div className="flex flex-col sm:flex-row gap-6 justify-center mb-12">
+          <button
+            onClick={() => {
+              const el = document.getElementById('events');
+              el?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }}
             className="px-8 py-3 rounded-lg font-mono-label text-sm font-medium transition-all"
             style={{
               background: 'var(--tt-accent)',
@@ -56,9 +59,12 @@ export const HeroSection = () => {
             }}
           >
             EXPLORE EVENTS →
-          </a>
-          <a
-            href="#about"
+          </button>
+          <button
+            onClick={() => {
+              const el = document.getElementById('about');
+              el?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }}
             className={`px-8 py-3 rounded-lg font-mono-label text-sm font-medium transition-all ${
               isDark
                 ? 'border border-[rgba(0,255,170,0.3)] hover:bg-[rgba(0,255,170,0.1)]'
@@ -67,10 +73,10 @@ export const HeroSection = () => {
             style={{ color: 'var(--tt-accent)' }}
           >
             ABOUT US
-          </a>
+          </button>
         </div>
 
-        <div className={`grid grid-cols-2 md:grid-cols-4 gap-4 ${isDark ? '' : 'max-w-2xl mx-auto'}`}>
+        <div className={`grid grid-cols-2 md:grid-cols-4 gap-6 ${isDark ? '' : 'max-w-2xl mx-auto'}`}>
           {stats.map(s => (
             <div
               key={s.label}

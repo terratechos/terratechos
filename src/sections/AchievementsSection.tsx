@@ -31,7 +31,7 @@ export const AchievementsSection = () => {
   };
 
   return (
-    <section ref={ref} id="achievements" className="section-fade py-20 px-4" style={{ background: isDark ? 'transparent' : 'var(--tt-bg)' }}>
+    <section ref={ref} id="achievements" className="section-fade py-28 px-4" style={{ background: isDark ? 'transparent' : 'var(--tt-bg)' }}>
       <div className="max-w-6xl mx-auto">
         <div className="flex items-end justify-between mb-8">
           <div>
@@ -40,7 +40,7 @@ export const AchievementsSection = () => {
             </h2>
             <p className="font-mono-label text-xs" style={{ color: 'var(--tt-text-muted)' }}>OUR PROUDEST MOMENTS</p>
           </div>
-          <div className="hidden sm:flex gap-2">
+          <div className="hidden sm:flex gap-3">
             <button
               onClick={() => scroll('left')}
               disabled={!canScrollLeft}
@@ -68,7 +68,7 @@ export const AchievementsSection = () => {
 
         <div
           ref={scrollRef}
-          className="flex gap-5 overflow-x-auto pb-4 achievements-scroller"
+          className="flex gap-6 overflow-x-auto pb-4 achievements-scroller"
         >
           {ACHIEVEMENTS_DATA.map((a, i) => (
             <div

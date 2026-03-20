@@ -1,6 +1,6 @@
 import { useEffect, useRef } from 'react';
+import { toast } from 'sonner';
 import { useTheme } from './ThemeProvider';
-import { useToast } from '@/hooks/use-toast';
 import type { ClubEvent } from '@/data/searchableData';
 import { tagColors, generateEventSlug } from '@/data/searchableData';
 import { X, Share2, ExternalLink, Building2 } from 'lucide-react';
@@ -13,7 +13,6 @@ interface Props {
 export const EventDetailModal = ({ event, onClose }: Props) => {
   const { theme } = useTheme();
   const isDark = theme === 'dark';
-  const { toast } = useToast();
   const modalRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -38,9 +37,11 @@ export const EventDetailModal = ({ event, onClose }: Props) => {
 
   const handleShare = () => {
     const slug = generateEventSlug(event);
-    const url = `${window.location.origin}/events#${slug}`;
+    const url = `https://terratech.com/events/${slug}`;
     navigator.clipboard.writeText(url).then(() => {
-      toast({ title: 'Link copied!', description: 'Event link copied to clipboard.' });
+      toast.success('Copied! Event link copied to clipboard.');
+    }).catch(() => {
+      toast.error('Failed to copy link. Please try again.');
     });
   };
 
@@ -97,7 +98,7 @@ export const EventDetailModal = ({ event, onClose }: Props) => {
         </div>
 
         {/* Details grid */}
-        <div className="px-4 sm:px-6 pb-4 grid grid-cols-2 gap-2 sm:gap-3">
+        <div className="px-4 sm:px-6 pb-4 grid grid-cols-2 gap-3 sm:gap-4">
           {[
             { label: 'Location', value: event.location },
             { label: 'Format', value: event.format },
@@ -119,9 +120,9 @@ export const EventDetailModal = ({ event, onClose }: Props) => {
         {/* Expectations */}
         <div className="px-4 sm:px-6 pb-4">
           <h3 className="font-display text-lg mb-2" style={{ color: 'var(--tt-text)' }}>WHAT TO EXPECT</h3>
-          <ul className="space-y-2">
+          <ul className="space-y-3">
             {event.expectations.map((exp, i) => (
-              <li key={i} className="flex items-start gap-2">
+              <li key={i} className="flex items-start gap-3">
                 <span style={{ color: 'var(--tt-accent)' }}>▸</span>
                 <span className="font-body text-sm" style={{ color: 'var(--tt-text-secondary)' }}>{exp}</span>
               </li>
@@ -136,7 +137,7 @@ export const EventDetailModal = ({ event, onClose }: Props) => {
             {titleSponsors.length > 0 && (
               <div className="mb-3">
                 <p className="font-mono-label text-xs mb-2" style={{ color: 'var(--tt-text-muted)' }}>TITLE SPONSORS</p>
-                <div className="flex flex-wrap gap-2">
+                <div className="flex flex-wrap gap-3">
                   {titleSponsors.map(s => (
                     <span
                       key={s.name}
@@ -157,7 +158,7 @@ export const EventDetailModal = ({ event, onClose }: Props) => {
             {associateSponsors.length > 0 && (
               <div>
                 <p className="font-mono-label text-xs mb-2" style={{ color: 'var(--tt-text-muted)' }}>ASSOCIATE PARTNERS</p>
-                <div className="flex flex-wrap gap-2">
+                <div className="flex flex-wrap gap-3">
                   {associateSponsors.map(s => (
                     <span
                       key={s.name}
