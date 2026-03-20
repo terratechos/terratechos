@@ -209,5 +209,7 @@ export const EventDetailModal = ({ event, onClose }: Props) => {
         </div>
       </div>
     </div>
+    </div>
+    </div>
   );
 };
