@@ -3,6 +3,7 @@ import { BrowserRouter, Route, Routes, useLocation } from "react-router-dom";
 import { ThemeProvider } from "@/components/ThemeProvider";
 import { TopProgressBar } from "@/components/TopProgressBar";
 import { FloatingSocials } from "@/components/FloatingSocials";
+import { ScrollToTop } from "@/components/ScrollToTop";
 import { Toaster } from "@/components/ui/sonner";
 import Index from "./pages/Index";
 import TeamPage from "./pages/TeamPage";
@@ -42,6 +43,7 @@ const App = () => (
   <QueryClientProvider client={queryClient}>
     <ThemeProvider>
       <BrowserRouter>
+        <ScrollToTop />
         <AppRoutes />
         <FloatingSocials />
         <Toaster />

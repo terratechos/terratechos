@@ -1,11 +1,12 @@
 import { motion } from 'framer-motion';
-import { Github, Linkedin, Instagram, MessageSquare } from 'lucide-react';
+import { Github, Linkedin, Instagram } from 'lucide-react';
+import { DiscordIcon } from './icons/DiscordIcon';
 import { useTheme } from './ThemeProvider';
 
 const socials = [
   { label: 'LinkedIn', icon: Linkedin, href: 'https://www.linkedin.com/groups/14553246/', color: '#0A66C2' },
   { label: 'Instagram', icon: Instagram, href: 'https://www.instagram.com/terratech_nceh', color: '#E1306C' },
-  { label: 'Discord', icon: MessageSquare, href: 'https://discord.gg/gfYFcsTTRh', color: '#5865F2' },
+  { label: 'Discord', icon: DiscordIcon, href: 'https://discord.gg/gfYFcsTTRh', color: '#5865F2' },
   { label: 'GitHub', icon: Github, href: 'https://github.com/terratech-OS', color: '#888' }
 ];
 

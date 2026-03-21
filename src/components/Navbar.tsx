@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef } from 'react';
-import { Link, useLocation } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { useTheme } from './ThemeProvider';
 import { GlobalSearch } from './GlobalSearch';
 import { Search, Sun, Moon } from 'lucide-react';
@@ -23,6 +23,7 @@ export const Navbar = () => {
   const [mobileOpen, setMobileOpen] = useState(false);
   const [searchOpen, setSearchOpen] = useState(false);
   const location = useLocation();
+  const navigate = useNavigate();
   const navRef = useRef<HTMLElement>(null);
 
   useEffect(() => {
@@ -60,18 +61,31 @@ export const Navbar = () => {
   }, []);
 
   const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, link: typeof navLinks[0]) => {
+    if (link.label === 'Home') {
+      if (location.pathname === '/') {
+        e.preventDefault();
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+        setMobileOpen(false);
+      }
+      return;
+    }
+
     if (link.section) {
       e.preventDefault();
-      // If not on home page, navigate to home first
-      if (location.pathname !== '/') {
-        window.location.href = '/';
-        return;
-      }
-      // Scroll to section
-      setTimeout(() => {
+      const targetHash = `#${link.section}`;
+      
+      // If we're already on home, just update the hash and scroll smoothly
+      if (location.pathname === '/') {
         const el = document.getElementById(link.section);
-        el?.scrollIntoView({ behavior: 'smooth' });
-      }, 50);
+        if (el) {
+          el.scrollIntoView({ behavior: 'smooth' });
+          window.history.pushState(null, '', `/${targetHash}`);
+        }
+      } else {
+        // Navigate to home page with the target hash
+        navigate(`/${targetHash}`);
+      }
+      setMobileOpen(false);
     }
   };
 

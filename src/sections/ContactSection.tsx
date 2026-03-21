@@ -1,6 +1,7 @@
 import { useTheme } from '../components/ThemeProvider';
 import { useSectionFade } from '../hooks/useSectionFade';
-import { Mail, MapPin, MessageSquare } from 'lucide-react';
+import { Mail, MapPin } from 'lucide-react';
+import { DiscordIcon } from '../components/icons/DiscordIcon';
 
 export const ContactSection = () => {
   const { theme } = useTheme();
@@ -28,7 +29,7 @@ export const ContactSection = () => {
 
           <a href="https://discord.gg/gfYFcsTTRh" target="_blank" rel="noopener noreferrer" className={`p-8 rounded-xl flex flex-col items-center transition-all ${isDark ? 'glass-card hover-glow' : 'border border-[#d0e8da] hover-lift'}`} style={!isDark ? { background: '#ffffff' } : {}}>
             <div className="w-16 h-16 rounded-full flex items-center justify-center mb-6" style={{ background: isDark ? 'rgba(88,101,242,0.1)' : '#f0f1fa', color: '#5865F2' }}>
-              <MessageSquare className="w-8 h-8" />
+              <DiscordIcon className="w-8 h-8" />
             </div>
             <h3 className="font-display text-xl mb-2" style={{ color: 'var(--tt-text)' }}>DISCORD</h3>
             <p className="font-mono-label text-sm" style={{ color: 'var(--tt-text-muted)' }}>Join the community</p>

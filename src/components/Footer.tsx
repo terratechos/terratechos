@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom';
 import { useTheme } from './ThemeProvider';
-import { Github, Linkedin, Instagram, MessageSquare } from 'lucide-react';
+import { Github, Linkedin, Instagram } from 'lucide-react';
+import { DiscordIcon } from './icons/DiscordIcon';
 
 const footerLinks = [
   { label: 'Home', href: '/' },
@@ -15,7 +16,7 @@ const socialLinks = [
   { label: 'GitHub', href: 'https://github.com/terratech-OS', icon: <Github className="w-5 h-5" /> },
   { label: 'LinkedIn', href: 'https://www.linkedin.com/groups/14553246/', icon: <Linkedin className="w-5 h-5" /> },
   { label: 'Instagram', href: 'https://www.instagram.com/terratech_nceh', icon: <Instagram className="w-5 h-5" /> },
-  { label: 'Discord', href: 'https://discord.gg/gfYFcsTTRh', icon: <MessageSquare className="w-5 h-5" /> },
+  { label: 'Discord', href: 'https://discord.gg/gfYFcsTTRh', icon: <DiscordIcon className="w-5 h-5" /> },
 ];
 
 export const Footer = () => {

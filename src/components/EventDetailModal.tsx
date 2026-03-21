@@ -82,15 +82,12 @@ export const EventDetailModal = ({ event, onClose }: Props) => {
 
   return (
     <div
-      className="fixed inset-0 z-[100] flex items-center justify-center p-2 sm:p-4"
-      onClick={onClose}
+      className="fixed inset-0 z-[200] flex items-center justify-center p-4 sm:p-6 pb-20 sm:pb-6"
+      style={{ perspective: '1000px' }}
     >
       <div
-        className="absolute inset-0"
-        style={{
-          background: isDark ? 'rgba(0,0,0,0.85)' : 'rgba(0,0,0,0.5)',
-          backdropFilter: 'blur(4px)',
-        }}
+        className="absolute inset-0 bg-background/80 backdrop-blur-sm"
+        onClick={onClose}
       />
       <div
         ref={modalRef}
@@ -304,8 +301,8 @@ export const EventDetailModal = ({ event, onClose }: Props) => {
           </div>
           
           {/* Right column (Poster) */}
-          <div className="hidden lg:block p-6 pl-0">
-            <div className="w-full h-full rounded-xl overflow-hidden relative flex flex-col items-center justify-center text-center transition-all duration-500 hover:scale-[1.02]" style={{ minHeight: '500px', background: isDark ? 'rgba(0,0,0,0.2)' : '#f8f9fa', border: `2px dashed ${tagColors[event.tag]}40` }}>
+          <div className="px-4 pb-4 sm:px-6 sm:pb-6 lg:pt-0 lg:pr-6 lg:pb-6 lg:pl-0">
+            <div className="w-full h-full min-h-[350px] lg:min-h-[500px] rounded-xl overflow-hidden relative flex flex-col items-center justify-center text-center transition-all duration-500 hover:scale-[1.02]" style={{ background: isDark ? 'rgba(0,0,0,0.2)' : '#f8f9fa', border: `2px dashed ${tagColors[event.tag]}40` }}>
               {event.image ? (
                 <img src={event.image} alt={`${event.title} poster`} className="absolute inset-0 w-full h-full object-cover" />
               ) : (
