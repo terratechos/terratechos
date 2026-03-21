@@ -101,7 +101,7 @@ export const EventsSection = () => {
                   </span>
                   <div className="flex items-start gap-2 mb-1">
                     <h3 className="font-body text-lg font-semibold flex-1" style={{ color: 'var(--tt-text)' }}>{event.title}</h3>
-                    <span className="font-mono-label text-xs px-2 py-0.5 rounded whitespace-nowrap" style={{ background: 'rgba(0,0,0,0.1)', color: 'var(--tt-text-muted)' }}>{event.id}</span>
+                    {/* <span className="font-mono-label text-xs px-2 py-0.5 rounded whitespace-nowrap" style={{ background: 'rgba(0,0,0,0.1)', color: 'var(--tt-text-muted)' }}>{event.id}</span> */}
                   </div>
                   <p className="font-mono-label text-xs mb-3" style={{ color: 'var(--tt-text-muted)' }}>{event.date}</p>
                   <p className="font-body text-sm mb-4" style={{ color: 'var(--tt-text-secondary)' }}>{event.description}</p>

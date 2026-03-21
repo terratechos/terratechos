@@ -25,11 +25,12 @@ export interface ClubEvent {
   expectations: string[];
   registerUrl: string;
   sponsors: EventSponsor[];
+  image?: string;
 }
 
 // Generate a deterministic slug from event title + date
 export function generateEventSlug(event: ClubEvent): string {
-  return `${event.title}-${event.date}`
+  return `${event.title}`
     .toLowerCase()
     .replace(/[^a-z0-9]+/g, '-')
     .replace(/(^-|-$)/g, '');

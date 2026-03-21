@@ -168,29 +168,28 @@ const CommunityPage = () => {
 
           {/* Discord Widget */}
           <section id="discord" className="py-8">
-            <div
-              className={`rounded-xl p-6 ${isDark ? 'glass-card' : 'bg-[#ffffff] border border-[#d0e8da]'}`}
-              style={{ borderLeft: '4px solid #5865F2' }}
-            >
-              <div className="flex items-center gap-3 mb-4">
-                <span className="text-2xl">💬</span>
-                <h3 className="font-display text-2xl" style={{ color: 'var(--tt-text)' }}>JOIN OUR DISCORD</h3>
-              </div>
-              <p className="font-body text-sm mb-4" style={{ color: 'var(--tt-text-secondary)' }}>
-                Connect with fellow members, get help, share projects, and stay updated on events.
-              </p>
-              <button
-                onClick={showToast}
-                className="px-6 py-3 rounded-lg font-mono-label text-sm mb-3"
-                style={{ background: '#5865F2', color: '#ffffff' }}
-              >
-                JOIN DISCORD SERVER
-              </button>
-              <p className="font-mono-label text-xs" style={{ color: 'var(--tt-text-muted)' }}>
-                LINK COMING SOON · STAY TUNED!
-              </p>
-            </div>
-          </section>
+  <div
+    className={`rounded-xl p-6 ${isDark ? 'glass-card' : 'bg-[#ffffff] border border-[#d0e8da]'}`}
+    style={{ borderLeft: '4px solid #5865F2' }}
+  >
+    <div className="flex items-center gap-3 mb-4">
+      <span className="text-2xl">💬</span>
+      <h3 className="font-display text-2xl" style={{ color: 'var(--tt-text)' }}>JOIN OUR DISCORD</h3>
+    </div>
+    <p className="font-body text-sm mb-4" style={{ color: 'var(--tt-text-secondary)' }}>
+      Connect with fellow members, get help, share projects, and stay updated on events.
+    </p>
+    <a
+      href="https://discord.gg/gfYFcsTTRh"
+      target="_blank"
+      rel="noopener noreferrer"
+      className="inline-block px-6 py-3 rounded-lg font-mono-label text-sm"
+      style={{ background: '#5865F2', color: '#ffffff' }}
+    >
+      JOIN DISCORD SERVER
+    </a>
+  </div>
+</section>
 
           {/* Features */}
           <section className="py-16" style={!isDark ? { background: '#f0faf4', borderRadius: '1rem', padding: '2rem', marginBottom: '2rem' } : {}}>

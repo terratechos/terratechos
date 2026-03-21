@@ -4,22 +4,13 @@ import { Navbar } from '../components/Navbar';
 import { Footer } from '../components/Footer';
 import { BackToTop } from '../components/BackToTop';
 import { Link } from 'react-router-dom';
-
-const alumni = [
-  { name: 'Rahul Verma', batch: 2026, role: 'SDE at Google', linkedin: '#' },
-  { name: 'Aisha Khan', batch: 2026, role: 'ML Engineer at Flipkart', linkedin: '#' },
-  { name: 'Dev Patel', batch: 2025, role: 'Founding Engineer at a startup', linkedin: '#' },
-  { name: 'Nisha Iyer', batch: 2025, role: 'Product Manager at Microsoft', linkedin: '#' },
-  { name: 'Arjun Menon', batch: 2024, role: 'PhD student at IIT Bombay', linkedin: '#' },
-  { name: 'Prerna Singh', batch: 2024, role: 'Full Stack Dev at Razorpay', linkedin: '#' },
-];
-
-const years = ['All', '2026', '2025', '2024'] as const;
+import { alumni, years } from '../data/AlumniData';  // ← import, not hardcode
+import type { YearFilter } from '../data/AlumniData';
 
 const AlumniPage = () => {
   const { theme } = useTheme();
   const isDark = theme === 'dark';
-  const [filter, setFilter] = useState<string>('All');
+  const [filter, setFilter] = useState<YearFilter>('All');
 
   const filtered = filter === 'All' ? alumni : alumni.filter(a => a.batch === parseInt(filter));
 
@@ -71,8 +62,8 @@ const AlumniPage = () => {
                   <h3 className="font-body font-semibold mb-1" style={{ color: 'var(--tt-text)' }}>{a.name}</h3>
                   <p className="font-mono-label text-xs mb-1" style={{ color: 'var(--tt-accent)' }}>BATCH {a.batch}</p>
                   <p className="font-body text-sm mb-4" style={{ color: 'var(--tt-text-secondary)' }}>{a.role}</p>
-                  <a
-                    href={a.linkedin}
+                  
+                   <a href={a.linkedin}
                     className="font-mono-label text-xs transition-colors"
                     style={{ color: 'var(--tt-accent)' }}
                     aria-label={`${a.name}'s LinkedIn profile`}

@@ -2,6 +2,7 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Route, Routes, useLocation } from "react-router-dom";
 import { ThemeProvider } from "@/components/ThemeProvider";
 import { TopProgressBar } from "@/components/TopProgressBar";
+import { FloatingSocials } from "@/components/FloatingSocials";
 import { Toaster } from "@/components/ui/sonner";
 import Index from "./pages/Index";
 import TeamPage from "./pages/TeamPage";
@@ -9,7 +10,7 @@ import GalleryPage from "./pages/GalleryPage";
 import CommunityPage from "./pages/CommunityPage";
 import AlumniPage from "./pages/AlumniPage";
 import JoinPage from "./pages/JoinPage";
-import ResourcesPage from "./pages/ResourcesPage";
+// import ResourcesPage from "./pages/ResourcesPage";
 import EventsPage from "./pages/EventsPage";
 import NotFound from "./pages/NotFound";
 
@@ -30,7 +31,7 @@ const AppRoutes = () => {
         <Route path="/join" element={<JoinPage />} />
         <Route path="/events" element={<EventsPage />} />
         <Route path="/events/:eventSlug" element={<EventsPage />} />
-        <Route path="/resources" element={<ResourcesPage />} />
+        {/* <Route path="/resources" element={<ResourcesPage />} /> */}
         <Route path="*" element={<NotFound />} />
       </Routes>
     </>
@@ -42,6 +43,7 @@ const App = () => (
     <ThemeProvider>
       <BrowserRouter>
         <AppRoutes />
+        <FloatingSocials />
         <Toaster />
       </BrowserRouter>
     </ThemeProvider>
