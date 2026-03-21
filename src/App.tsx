@@ -4,6 +4,7 @@ import { ThemeProvider } from "@/components/ThemeProvider";
 import { TopProgressBar } from "@/components/TopProgressBar";
 import { FloatingSocials } from "@/components/FloatingSocials";
 import { ScrollToTop } from "@/components/ScrollToTop";
+import { ScraperTrap } from "@/components/ScraperTrap";
 import { Toaster } from "@/components/ui/sonner";
 import Index from "./pages/Index";
 import TeamPage from "./pages/TeamPage";
@@ -44,6 +45,7 @@ const App = () => (
     <ThemeProvider>
       <BrowserRouter>
         <ScrollToTop />
+        <ScraperTrap />
         <AppRoutes />
         <FloatingSocials />
         <Toaster />
