@@ -1,73 +1,58 @@
-# Welcome to your Lovable project
+# TerraTech Hub 🚀
 
-## Project info
+Welcome to the **TerraTech Club** official website repository! This platform is built to connect students, manage events, and showcase the projects of our vibrant tech community.
 
-**URL**: https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID
+## 🏗️ Technology Stack
 
-## How can I edit this code?
+This project is a modern, high-performance web application built with:
 
-There are several ways of editing your application.
+- **Frontend Framework**: [React 18](https://react.dev/) + [TypeScript](https://www.typescriptlang.org/)
+- **Build Tool**: [Vite](https://vitejs.dev/)
+- **Styling**: [Tailwind CSS](https://tailwindcss.com/) with a custom Glassmorphic design system
+- **UI Architecture**: Component-based routing via `react-router-dom`
+- **Animations**: Framer Motion & native `<canvas>` particles
 
-**Use Lovable**
+## 🚀 Getting Started
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID) and start prompting.
+### Prerequisites
 
-Changes made via Lovable will be committed automatically to this repo.
+Ensure you have Node.js and `npm` installed on your machine.
+- [Download Node.js](https://nodejs.org/)
 
-**Use your preferred IDE**
+### Local Development
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+1. **Clone the repository:**
+   ```sh
+   git clone <YOUR-REPO-URL>
+   cd terratech-hub
+   ```
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+2. **Install dependencies:**
+   ```sh
+   npm install
+   ```
 
-Follow these steps:
+3. **Start the development server:**
+   ```sh
+   npm run dev
+   ```
 
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
+4. **View the live application:**
+   The site will typically run at `http://localhost:8080`. Check your terminal for the exact local network address.
 
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
+## 📁 Project Architecture
 
-# Step 3: Install the necessary dependencies.
-npm i
+- `/src/components/` - Granular UI pieces (Navbar, EventModals, Buttons)
+- `/src/pages/` - Top-level route pages (Home, Team, Events)
+- `/src/sections/` - Major layout segments within pages
+- `/public/` - Static assets, static localized `blog.html`, and `BlogData.ts` payloads
 
-# Step 4: Start the development server with auto-reloading and an instant preview.
-npm run dev
-```
+## 🛡️ Cyber Defenses
 
-**Edit a file directly in GitHub**
+This project features integrated passive-action defense mechanisms (`ScraperTrap.tsx`) designed to defend against data-harvesting bots, unapproved ML indexers, and non-compliant LLM crawlers via targeted DOM tarpits and context poisoning. 
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+**This repository contains no hardcoded backend secrets and is 100% safe to host statically publicly.**
 
-**Use GitHub Codespaces**
+## 📜 Copyright
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
-
-## What technologies are used for this project?
-
-This project is built with:
-
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
-
-## How can I deploy this project?
-
-Simply open [Lovable](https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID) and click on Share -> Publish.
-
-## Can I connect a custom domain to my Lovable project?
-
-Yes, you can!
-
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
-
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/features/custom-domain#custom-domain)
+© 2024–2025 TerraTech Club. All rights reserved.
