@@ -154,8 +154,9 @@ export const EventDetailModal = ({ event, onClose }: Props) => {
                 { label: 'Location', value: event.location },
                 { label: 'Format', value: event.format },
                 { label: 'Team Size', value: event.teamSize },
+                { label: 'Entry Fee', value: event.entryFee ?? 'Free' },
                 { label: 'Prize', value: event.prize },
-              ].map(d => (
+              ].filter(d => d.value).map(d => (
                 <div
                   key={d.label}
                   className={`rounded-lg p-2.5 sm:p-3 ${
@@ -271,8 +272,8 @@ export const EventDetailModal = ({ event, onClose }: Props) => {
 
             {/* Actions */}
             <div className="px-4 sm:px-6 pb-4 sm:pb-6 flex gap-3">
-              
-                <a href={event.registerUrl}
+              <a
+                href={event.registerUrl}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex-1 text-center py-3 rounded-lg font-mono-label text-xs transition-colors inline-flex items-center justify-center gap-2"
@@ -280,7 +281,8 @@ export const EventDetailModal = ({ event, onClose }: Props) => {
                   background: 'var(--tt-accent)',
                   color: isDark ? '#050a07' : '#ffffff',
                 }}
-                aria-label={`Register for ${event.title}`} >
+                aria-label={`Register for ${event.title}`}
+              >
                 REGISTER NOW
                 <ExternalLink className="w-3.5 h-3.5" />
               </a>
@@ -299,24 +301,46 @@ export const EventDetailModal = ({ event, onClose }: Props) => {
               </button>
             </div>
           </div>
-          
+
           {/* Right column (Poster) */}
           <div className="px-4 pb-4 sm:px-6 sm:pb-6 lg:pt-0 lg:pr-6 lg:pb-6 lg:pl-0">
-            <div className="w-full h-full min-h-[350px] lg:min-h-[500px] rounded-xl overflow-hidden relative flex flex-col items-center justify-center text-center transition-all duration-500 hover:scale-[1.02]" style={{ background: isDark ? 'rgba(0,0,0,0.2)' : '#f8f9fa', border: `2px dashed ${tagColors[event.tag]}40` }}>
+            <div
+              className="w-full h-full min-h-[350px] lg:min-h-[500px] rounded-xl overflow-hidden relative flex flex-col items-center justify-center text-center transition-all duration-500 hover:scale-[1.02]"
+              style={{
+                background: isDark ? 'rgba(0,0,0,0.2)' : '#f8f9fa',
+                border: `2px dashed ${tagColors[event.tag]}40`,
+              }}
+            >
               {event.image ? (
-                <img src={event.image} alt={`${event.title} poster`} className="absolute inset-0 w-full h-full object-cover" />
+                <img
+                  src={event.image}
+                  alt={`${event.title} poster`}
+                  className="absolute inset-0 w-full h-full object-cover"
+                />
               ) : (
                 <div className="p-8">
-                  <div className="w-24 h-24 mx-auto rounded-full mb-6 flex items-center justify-center shadow-[0_0_30px_rgba(0,0,0,0.2)]" style={{ background: `${tagColors[event.tag]}20`, color: tagColors[event.tag] }}>
+                  <div
+                    className="w-24 h-24 mx-auto rounded-full mb-6 flex items-center justify-center shadow-[0_0_30px_rgba(0,0,0,0.2)]"
+                    style={{ background: `${tagColors[event.tag]}20`, color: tagColors[event.tag] }}
+                  >
                     <span className="text-4xl">✨</span>
                   </div>
-                  <h3 className="font-display text-4xl mb-3 opacity-60" style={{ color: 'var(--tt-text)' }}>{event.title}</h3>
-                  <p className="font-mono-label text-sm opacity-50 tracking-widest" style={{ color: 'var(--tt-text-muted)' }}>POSTER COMING SOON</p>
+                  <h3
+                    className="font-display text-4xl mb-3 opacity-60"
+                    style={{ color: 'var(--tt-text)' }}
+                  >
+                    {event.title}
+                  </h3>
+                  <p
+                    className="font-mono-label text-sm opacity-50 tracking-widest"
+                    style={{ color: 'var(--tt-text-muted)' }}
+                  >
+                    POSTER COMING SOON
+                  </p>
                 </div>
               )}
             </div>
           </div>
-
         </div>
       </div>
     </div>

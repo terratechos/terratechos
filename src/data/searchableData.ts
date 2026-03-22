@@ -26,6 +26,7 @@ export interface ClubEvent {
   registerUrl: string;
   sponsors: EventSponsor[];
   image?: string;
+  entryFee?: string;
 }
 
 // Generate a deterministic slug from event title + date
@@ -46,11 +47,12 @@ export const tagColors: Record<EventTag, string> = {
 
 export const EVENTS_DATA: ClubEvent[] = [
   {
-    id: 'hackterra-2025', title: 'HackTerra 2025', tag: 'Hackathon', date: 'Mar 10–12', status: 'ongoing', period: 'thisMonth',
+    id: 'Hackloom ', title: 'Hackloom 2.O', tag: 'Hackathon', date: 'Apr _ _-_ _', status: 'upcoming', period: 'nextMonth',
     description: '48-hour hackathon with industry mentors and prizes',
-    location: 'Main Auditorium', format: 'Hybrid', teamSize: '2–4 members', prize: '₹10,000 pool',
-    expectations: ['Build a working prototype in 48 hours', 'Get mentored by industry professionals', 'Network with fellow developers', 'Win exciting prizes and goodies'],
+    location: 'Announced Soon', format: 'Offline', teamSize: '2–4 members', prize: '₹10,000 pool',
+    expectations: ['Build a working prototype in 48 hours', 'Network with fellow developers', 'Win exciting prizes and goodies'],
     registerUrl: '#',
+    entryFee: '₹--- per team',
     sponsors: [
       { name: 'SPONSOR 1', tier: 'title', href: '#' },
       { name: 'SPONSOR 2', tier: 'title', href: '#' },
@@ -58,65 +60,70 @@ export const EVENTS_DATA: ClubEvent[] = [
       { name: 'SPONSOR 4', tier: 'associate', href: '#' },
     ],
   },
+  // {
+  //   id: 'ai-workshop-series', title: 'AI Workshop Series', tag: 'Workshop', date: 'Mar 15', status: 'ongoing', period: 'thisMonth',
+  //   description: 'Hands-on workshop covering ML fundamentals and deployment',
+  //   location: 'CS Lab 301', format: 'Offline', teamSize: 'Individual', prize: 'Certificates',
+  //   expectations: ['Learn ML fundamentals from scratch', 'Hands-on model training and deployment', 'Work with real-world datasets'],
+  //   registerUrl: '#',
+  //   sponsors: [
+  //     { name: 'OpenStack India', tier: 'title', href: '#' },
+  //     { name: 'SkillForge', tier: 'associate', href: '#' },
+  //   ],
+  // },
+  // {
+  //   id: 'devtalks-vol3', title: 'DevTalks Vol.3', tag: 'Talk', date: 'Apr 5', status: 'upcoming', period: 'nextMonth',
+  //   description: 'Industry speakers on cloud-native, web3, and OSS',
+  //   location: 'Seminar Hall B', format: 'Hybrid', teamSize: 'Individual', prize: 'Swag kits',
+  //   expectations: ['Hear from Google & Microsoft engineers', 'Q&A with industry leaders', 'Networking opportunities'],
+  //   registerUrl: '#',
+  //   sponsors: [
+  //     { name: 'CloudNova', tier: 'title', href: '#' },
+  //     { name: 'DevHub', tier: 'associate', href: '#' },
+  //     { name: 'SkillForge', tier: 'associate', href: '#' },
+  //   ],
+  // },
   {
-    id: 'ai-workshop-series', title: 'AI Workshop Series', tag: 'Workshop', date: 'Mar 15', status: 'ongoing', period: 'thisMonth',
-    description: 'Hands-on workshop covering ML fundamentals and deployment',
-    location: 'CS Lab 301', format: 'Offline', teamSize: 'Individual', prize: 'Certificates',
-    expectations: ['Learn ML fundamentals from scratch', 'Hands-on model training and deployment', 'Work with real-world datasets'],
+    id: 'expo', title: 'Project Expo', tag: 'Competition', date: 'Mar 28', status: 'upcoming', period: 'thisMonth',
+    description: 'Showcase your projects, get feedback from experts, and compete for the top spot.',
+    location: 'Online', format: 'Online', teamSize: '1–3 members', prize: '₹500 pool',
+     expectations: [
+    'Present your project to a panel of judges',
+    'Receive live feedback and insights from industry experts',
+    'Compete across categories for prizes and recognition',
+    ],
     registerUrl: '#',
+    entryFee: '₹90 per team',
     sponsors: [
-      { name: 'OpenStack India', tier: 'title', href: '#' },
-      { name: 'SkillForge', tier: 'associate', href: '#' },
+      // { name: 'ByteWorks', tier: 'title', href: '#' },
+      // { name: 'OpenStack India', tier: 'associate', href: '#' },
     ],
   },
-  {
-    id: 'devtalks-vol3', title: 'DevTalks Vol.3', tag: 'Talk', date: 'Apr 5', status: 'upcoming', period: 'nextMonth',
-    description: 'Industry speakers on cloud-native, web3, and OSS',
-    location: 'Seminar Hall B', format: 'Hybrid', teamSize: 'Individual', prize: 'Swag kits',
-    expectations: ['Hear from Google & Microsoft engineers', 'Q&A with industry leaders', 'Networking opportunities'],
-    registerUrl: '#',
-    sponsors: [
-      { name: 'CloudNova', tier: 'title', href: '#' },
-      { name: 'DevHub', tier: 'associate', href: '#' },
-      { name: 'SkillForge', tier: 'associate', href: '#' },
-    ],
-  },
-  {
-    id: 'ctf-championship', title: 'CTF Championship', tag: 'Competition', date: 'Apr 20', status: 'upcoming', period: 'nextMonth',
-    description: 'Capture the flag security competition',
-    location: 'Online', format: 'Online', teamSize: '1–3 members', prize: '₹5,000 pool',
-    expectations: ['Solve real-world security challenges', 'Learn offensive and defensive techniques', 'Compete with top security enthusiasts'],
-    registerUrl: '#',
-    sponsors: [
-      { name: 'ByteWorks', tier: 'title', href: '#' },
-      { name: 'OpenStack India', tier: 'associate', href: '#' },
-    ],
-  },
-  {
-    id: 'open-source-sprint', title: 'Open Source Sprint', tag: 'Collab', date: 'May 1', status: 'upcoming', period: 'nextTerm',
-    description: 'Contribute to real open source projects',
-    location: 'CS Lab 201', format: 'Offline', teamSize: '2–5 members', prize: 'GitHub swag',
-    expectations: ['Contribute to popular OSS projects', 'Learn Git workflow and code review', 'Build your open source portfolio'],
-    registerUrl: '#',
-    sponsors: [
-      { name: 'DevHub', tier: 'title', href: '#' },
-    ],
-  },
-  {
-    id: 'annual-tech-fest', title: 'Annual Tech Fest', tag: 'Hackathon', date: 'Jun 14', status: 'upcoming', period: 'nextTerm',
-    description: 'Our flagship annual technology festival',
-    location: 'University Campus', format: 'Offline', teamSize: '2–6 members', prize: '₹25,000 pool',
-    expectations: ['Multiple tracks: AI, Web, Mobile, IoT', 'Industry-sponsored challenges', 'Career fair with top companies', 'Live entertainment and food stalls'],
-    registerUrl: '#',
-    sponsors: [
-      { name: 'SPONSOR 1', tier: 'title', href: '#' },
-      { name: 'SPONSOR 2', tier: 'title', href: '#' },
-      { name: 'SPONSOR 3', tier: 'associate', href: '#' },
-      { name: 'SPONSOR 4', tier: 'associate', href: '#' },
-      { name: 'SPONSOR 5', tier: 'associate', href: '#' },
-      { name: 'SPONSOR 6', tier: 'associate', href: '#' },
-    ],
-  },
+  // {
+  //   id: 'open-source-sprint', title: 'Open Source Sprint', tag: 'Collab', date: 'May 1', status: 'upcoming', period: 'nextTerm',
+  //   description: 'Contribute to real open source projects',
+  //   location: 'CS Lab 201', format: 'Offline', teamSize: '2–5 members', prize: 'GitHub swag',
+  //   expectations: ['Contribute to popular OSS projects', 'Learn Git workflow and code review', 'Build your open source portfolio'],
+  //   registerUrl: '#',
+  //   sponsors: [
+  //     { name: 'DevHub', tier: 'title', href: '#' },
+  //   ],
+  // },
+  // {
+  //   id: 'annual-tech-fest', title: 'Annual Tech Fest', tag: 'Hackathon', date: 'Jun 14', status: 'upcoming', period: 'nextTerm',
+  //   description: 'Our flagship annual technology festival',
+  //   location: 'University Campus', format: 'Offline', teamSize: '2–6 members', prize: '₹25,000 pool',
+  //   expectations: ['Multiple tracks: AI, Web, Mobile, IoT', 'Industry-sponsored challenges', 'Career fair with top companies', 'Live entertainment and food stalls'],
+  //   registerUrl: '#',
+  //   sponsors: [
+  //     { name: 'SPONSOR 1', tier: 'title', href: '#' },
+  //     { name: 'SPONSOR 2', tier: 'title', href: '#' },
+  //     { name: 'SPONSOR 3', tier: 'associate', href: '#' },
+  //     { name: 'SPONSOR 4', tier: 'associate', href: '#' },
+  //     { name: 'SPONSOR 5', tier: 'associate', href: '#' },
+  //     { name: 'SPONSOR 6', tier: 'associate', href: '#' },
+  //   ],
+  // },
 ];
 
 export interface UpdatePost {
@@ -178,10 +185,10 @@ export const TEAMS_DATA: Department[] = [
   {
     emoji: '📹', name: 'Media & Production Wing', color: '#ffd166',
     members: [
-      { name: 'Abiram Bhargav M Y', role: 'Media Head', linkedin: 'https://linkedin.com/in/deepak-verma' },
-      { name: 'Chinmayi ', role: 'Photographer', linkedin: 'https://linkedin.com/in/anjali-mishra' },
-      { name: 'Chandan H', role: 'Videographer', linkedin: 'https://linkedin.com/in/siddharth-rao' },
-      { name: 'Sinchana HP', role: 'Editor', linkedin: 'https://linkedin.com/in/kavya-singh' },
+      { name: 'Abiram Bhargav M Y', role: 'Media Head', linkedin: '#' },
+      { name: 'Chinmayi ', role: 'Photographer', linkedin: '#' },
+      { name: 'Chandan H', role: 'Videographer', linkedin: '#' },
+      { name: 'Sinchana HP', role: 'Editor', linkedin: '#' },
     ],
   },
   {
@@ -221,9 +228,9 @@ export interface Achievement {
 }
 
 export const ACHIEVEMENTS_DATA: Achievement[] = [
-  { emoji: '🥇', title: 'Smart India Hackathon 2024', event: '1st Place', team: 'Team Nexus', tag: '🥇 1st Place', tagColor: '#ffd166' },
-  { emoji: '🥇', title: 'HackTerra 2023 Champion', event: '1st Place', team: 'Team ByteForce', tag: '🥇 1st Place', tagColor: '#ffd166' },
-  { emoji: '🎖️', title: 'Google Solution Challenge', event: 'Finalist', team: 'Aisha Khan & Dev Patel', tag: '🎖️ Finalist', tagColor: '#7b8cff' },
-  { emoji: '🥈', title: 'National Coding Olympiad', event: '2nd Place', team: 'Rohan Das', tag: '🥈 2nd Place', tagColor: '#c0c0c0' },
-  { emoji: '🎖️', title: 'Open Source Contributor Award', event: 'Recognition', team: 'Siddharth Rao', tag: '🎖️ Recognition', tagColor: '#ff6b35' },
+  // { emoji: '🥇', title: 'Smart India Hackathon 2024', event: '1st Place', team: 'Team Nexus', tag: '🥇 1st Place', tagColor: '#ffd166' },
+  // { emoji: '🥇', title: 'HackTerra 2023 Champion', event: '1st Place', team: 'Team ByteForce', tag: '🥇 1st Place', tagColor: '#ffd166' },
+  // { emoji: '🎖️', title: 'Google Solution Challenge', event: 'Finalist', team: 'Aisha Khan & Dev Patel', tag: '🎖️ Finalist', tagColor: '#7b8cff' },
+  // { emoji: '🥈', title: 'National Coding Olympiad', event: '2nd Place', team: 'Rohan Das', tag: '🥈 2nd Place', tagColor: '#c0c0c0' },
+  // { emoji: '🎖️', title: 'Open Source Contributor Award', event: 'Recognition', team: 'Siddharth Rao', tag: '🎖️ Recognition', tagColor: '#ff6b35' },
 ];

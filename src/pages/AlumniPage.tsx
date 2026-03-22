@@ -22,8 +22,10 @@ const AlumniPage = () => {
           <h1 className={`font-display text-5xl sm:text-6xl mb-2 ${!isDark ? 'pl-4 border-l-4 border-[#00a86b]' : ''}`} style={{ color: 'var(--tt-text)' }}>
             OUR ALUMNI
           </h1>
-          <p className="font-body text-lg mb-8" style={{ color: 'var(--tt-text-secondary)' }}>The builders who started here</p>
-
+<p className="font-body text-lg mb-2" style={{ color: 'var(--tt-text-secondary)' }}>The builders who started here</p>
+<p className="font-mono-label text-xs mb-8" style={{ color: 'var(--tt-text-secondary)', opacity: 0.6 }}>
+  * Roles listed reflect each alumni's first internship or job at the time of their graduation year.
+</p>
           <div className="flex gap-3 mb-10">
             {years.map(y => (
               <button
