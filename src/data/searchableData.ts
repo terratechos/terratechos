@@ -87,12 +87,13 @@ export const EVENTS_DATA: ClubEvent[] = [
     id: 'expo', title: 'Project Expo', tag: 'Competition', date: 'Mar 28', status: 'upcoming', period: 'thisMonth',
     description: 'Showcase your projects, get feedback from experts, and compete for the top spot.',
     location: 'Online', format: 'Online', teamSize: '1–3 members', prize: '₹500 pool',
-     expectations: [
-    'Present your project to a panel of judges',
-    'Receive live feedback and insights from industry experts',
-    'Compete across categories for prizes and recognition',
+    expectations: [
+      'Present your project to a panel of judges',
+      'Receive live feedback and insights from industry experts',
+      'Compete across categories for prizes and recognition',
     ],
     registerUrl: '#',
+    image: 'https://www.canva.com/design/DAHDogfeQOE/fw8P2flIT6oC1kNxIBDzsA/view',
     entryFee: '₹90 per team',
     sponsors: [
       // { name: 'ByteWorks', tier: 'title', href: '#' },
@@ -194,7 +195,7 @@ export const TEAMS_DATA: Department[] = [
   {
     emoji: '🎨', name: 'Creative Wing', color: '#ff3b6b',
     members: [
-       { name: 'Rohith A', role: 'Graphic Designer', linkedin: '#' },
+      { name: 'Rohith A', role: 'Graphic Designer', linkedin: '#' },
       { name: 'Open Spot', role: 'Creative Head', linkedin: '#/join' },
       { name: 'Open Spot', role: 'Copywriter', linkedin: '#/join' },
     ],

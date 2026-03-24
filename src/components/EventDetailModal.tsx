@@ -1,4 +1,4 @@
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { toast } from 'sonner';
 import { useTheme } from './ThemeProvider';
 import type { ClubEvent } from '@/data/searchableData';
@@ -10,10 +10,25 @@ interface Props {
   onClose: () => void;
 }
 
+/** Detect Canva share/view URLs and return an embeddable iframe src */
+function resolveImageEmbed(url: string): { type: 'img' | 'iframe'; src: string } {
+  if (url.includes('canva.com/design/')) {
+    // Strip trailing slash, ensure ?embed is appended
+    const base = url.replace(/\/$/, '').split('?')[0];
+    return { type: 'iframe', src: `${base}?embed` };
+  }
+  return { type: 'img', src: url };
+}
+
 export const EventDetailModal = ({ event, onClose }: Props) => {
   const { theme } = useTheme();
   const isDark = theme === 'dark';
   const modalRef = useRef<HTMLDivElement>(null);
+  const [imgError, setImgError] = useState(false);
+
+  useEffect(() => {
+    setImgError(false); // reset on new event
+  }, [event?.id]);
 
   useEffect(() => {
     if (!event) return;
@@ -80,6 +95,10 @@ export const EventDetailModal = ({ event, onClose }: Props) => {
   const titleSponsors = event.sponsors?.filter(s => s.tier === 'title') || [];
   const associateSponsors = event.sponsors?.filter(s => s.tier === 'associate') || [];
 
+  // Resolve embed type
+  const embed = event.image ? resolveImageEmbed(event.image) : null;
+  const showMedia = embed && !imgError;
+
   return (
     <div
       className="fixed inset-0 z-[200] flex items-center justify-center p-4 sm:p-6 pb-20 sm:pb-6"
@@ -91,11 +110,10 @@ export const EventDetailModal = ({ event, onClose }: Props) => {
       />
       <div
         ref={modalRef}
-        className={`relative w-full max-w-lg lg:max-w-3xl rounded-xl overflow-hidden max-h-[90vh] overflow-y-auto ${
-          isDark
+        className={`relative w-full max-w-lg lg:max-w-3xl rounded-xl overflow-hidden max-h-[90vh] overflow-y-auto ${isDark
             ? 'bg-[rgba(10,20,15,0.95)] border border-[rgba(0,255,170,0.15)] shadow-[0_0_40px_rgba(0,255,170,0.08)]'
             : 'bg-white border border-[hsl(var(--border))] shadow-xl'
-        }`}
+          }`}
         onClick={e => e.stopPropagation()}
         role="dialog"
         aria-label={`Event details: ${event.title}`}
@@ -115,9 +133,8 @@ export const EventDetailModal = ({ event, onClose }: Props) => {
             </span>
             <button
               onClick={onClose}
-              className={`w-8 h-8 flex items-center justify-center rounded-lg transition-colors ${
-                isDark ? 'hover:bg-[rgba(255,255,255,0.1)]' : 'hover:bg-muted'
-              }`}
+              className={`w-8 h-8 flex items-center justify-center rounded-lg transition-colors ${isDark ? 'hover:bg-[rgba(255,255,255,0.1)]' : 'hover:bg-muted'
+                }`}
               aria-label="Close modal"
             >
               <X className="w-4 h-4" style={{ color: 'var(--tt-text-muted)' }} />
@@ -159,11 +176,10 @@ export const EventDetailModal = ({ event, onClose }: Props) => {
               ].filter(d => d.value).map(d => (
                 <div
                   key={d.label}
-                  className={`rounded-lg p-2.5 sm:p-3 ${
-                    isDark
+                  className={`rounded-lg p-2.5 sm:p-3 ${isDark
                       ? 'bg-[rgba(255,255,255,0.03)] border border-[rgba(255,255,255,0.05)]'
                       : 'bg-muted/50 border border-[hsl(var(--border))]'
-                  }`}
+                    }`}
                 >
                   <p
                     className="font-mono-label text-[10px] sm:text-xs mb-0.5"
@@ -183,10 +199,7 @@ export const EventDetailModal = ({ event, onClose }: Props) => {
 
             {/* Expectations */}
             <div className="px-4 sm:px-6 pb-4">
-              <h3
-                className="font-display text-lg mb-2"
-                style={{ color: 'var(--tt-text)' }}
-              >
+              <h3 className="font-display text-lg mb-2" style={{ color: 'var(--tt-text)' }}>
                 WHAT TO EXPECT
               </h3>
               <ul className="space-y-2">
@@ -207,10 +220,7 @@ export const EventDetailModal = ({ event, onClose }: Props) => {
             {/* Sponsors */}
             {(titleSponsors.length > 0 || associateSponsors.length > 0) && (
               <div className="px-4 sm:px-6 pb-4">
-                <h3
-                  className="font-display text-lg mb-3"
-                  style={{ color: 'var(--tt-text)' }}
-                >
+                <h3 className="font-display text-lg mb-3" style={{ color: 'var(--tt-text)' }}>
                   SPONSORS & PARTNERS
                 </h3>
                 {titleSponsors.length > 0 && (
@@ -225,17 +235,13 @@ export const EventDetailModal = ({ event, onClose }: Props) => {
                       {titleSponsors.map(s => (
                         <span
                           key={s.name}
-                          className={`inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg font-mono-label text-xs ${
-                            isDark
+                          className={`inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg font-mono-label text-xs ${isDark
                               ? 'bg-[rgba(0,255,170,0.08)] border border-[rgba(0,255,170,0.15)]'
                               : 'bg-muted/60 border border-[hsl(var(--border))]'
-                          }`}
+                            }`}
                           style={{ color: 'var(--tt-text)' }}
                         >
-                          <Building2
-                            className="w-3.5 h-3.5"
-                            style={{ color: 'var(--tt-accent)' }}
-                          />
+                          <Building2 className="w-3.5 h-3.5" style={{ color: 'var(--tt-accent)' }} />
                           {s.name}
                         </span>
                       ))}
@@ -254,11 +260,10 @@ export const EventDetailModal = ({ event, onClose }: Props) => {
                       {associateSponsors.map(s => (
                         <span
                           key={s.name}
-                          className={`inline-flex items-center px-3 py-1.5 rounded-lg font-mono-label text-xs ${
-                            isDark
+                          className={`inline-flex items-center px-3 py-1.5 rounded-lg font-mono-label text-xs ${isDark
                               ? 'bg-[rgba(255,255,255,0.03)] border border-[rgba(255,255,255,0.05)]'
                               : 'bg-muted/30 border border-[hsl(var(--border))]'
-                          }`}
+                            }`}
                           style={{ color: 'var(--tt-text-secondary)' }}
                         >
                           {s.name}
@@ -288,11 +293,10 @@ export const EventDetailModal = ({ event, onClose }: Props) => {
               </a>
               <button
                 onClick={handleShare}
-                className={`px-4 py-3 rounded-lg font-mono-label text-xs transition-colors inline-flex items-center gap-2 ${
-                  isDark
+                className={`px-4 py-3 rounded-lg font-mono-label text-xs transition-colors inline-flex items-center gap-2 ${isDark
                     ? 'bg-[rgba(255,255,255,0.05)] hover:bg-[rgba(255,255,255,0.1)] border border-[rgba(255,255,255,0.08)]'
                     : 'bg-muted/50 hover:bg-muted border border-[hsl(var(--border))]'
-                }`}
+                  }`}
                 style={{ color: 'var(--tt-text-secondary)' }}
                 aria-label="Share event link"
               >
@@ -302,26 +306,45 @@ export const EventDetailModal = ({ event, onClose }: Props) => {
             </div>
           </div>
 
-          {/* Right column (Poster) */}
+          {/* Right column — Poster / Embed */}
           <div className="px-4 pb-4 sm:px-6 sm:pb-6 lg:pt-0 lg:pr-6 lg:pb-6 lg:pl-0">
             <div
-              className="w-full h-full min-h-[350px] lg:min-h-[500px] rounded-xl overflow-hidden relative flex flex-col items-center justify-center text-center transition-all duration-500 hover:scale-[1.02]"
+              className="w-full h-full min-h-[350px] lg:min-h-[500px] rounded-xl overflow-hidden relative flex flex-col items-center justify-center text-center transition-all duration-500"
               style={{
                 background: isDark ? 'rgba(0,0,0,0.2)' : '#f8f9fa',
                 border: `2px dashed ${tagColors[event.tag]}40`,
               }}
             >
-              {event.image ? (
-                <img
-                  src={event.image}
-                  alt={`${event.title} poster`}
-                  className="absolute inset-0 w-full h-full object-cover"
-                />
+              {showMedia ? (
+                embed!.type === 'iframe' ? (
+                  /* ── Canva embed ── */
+                  <iframe
+                    src={embed!.src}
+                    title={`${event.title} poster`}
+                    className="absolute inset-0 w-full h-full border-0"
+                    allowFullScreen
+                    allow="fullscreen"
+                    onError={() => setImgError(true)}
+                    style={{ background: 'transparent' }}
+                  />
+                ) : (
+                  /* ── Regular image ── */
+                  <img
+                    src={embed!.src}
+                    alt={`${event.title} poster`}
+                    className="absolute inset-0 w-full h-full object-cover hover:scale-[1.02] transition-transform duration-500"
+                    onError={() => setImgError(true)}
+                  />
+                )
               ) : (
+                /* ── Placeholder ── */
                 <div className="p-8">
                   <div
                     className="w-24 h-24 mx-auto rounded-full mb-6 flex items-center justify-center shadow-[0_0_30px_rgba(0,0,0,0.2)]"
-                    style={{ background: `${tagColors[event.tag]}20`, color: tagColors[event.tag] }}
+                    style={{
+                      background: `${tagColors[event.tag]}20`,
+                      color: tagColors[event.tag],
+                    }}
                   >
                     <span className="text-4xl">✨</span>
                   </div>

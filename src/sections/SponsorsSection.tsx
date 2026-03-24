@@ -1,7 +1,6 @@
-import { useState } from 'react';
+﻿import { useState } from 'react';
 import { useTheme } from '../components/ThemeProvider';
 import { useSectionFade } from '../hooks/useSectionFade';
-import { SponsorsDetailsModal } from '../components/SponsorsDetailsModal';
 
 interface Partner {
   name: string;
@@ -151,7 +150,6 @@ export const SponsorsSection = () => {
         </div>
       </div>
 
-      <SponsorsDetailsModal isOpen={modalOpen} onClose={() => setModalOpen(false)} />
     </section>
   );
 };
