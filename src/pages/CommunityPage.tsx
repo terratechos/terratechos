@@ -214,7 +214,7 @@ const CommunityPage = () => {
           </section>
 
           {/* Discord Events */}
-          <section className="py-16">
+          {/* <section className="py-16">
             <h2 className={`font-display text-3xl mb-8 ${!isDark ? 'pl-4 border-l-4 border-[#00a86b]' : ''}`} style={{ color: 'var(--tt-text)' }}>
               UPCOMING DISCORD EVENTS
             </h2>
@@ -236,7 +236,7 @@ const CommunityPage = () => {
                 </div>
               ))}
             </div>
-          </section>
+          </section> */}
         </div>
       </main>
 
