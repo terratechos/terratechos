@@ -47,6 +47,23 @@ export const tagColors: Record<EventTag, string> = {
 
 export const EVENTS_DATA: ClubEvent[] = [
   {
+    id: 'expo', title: 'Project Expo', tag: 'Competition', date: 'Mar 28', status: 'upcoming', period: 'thisMonth',
+    description: 'Showcase your projects, get feedback from experts, and compete for the top spot.',
+    location: 'Online', format: 'Online', teamSize: '1–3 members', prize: '₹500 pool',
+    expectations: [
+      'Present your project to a panel of judges',
+      'Receive live feedback and insights from industry experts',
+      'Compete across categories for prizes and recognition',
+    ],
+    registerUrl: '#',
+    image: 'https://www.canva.com/design/DAHDogfeQOE/fw8P2flIT6oC1kNxIBDzsA/view',
+    entryFee: '₹90 per team',
+    sponsors: [
+      // { name: 'ByteWorks', tier: 'title', href: '#' },
+      // { name: 'OpenStack India', tier: 'associate', href: '#' },
+    ],
+  },
+  {
     id: 'Hackloom ', title: 'Hackloom 2.O', tag: 'Hackathon', date: 'Apr _ _-_ _', status: 'upcoming', period: 'nextMonth',
     description: '48-hour hackathon with industry mentors and prizes',
     location: 'Announced Soon', format: 'Offline', teamSize: '2–4 members', prize: '₹10,000 pool',
@@ -54,10 +71,9 @@ export const EVENTS_DATA: ClubEvent[] = [
     registerUrl: '#',
     entryFee: '₹--- per team',
     sponsors: [
-      { name: 'SPONSOR 1', tier: 'title', href: '#' },
-      { name: 'SPONSOR 2', tier: 'title', href: '#' },
-      { name: 'SPONSOR 3', tier: 'associate', href: '#' },
-      { name: 'SPONSOR 4', tier: 'associate', href: '#' },
+      { name: 'Open Spot', tier: 'title', href: '#' },
+      { name: 'Open Spot', tier: 'associate', href: '#' },
+      { name: 'Open Spot', tier: 'associate', href: '#' },
     ],
   },
   // {
@@ -83,23 +99,7 @@ export const EVENTS_DATA: ClubEvent[] = [
   //     { name: 'SkillForge', tier: 'associate', href: '#' },
   //   ],
   // },
-  {
-    id: 'expo', title: 'Project Expo', tag: 'Competition', date: 'Mar 28', status: 'upcoming', period: 'thisMonth',
-    description: 'Showcase your projects, get feedback from experts, and compete for the top spot.',
-    location: 'Online', format: 'Online', teamSize: '1–3 members', prize: '₹500 pool',
-    expectations: [
-      'Present your project to a panel of judges',
-      'Receive live feedback and insights from industry experts',
-      'Compete across categories for prizes and recognition',
-    ],
-    registerUrl: '#',
-    image: 'https://www.canva.com/design/DAHDogfeQOE/fw8P2flIT6oC1kNxIBDzsA/view',
-    entryFee: '₹90 per team',
-    sponsors: [
-      // { name: 'ByteWorks', tier: 'title', href: '#' },
-      // { name: 'OpenStack India', tier: 'associate', href: '#' },
-    ],
-  },
+  
   // {
   //   id: 'open-source-sprint', title: 'Open Source Sprint', tag: 'Collab', date: 'May 1', status: 'upcoming', period: 'nextTerm',
   //   description: 'Contribute to real open source projects',
@@ -135,10 +135,10 @@ export interface UpdatePost {
 }
 
 export const UPDATES_DATA: UpdatePost[] = [
-  { title: 'HackTerra 2025 registrations are now open!', date: 'Mar 8, 2025', tag: 'Announcement', body: 'Registration for HackTerra 2025 is live! Sign up now to participate in our flagship 48-hour hackathon. Open to all college students.' },
-  { title: 'DevTalks Vol.3 speaker lineup announced', date: 'Mar 5, 2025', tag: 'News', body: 'We are excited to announce speakers from Google, Microsoft, and leading startups for DevTalks Vol.3. Topics include cloud-native, web3, and open source.' },
-  { title: 'CTF Championship — registration closes April 10', date: 'Feb 28, 2025', tag: 'Announcement', body: "Don't miss out on the CTF Championship! Registration closes on April 10. Form your teams and get ready for the challenge." },
-  { title: 'Open Source Sprint x CodeForGood collab confirmed', date: 'Feb 20, 2025', tag: 'News', body: "We're partnering with CodeForGood for an exciting Open Source Sprint. Contribute to impactful projects and build your portfolio." },
+  // { title: 'HackTerra 2025 registrations are now open!', date: 'Mar 8, 2025', tag: 'Announcement', body: 'Registration for HackTerra 2025 is live! Sign up now to participate in our flagship 48-hour hackathon. Open to all college students.' },
+  // { title: 'DevTalks Vol.3 speaker lineup announced', date: 'Mar 5, 2025', tag: 'News', body: 'We are excited to announce speakers from Google, Microsoft, and leading startups for DevTalks Vol.3. Topics include cloud-native, web3, and open source.' },
+  // { title: 'CTF Championship — registration closes April 10', date: 'Feb 28, 2025', tag: 'Announcement', body: "Don't miss out on the CTF Championship! Registration closes on April 10. Form your teams and get ready for the challenge." },
+  // { title: 'Open Source Sprint x CodeForGood collab confirmed', date: 'Feb 20, 2025', tag: 'News', body: "We're partnering with CodeForGood for an exciting Open Source Sprint. Contribute to impactful projects and build your portfolio." },
 ];
 
 export interface TeamMember {

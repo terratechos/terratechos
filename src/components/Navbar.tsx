@@ -15,6 +15,7 @@ const navLinks = [
   { label: 'Alumni', href: '/alumni', section: '' },
   { label: 'Contact', href: '/', section: 'contact' },
   { label: 'Join Us', href: '/join', section: '' },
+  { label: 'Sponsor', href: '/sponsor', section: '' },
 ];
 
 export const Navbar = () => {

@@ -10,6 +10,7 @@ const footerLinks = [
   { label: 'Community', href: '/community' },
   { label: 'Alumni', href: '/alumni' },
   { label: 'Join Us', href: '/join' },
+  { label: 'Sponsor', href: '/sponsor' },
 ];
 
 const socialLinks = [

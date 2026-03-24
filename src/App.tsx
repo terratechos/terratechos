@@ -12,9 +12,9 @@ import GalleryPage from "./pages/GalleryPage";
 import CommunityPage from "./pages/CommunityPage";
 import AlumniPage from "./pages/AlumniPage";
 import JoinPage from "./pages/JoinPage";
+import SponsorsPage from "./pages/SponsorsPage"
 // import ResourcesPage from "./pages/ResourcesPage";
 import EventsPage from "./pages/EventsPage";
-import SponsorsPage from "./pages/SponsorsPage";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -34,7 +34,8 @@ const AppRoutes = () => {
         <Route path="/join" element={<JoinPage />} />
         <Route path="/events" element={<EventsPage />} />
         <Route path="/events/:eventSlug" element={<EventsPage />} />
-        <Route path="/sponsors" element={<SponsorsPage />} />
+        <Route path="/sponsor" element={<SponsorsPage />} />
+        {/* <Route path="/sponsors/:sponsorId" element={<SponsorsPage />} /> */}
         {/* <Route path="/resources" element={<ResourcesPage />} /> */}
         <Route path="*" element={<NotFound />} />
       </Routes>
