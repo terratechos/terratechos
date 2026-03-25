@@ -6,6 +6,7 @@ import path from "path";
 export default defineConfig(({ mode }) => ({
   server: {
     host: "::",
+    historyApiFallback: true,
     port: 8080,
     hmr: {
       overlay: false,

@@ -50,6 +50,7 @@ export const AboutSection = () => {
             </p>
             <div className="bg-[#ffffff] border-l-4 border-[#00a86b] rounded-r-xl p-6 mb-8 shadow-sm">
               <p className="font-body italic leading-relaxed" style={{ color: 'var(--tt-text-secondary)' }}>
+                <h4 className="font-bold mb-2">Our Mission</h4>
                 "We aim to empower tech enthusiasts through workshops, events, and collaborative projects, fostering both personal and professional growth."
               </p>
             </div>
