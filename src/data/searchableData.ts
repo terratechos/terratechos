@@ -55,7 +55,7 @@ export const EVENTS_DATA: ClubEvent[] = [
       'Receive live feedback and insights from industry experts',
       'Compete across categories for prizes and recognition',
     ],
-    registerUrl: '#',
+    registerUrl: 'https://forms.gle/EbPpkgU7sntsWmTw9',
     // image: 'https://www.canva.com/design/DAHDogfeQOE/fw8P2flIT6oC1kNxIBDzsA/view',
     entryFee: '₹90 per team',
     sponsors: [
@@ -171,13 +171,13 @@ export const TEAMS_DATA: Department[] = [
       { name: 'Roshan R Babu', role: 'Developer', linkedin: '#' },
       { name: 'Aditnya H S', role: 'Developer', linkedin: 'http://linkedin.com/in/adithya-h-s-0a6387337' },
       { name: 'Rohith A', role: 'Developer', linkedin: 'https://linkedin.com/in/rohith-a-9b8a4b1a7' },
-      {name: 'Fawaz Maqhdoom shariff ', role: 'Developer', linkedin: 'https://www.linkedin.com/in/fawaz-maqhdoom-shariff-62886931a' },
+      {name: 'Fawaz Maqhdoom Shariff ', role: 'Developer', linkedin: 'https://www.linkedin.com/in/fawaz-maqhdoom-shariff-62886931a' },
     ],
   },
   {
     emoji: '📅', name: 'Event Management Wing', color: '#ff6b35',
     members: [
-      { name: 'Fawaz Maqhdoom shariff ', role: 'Events Head', linkedin: 'https://www.linkedin.com/in/fawaz-maqhdoom-shariff-62886931a' },
+      { name: 'Fawaz Maqhdoom Shariff ', role: 'Events Head', linkedin: 'https://www.linkedin.com/in/fawaz-maqhdoom-shariff-62886931a' },
       { name: 'Mohammad Faud', role: 'Event Coordinator', linkedin: '#' },
       { name: 'Pranav P Desai', role: 'Event Assistant', linkedin: '#' },
       { name: 'Yukshi', role: 'Event Coordinator', linkedin: '#' },
@@ -194,7 +194,7 @@ export const TEAMS_DATA: Department[] = [
       { name: 'Chinmayi ', role: 'Photographer', linkedin: '#' },
       { name: 'Chandan H', role: 'Videographer', linkedin: '#' },
       { name: 'Sinchana H P', role: 'Editor', linkedin: '#' },
-      { name: 'Jayanth S R', role: 'Content Creator', linkedin: 'https://www.linkedin.com/in/jayanthsr' },
+      { name: 'Jayanth S R', role: 'Photographer', linkedin: 'https://www.linkedin.com/in/jayanthsr' },
     ],
   },
   {
