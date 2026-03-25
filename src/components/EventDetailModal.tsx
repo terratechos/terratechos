@@ -78,7 +78,7 @@ export const EventDetailModal = ({ event, onClose }: Props) => {
 
   const handleShare = () => {
     const slug = generateEventSlug(event);
-    const url = `${window.location.origin}/events/${slug}`;
+    const url = `${window.location.origin}/events`;
     if (navigator.clipboard && window.isSecureContext) {
       navigator.clipboard
         .writeText(url)

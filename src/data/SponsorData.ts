@@ -89,7 +89,7 @@ export const tiers: Tier[] = [
         shortCode: 'TeP',
         type: 'inkind',
         price: 'In-Kind',
-        priceNote: 'Tools / API credits / licenses / goodies — declared ₹ value',
+        priceNote: 'Tools / API credits / licenses / goodies instead of cash',
         tagline: 'Power our events with your tools and tech stack',
         perks: [
             'Logo on tech credits section of event pages',

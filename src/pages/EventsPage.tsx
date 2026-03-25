@@ -9,6 +9,7 @@ import { EVENTS_DATA, tagColors, generateEventSlug } from '@/data/searchableData
 import type { ClubEvent, EventStatus, EventPeriod, EventTag } from '@/data/searchableData';
 import { EventDetailModal } from '@/components/EventDetailModal';
 import { CalendarX } from 'lucide-react';
+import { UpdatesSection } from '../sections/UpdatesSection';
 
 const EventsPage = () => {
   const { eventSlug } = useParams<{ eventSlug?: string }>();
@@ -20,12 +21,9 @@ const EventsPage = () => {
   const [selectedEvent, setSelectedEvent] = useState<ClubEvent | null>(null);
 
   useEffect(() => {
-    // Auto-open event modal from URL parameter
     if (eventSlug) {
       const matched = EVENTS_DATA.find(e => generateEventSlug(e) === eventSlug);
-      if (matched) {
-        setSelectedEvent(matched);
-      }
+      if (matched) setSelectedEvent(matched);
     }
   }, [eventSlug]);
 
@@ -56,17 +54,33 @@ const EventsPage = () => {
       <Navbar />
       <main className="relative z-10 pt-24 pb-20 px-4">
         <div className="max-w-6xl mx-auto">
+
           {/* Header */}
-          <div className="mb-10">
-            <h1
-              className={`font-display text-5xl sm:text-6xl mb-2 ${!isDark ? 'pl-4 border-l-4 border-[#00a86b]' : ''}`}
-              style={{ color: 'var(--tt-text)' }}
+          <div className="flex items-start justify-between gap-4 mb-10 flex-wrap">
+            <div>
+              <h1
+                className={`font-display text-5xl sm:text-6xl mb-2 ${!isDark ? 'pl-4 border-l-4 border-[#00a86b]' : ''}`}
+                style={{ color: 'var(--tt-text)' }}
+              >
+                ALL EVENTS
+              </h1>
+              <p className="font-mono-label text-xs" style={{ color: 'var(--tt-text-muted)' }}>
+                BROWSE ALL UPCOMING & ONGOING EVENTS
+              </p>
+            </div>
+            <button
+              onClick={() =>
+                document.getElementById('updates')?.scrollIntoView({ behavior: 'smooth', block: 'start' })
+              }
+              className={`px-4 py-2.5 rounded-lg font-mono-label text-xs transition-all hover:scale-105 shrink-0 ${
+                isDark
+                  ? 'border border-[rgba(0,255,170,0.25)] hover:bg-[rgba(0,255,170,0.08)]'
+                  : 'border border-[#00a86b] hover:bg-[#f0faf4]'
+              }`}
+              style={{ color: 'var(--tt-accent)' }}
             >
-              ALL EVENTS
-            </h1>
-            <p className="font-mono-label text-xs" style={{ color: 'var(--tt-text-muted)' }}>
-              BROWSE ALL UPCOMING & ONGOING EVENTS
-            </p>
+              UPDATES ↓
+            </button>
           </div>
 
           {/* Filters */}
@@ -139,7 +153,6 @@ const EventsPage = () => {
                     <p className="font-mono-label text-xs mb-3" style={{ color: 'var(--tt-text-muted)' }}>{event.date}</p>
                     <p className="font-body text-sm mb-4 flex-1" style={{ color: 'var(--tt-text-secondary)' }}>{event.description}</p>
 
-                    {/* Sponsors preview */}
                     {titleSponsors.length > 0 && (
                       <div className="mb-4">
                         <p className="font-mono-label text-xs mb-2" style={{ color: 'var(--tt-text-muted)' }}>POWERED BY</p>
@@ -174,6 +187,9 @@ const EventsPage = () => {
           )}
         </div>
       </main>
+
+      <UpdatesSection />
+
       <Footer />
       <BackToTop />
       <EventDetailModal event={selectedEvent} onClose={() => setSelectedEvent(null)} />

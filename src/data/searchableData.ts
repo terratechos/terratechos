@@ -47,16 +47,16 @@ export const tagColors: Record<EventTag, string> = {
 
 export const EVENTS_DATA: ClubEvent[] = [
   {
-    id: 'expo', title: 'Project Expo', tag: 'Competition', date: 'Mar 28', status: 'upcoming', period: 'thisMonth',
+    id: 'expo', title: 'TerraNex Expo', tag: 'Competition', date: 'Apr 11', status: 'upcoming', period: 'thisMonth',
     description: 'Showcase your projects, get feedback from experts, and compete for the top spot.',
-    location: 'Online', format: 'Online', teamSize: '1–3 members', prize: '₹500 pool',
+    location: '👀 for updates ', format: 'Offline', teamSize: '1–3 members', prize: '',
     expectations: [
       'Present your project to a panel of judges',
       'Receive live feedback and insights from industry experts',
       'Compete across categories for prizes and recognition',
     ],
     registerUrl: '#',
-    image: 'https://www.canva.com/design/DAHDogfeQOE/fw8P2flIT6oC1kNxIBDzsA/view',
+    // image: 'https://www.canva.com/design/DAHDogfeQOE/fw8P2flIT6oC1kNxIBDzsA/view',
     entryFee: '₹90 per team',
     sponsors: [
       // { name: 'ByteWorks', tier: 'title', href: '#' },
@@ -65,9 +65,9 @@ export const EVENTS_DATA: ClubEvent[] = [
   },
   {
     id: 'Hackloom ', title: 'Hackloom 2.O', tag: 'Hackathon', date: 'Apr _ _-_ _', status: 'upcoming', period: 'nextMonth',
-    description: '48-hour hackathon with industry mentors and prizes',
+    description: '18-hour hackathon with industry mentors and prizes',
     location: 'Announced Soon', format: 'Offline', teamSize: '2–4 members', prize: '₹10,000 pool',
-    expectations: ['Build a working prototype in 48 hours', 'Network with fellow developers', 'Win exciting prizes and goodies'],
+    expectations: ['Build a working prototype in 18 hours', 'Network with fellow developers', 'Win exciting prizes and goodies'],
     registerUrl: '#',
     entryFee: '₹--- per team',
     sponsors: [
@@ -135,8 +135,8 @@ export interface UpdatePost {
 }
 
 export const UPDATES_DATA: UpdatePost[] = [
-  // { title: 'HackTerra 2025 registrations are now open!', date: 'Mar 8, 2025', tag: 'Announcement', body: 'Registration for HackTerra 2025 is live! Sign up now to participate in our flagship 48-hour hackathon. Open to all college students.' },
-  // { title: 'DevTalks Vol.3 speaker lineup announced', date: 'Mar 5, 2025', tag: 'News', body: 'We are excited to announce speakers from Google, Microsoft, and leading startups for DevTalks Vol.3. Topics include cloud-native, web3, and open source.' },
+  { title: 'Postponed TerraNex Expo', date: 'Mar 25, 2026', tag: 'Announcement', body: 'The TerraNex Expo has been postponed to 11th April 2026. So be ready with your exciting projects!' },
+  // { title: 'TerraNex Expo', date: 'Mar 26, 2026', tag: 'Announcement', body: 'We are excited to announce speakers from Google, Microsoft, and leading startups for DevTalks Vol.3. Topics include cloud-native, web3, and open source.' },
   // { title: 'CTF Championship — registration closes April 10', date: 'Feb 28, 2025', tag: 'Announcement', body: "Don't miss out on the CTF Championship! Registration closes on April 10. Form your teams and get ready for the challenge." },
   // { title: 'Open Source Sprint x CodeForGood collab confirmed', date: 'Feb 20, 2025', tag: 'News', body: "We're partnering with CodeForGood for an exciting Open Source Sprint. Contribute to impactful projects and build your portfolio." },
 ];
@@ -159,28 +159,32 @@ export const TEAMS_DATA: Department[] = [
     emoji: '🧠', name: 'Core Committee', color: '#00ffaa',
     members: [
       { name: 'Kruthi C', role: 'President', linkedin: 'https://linkedin.com/in/kruthi-c-1a7a44324' },
-      { name: 'Muizza', role: 'Secretary', linkedin: 'linkedin.com/in/muizzah-m-ahmed-1aa5a1321' },
+      { name: 'Muizzah M Ahmed', role: 'Secretary', linkedin: 'https://linkedin.com/in/muizzah-m-ahmed-1aa5a1321' },
     ],
   },
   {
     emoji: '⚙️', name: 'Tech Wing', color: '#7b8cff',
     members: [
       { name: 'Chandu K H', role: 'Tech Lead', linkedin: 'https://linkedin.com/in/chandukh' },
+      {name: 'Melita Agnes Dsouza ', role: 'Developer', linkedin: 'https://www.linkedin.com/in/melita-agnes-d-souza' },
       { name: 'Veresh Mahalinpur', role: 'Developer', linkedin: '#' },
       { name: 'Roshan R Babu', role: 'Developer', linkedin: '#' },
       { name: 'Aditnya H S', role: 'Developer', linkedin: 'http://linkedin.com/in/adithya-h-s-0a6387337' },
+      { name: 'Rohith A', role: 'Developer', linkedin: 'https://linkedin.com/in/rohith-a-9b8a4b1a7' },
+      {name: 'Fawaz Maqhdoom shariff ', role: 'Developer', linkedin: 'https://www.linkedin.com/in/fawaz-maqhdoom-shariff-62886931a' },
     ],
   },
   {
     emoji: '📅', name: 'Event Management Wing', color: '#ff6b35',
     members: [
-      { name: 'S. Pooja Chandana', role: 'Events Head', linkedin: 'https://linkedin.com/in/priya-nair' },
-      { name: 'Mohammad Faud', role: 'Event Coordinator', linkedin: 'https://linkedin.com/in/amit-kumar' },
-      { name: 'Pranav P Desai', role: 'Event Assistant', linkedin: 'https://linkedin.com/in/riya-chopra' },
-      { name: 'Yukshi', role: 'Event Coordinator', linkedin: 'https://linkedin.com/in/amit-kumar' },
-      { name: 'Prisulla Y', role: 'Event Assistant', linkedin: 'https://linkedin.com/in/riya-chopra' },
-      { name: 'Mahadiya Khanum', role: 'Event Assistant', linkedin: 'https://linkedin.com/in/riya-chopra' },
-      { name: 'Mehnaz Filak', role: 'Event Assistant', linkedin: 'https://linkedin.com/in/riya-chopra' },
+      { name: 'Fawaz Maqhdoom shariff ', role: 'Events Head', linkedin: 'https://www.linkedin.com/in/fawaz-maqhdoom-shariff-62886931a' },
+      { name: 'Mohammad Faud', role: 'Event Coordinator', linkedin: '#' },
+      { name: 'Pranav P Desai', role: 'Event Assistant', linkedin: '#' },
+      { name: 'Yukshi', role: 'Event Coordinator', linkedin: '#' },
+      { name: 'Prisulla Y', role: 'Event Assistant', linkedin: '#' },
+      { name: 'Mahadiya Khanum', role: 'Event Assistant', linkedin: '#' },
+      { name: 'Mehnaz Filak', role: 'Event Assistant', linkedin: '#' },
+      {name: 'S. Pooja Chandana ', role:'Event Coordinator', linkedin: '#' },
     ],
   },
   {
@@ -189,7 +193,8 @@ export const TEAMS_DATA: Department[] = [
       { name: 'Abiram Bhargav M Y', role: 'Media Head', linkedin: '#' },
       { name: 'Chinmayi ', role: 'Photographer', linkedin: '#' },
       { name: 'Chandan H', role: 'Videographer', linkedin: '#' },
-      { name: 'Sinchana HP', role: 'Editor', linkedin: '#' },
+      { name: 'Sinchana H P', role: 'Editor', linkedin: '#' },
+      { name: 'Jayanth S R', role: 'Content Creator', linkedin: 'https://www.linkedin.com/in/jayanthsr' },
     ],
   },
   {
@@ -203,9 +208,9 @@ export const TEAMS_DATA: Department[] = [
   {
     emoji: '📱', name: 'Social & Community Wing', color: '#9b59b6',
     members: [
-      { name: 'Bhoomi S Jain', role: 'Social Media Manager', linkedin: 'https://linkedin.com/in/ishaan-malik' },
-      { name: 'Amrutha ', role: 'Social Media Manager', linkedin: 'https://linkedin.com/in/ishaan-malik' },
-      { name: 'Hamsavri', role: 'Social Media Manager', linkedin: 'https://linkedin.com/in/ishaan-malik' },
+      { name: 'Bhoomi S Jain', role: 'Social Media Manager', linkedin: 'https://www.linkedin.com/in/bhoomi-s-20b1083a4' },
+      { name: 'Amrutha ', role: 'Social Media Manager', linkedin: '' },
+      { name: 'Hamsavri', role: 'Social Media Manager', linkedin: '' },
       { name: 'Mahi H H', role: 'Community Manager', linkedin: 'https://linkedin.com/in/mahi-h-h' },
     ],
   },
