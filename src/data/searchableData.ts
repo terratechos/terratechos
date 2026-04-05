@@ -47,9 +47,9 @@ export const tagColors: Record<EventTag, string> = {
 
 export const EVENTS_DATA: ClubEvent[] = [
   {
-    id: 'expo', title: 'TerraNex Expo', tag: 'Competition', date: 'Apr 11', status: 'upcoming', period: 'thisMonth',
-    description: 'Showcase your projects, get feedback from experts, and compete for the top spot.',
-    location: '👀 for updates ', format: 'Offline', teamSize: '1–3 members', prize: '',
+    id: 'Championship ', title: 'Vibe Mog Championship ', tag: 'Competition', date: 'Apr 22', status: 'upcoming', period: 'thisMonth',
+    description: 'Build with words, Win the precision',
+    location: 'NCE laboratory ', format: 'Offline', teamSize: '2-4 members', prize: '',
     expectations: [
       'Present your project to a panel of judges',
       'Receive live feedback and insights from industry experts',
@@ -57,17 +57,17 @@ export const EVENTS_DATA: ClubEvent[] = [
     ],
     registerUrl: 'https://forms.gle/EbPpkgU7sntsWmTw9',
     // image: 'https://www.canva.com/design/DAHDogfeQOE/fw8P2flIT6oC1kNxIBDzsA/view',
-    entryFee: '₹90 per team',
+    entryFee: '₹300 per team',
     sponsors: [
       // { name: 'ByteWorks', tier: 'title', href: '#' },
       // { name: 'OpenStack India', tier: 'associate', href: '#' },
     ],
   },
   {
-    id: 'Hackloom ', title: 'Hackloom 2.O', tag: 'Hackathon', date: 'Apr _ _-_ _', status: 'upcoming', period: 'nextMonth',
-    description: '18-hour hackathon with industry mentors and prizes',
-    location: 'Announced Soon', format: 'Offline', teamSize: '2–4 members', prize: '₹10,000 pool',
-    expectations: ['Build a working prototype in 18 hours', 'Network with fellow developers', 'Win exciting prizes and goodies'],
+    id: 'Hackloom ', title: 'Hackloom 2.O', tag: 'Hackathon', date: 'may 2nd 2026', status: 'upcoming', period: 'nextMonth',
+    description: '24 hour hackathon',
+    location: 'Announced Soon', format: 'Offline', teamSize: '2–4 members', prize: '------',
+    expectations: ['Build a working prototype in 24 hours', 'Network with fellow developers', 'Win exciting prizes and goodies'],
     registerUrl: '#',
     entryFee: '₹--- per team',
     sponsors: [
@@ -135,7 +135,7 @@ export interface UpdatePost {
 }
 
 export const UPDATES_DATA: UpdatePost[] = [
-  { title: 'Postponed TerraNex Expo', date: 'Mar 25, 2026', tag: 'Announcement', body: 'The TerraNex Expo has been postponed to 11th April 2026. So be ready with your exciting projects!' },
+  { title: 'Postponed Vibe Mog championship ', date: 'Apr 22, 2026', tag: 'Announcement', body: 'The Vibe Mog Championship has been postponed to 22nd April 2026. So be ready with your exciting projects!' },
   // { title: 'TerraNex Expo', date: 'Mar 26, 2026', tag: 'Announcement', body: 'We are excited to announce speakers from Google, Microsoft, and leading startups for DevTalks Vol.3. Topics include cloud-native, web3, and open source.' },
   // { title: 'CTF Championship — registration closes April 10', date: 'Feb 28, 2025', tag: 'Announcement', body: "Don't miss out on the CTF Championship! Registration closes on April 10. Form your teams and get ready for the challenge." },
   // { title: 'Open Source Sprint x CodeForGood collab confirmed', date: 'Feb 20, 2025', tag: 'News', body: "We're partnering with CodeForGood for an exciting Open Source Sprint. Contribute to impactful projects and build your portfolio." },
@@ -191,7 +191,7 @@ export const TEAMS_DATA: Department[] = [
     emoji: '📹', name: 'Media & Production Wing', color: '#ffd166',
     members: [
       { name: 'Abiram Bhargav M Y', role: 'Media Head', linkedin: '#' },
-      { name: 'Chinmayi ', role: 'Photographer', linkedin: '#' },
+      { name: 'Chinmayi H C ', role: 'Photographer', linkedin: '#' },
       { name: 'Chandan H', role: 'Videographer', linkedin: '#' },
       { name: 'Sinchana H P', role: 'Editor', linkedin: '#' },
       { name: 'Jayanth S R', role: 'Photographer', linkedin: 'https://www.linkedin.com/in/jayanthsr' },
@@ -201,8 +201,7 @@ export const TEAMS_DATA: Department[] = [
     emoji: '🎨', name: 'Creative Wing', color: '#ff3b6b',
     members: [
       { name: 'Rohith A', role: 'Graphic Designer', linkedin: '#' },
-      { name: 'Open Spot', role: 'Creative Head', linkedin: '#/join' },
-      { name: 'Open Spot', role: 'Copywriter', linkedin: '#/join' },
+      { name: 'Jayanth S R', role: 'Creative Head', linkedin: ''https://www.linkedin.com/in/jayanthsr'' },
     ],
   },
   {
@@ -218,8 +217,7 @@ export const TEAMS_DATA: Department[] = [
     emoji: '🎪', name: ' Operations & Relations Wing', color: '#e67e22',
     members: [
       { name: 'Mahi H H', role: 'Public Relations Head', linkedin: 'https://linkedin.com/in/mahi-h-h' },
-      { name: 'Open Spot', role: 'Alumni Relations Head', linkedin: '#/join' },
-      { name: 'Open Spot', role: 'Support Coordinator', linkedin: '#/join' },
+      { name: 'Chinmayie H C', role: 'Support Coordinator', linkedin: 'https://www.linkedin.com/in/chinmayie-chandrashekhar-a738a037b' },
     ],
   },
 ];
