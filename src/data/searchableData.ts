@@ -201,7 +201,7 @@ export const TEAMS_DATA: Department[] = [
     emoji: '🎨', name: 'Creative Wing', color: '#ff3b6b',
     members: [
       { name: 'Rohith A', role: 'Graphic Designer', linkedin: '#' },
-      { name: 'Jayanth S R', role: 'Creative Head', linkedin: ''https://www.linkedin.com/in/jayanthsr'' },
+      { name: 'Jayanth S R', role: 'Creative Head', linkedin: 'https://www.linkedin.com/in/jayanthsr' },
     ],
   },
   {
